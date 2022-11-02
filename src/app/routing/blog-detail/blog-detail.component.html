@@ -1,0 +1,23 @@
+<div class="d-flex flex-row container w-75 px-0">
+  <section>
+    <button *ngFor="let action of blogActions" class="btn btn-link m-1 py-0" (click)="action.action($event)">
+      <icon [name]="action.icon"></icon>
+      <p class="mb-0">{{action.count}}</p>
+    </button>
+  </section>
+  <section class="d-flex flex-column" style="flex:0.75;">
+    <img />
+    <div class="d-flex flex-column m-1 p-1">
+      <h1>Title</h1>
+      <div class="d-flex flex-row">
+        <span>#tag</span>
+      </div>
+      <div [markdown]="blog?.content"></div>
+    </div>
+  </section>
+  <section class="d-flex flex-column align-items-center m-1 user-section">
+    <avatar [name]="blog?.author?.name"></avatar>
+    <p class="lead">{{blog?.author?.name}}</p>
+
+  </section>
+</div>
