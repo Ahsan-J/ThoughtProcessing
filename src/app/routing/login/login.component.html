@@ -1,0 +1,22 @@
+<section class="login__container p-5">
+  <div class="login__innerContainer">
+    <form (submit)="onLogin($event)" class="w-100">
+      <legend>Thought Processing</legend>
+
+      <div class="form-group">
+        <floating-input htmlType="email" name="email" label="Email" [defaultValue]="'ruthi@ap.gg'" ></floating-input>
+      </div>
+
+      <div class="form-group">
+        <floating-input htmlType="password" name="password" label="Password" [defaultValue]="'qwerty12345'"></floating-input>
+      </div>
+
+      <div class="login__alternateActions">
+        <a class="btn btn-link" routerLink="/forgot">Forgot Password</a>
+        <a class="btn btn-link" routerLink="/register">Create Account</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</section>
