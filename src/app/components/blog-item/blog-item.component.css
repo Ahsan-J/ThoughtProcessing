@@ -1,0 +1,14 @@
+:host {
+  background-color: white;
+  display: flex;
+  margin: 0.4rem 0;
+  padding: 1.5rem;
+  flex-direction: row;
+  border-radius: 0.3rem;
+}
+
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 3rem;
+}

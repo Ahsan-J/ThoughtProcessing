@@ -1,0 +1,25 @@
+<div *ngIf="show">
+  <div class="accountPopup__container">
+    <div class="accountPopup__profileDetail">
+      <avatar [name]="user.name"></avatar>
+      <h4>{{user.name}}</h4>
+      <p>{{user.email}}</p>
+    </div>
+    <div class="accountPopup__accountNavList">
+      <ng-container *ngFor="let item of navList">
+        <button class="btn btn-link" *ngIf="item.action" (click)="item.action($event)">
+          <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
+          {{item.title}}
+        </button>
+        <a class="btn btn-link" *ngIf="item.route" routerLink="{{item.route}}">
+          <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
+          <span>{{item.title}}</span>
+        </a>
+      </ng-container>
+      <button class="btn btn-outline-danger accountPopup__logout" (click)="onLogout($event)">
+        <icon style="flex:none;" class="px-2" name="power"></icon>
+        <span>Logout</span>
+      </button>
+    </div>
+  </div>
+</div>

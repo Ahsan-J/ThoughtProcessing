@@ -1,0 +1,63 @@
+.appBanner {
+  width: 8%;
+  display: block;
+  margin: 20px auto;
+  align-self: center;
+}
+
+.appBanner:hover {
+  cursor: pointer;
+}
+
+.navbarInnerContainer {
+  width: 75%;
+  align-items: center;
+}
+
+.collapseContainer > button {
+  display: none;
+}
+
+.menuWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 992px) {
+  .navbarInnerContainer {
+    width: 100%;
+    margin: 0 0.5rem;
+    align-items: flex-start;
+  }
+
+  .menuWrapper {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .menuWrapper>a[class*="navbar-brand"] {
+    position: absolute;
+    left: 3.5rem;
+    padding-top: 0;
+  }
+
+  .collapseContainer>button {
+    display: inline-block;
+    padding: 0px 0.8rem;
+    border-radius: 0.2rem;
+    background-color: transparent;
+    border-width: 0;
+    color: var(--bs-navbar-brand-color);
+    width: auto;
+  }
+
+  .collapseContainer>div[class*="content"] {
+    padding: 0px 0.4rem;
+  }
+
+  .collapseContainer a[class*="nav-link"] {
+    padding: var(--bs-nav-link-padding-y);
+    display: inline-block;
+  }
+}
