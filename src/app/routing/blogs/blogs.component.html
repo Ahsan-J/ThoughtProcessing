@@ -1,0 +1,19 @@
+<div class="container w-75 px-0">
+  <div class="d-flex flex-row justify-content-between" style="flex:0.75">
+    <div class="d-flex flex-row">
+      <button *ngFor="let sort of sorts" [ngClass]="'btn ' + (sort.value == activeSort ? 'btn-secondary': 'btn-link')" (click)="onSort(sort.value)">
+        {{sort.label}}
+      </button>
+    </div>
+
+    <button class="btn btn-link">
+      <icon name="filter"></icon>
+    </button>
+  </div>
+  <div class="d-flex flex-row">
+    <div class="d-flex flex-column" style="flex:0.75">
+      <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
+    </div>
+    <popular-tags class="m-2 p-3" style="flex:0.25;background-color: white;"></popular-tags>
+  </div>
+</div>
