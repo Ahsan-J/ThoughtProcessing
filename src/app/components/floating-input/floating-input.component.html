@@ -1,0 +1,27 @@
+<label [ngClass]="'floatInput__label '+( errorText ? 'error ': '') +labelClass">
+  <input
+    [ngClass]="'floatInput__input ' +( errorText ? 'error ': '') + ( !!placeholder ? 'has_placeholder ': '') + inputClass"
+    [defaultValue]="defaultValue"
+    [type]="showSecureText && htmlType == 'password' ? 'text' : htmlType"
+    [id]="id"
+    [attr.data-name]="name"
+    [name]="name"
+    [placeholder]="placeholder || label"
+    [value]="value"
+    (input)="onValueChange($event)"
+    />
+  <span>{{label}}</span>
+  <ng-container *ngIf="htmlType == 'password'">
+    <button class="btn btn-primary" (click)="showSecureText = !showSecureText" type="button" role="button">
+      <icon [name]="!showSecureText ? 'eye-slash-fill' : 'eye-fill'"></icon>
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="htmlType != 'password' && iconName">
+    <button class="btn btn-primary" (click)="onIconClick($event)" type="button" role="button" >
+      <icon [name]="iconName"></icon>
+    </button>
+  </ng-container>
+
+</label>
+<span *ngIf="errorText" className="invalid-feedback">{{errorText}}</span>

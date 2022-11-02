@@ -1,0 +1,13 @@
+<label [ngClass]="'floatInput__label '+( errorText ? 'error ': '') +labelClass">
+  <textarea
+    [ngClass]="'floatInput__input ' +( errorText ? 'error ': '') + ( !!placeholder ? 'has_placeholder ': '') + inputClass"
+    [defaultValue]="defaultValue"
+    [id]="id"
+    [attr.data-name]="name"
+    [name]="name"
+    [rows]="rows"
+    [placeholder]="placeholder || label" >
+    </textarea>
+  <span>{{label}}</span>
+</label>
+<span *ngIf="errorText" className="invalid-feedback">{{errorText}}</span>

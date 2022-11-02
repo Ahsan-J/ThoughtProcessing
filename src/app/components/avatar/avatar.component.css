@@ -1,0 +1,22 @@
+:host {
+  border-radius: 2.5rem;
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+:host>img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+:host>span {
+  color: inherit;
+  font-weight: 700;
+  font-size: inherit;
+}

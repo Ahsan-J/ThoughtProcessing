@@ -1,0 +1,12 @@
+:host {
+  flex:1;
+}
+
+.button_wrapper {
+  background-color: transparent;
+  border-width: 0;
+}
+
+.button_wrapper:focus {
+  outline: none;
+}
