@@ -1,0 +1,36 @@
+<input [name]="name" [multiple]="false" type="file" style="display: none;" #fileRef (change)="onFileChange($event)" />
+
+<button
+  *ngIf="showUploader"
+  (dragover)="$event.preventDefault()"
+  (dragenter)="onDragEnter($event)"
+  (drop)="onDrop($event)"
+  (dragleave)="onDragLeave($event)"
+  (click)="fileRef.click()"
+  class="d-flex flex-row justify-content-center align-items-center uploadingContainer"
+  [ngStyle]="{'border-radius': rounded ? '50%' : '0.2rem'}"
+  >
+
+  <img *ngIf="!!outputImage else uploadingIcon"
+    [ngStyle]="{'object-fit': 'fill', 'object-position': 'center', 'height': 'auto', 'width': 'Calc('+ (real_width / 3.5) + 'px + 3rem)'}"
+    [src]="outputImage | createObjectURL " />
+  <ng-template #uploadingIcon>
+    <icon name="image" class='m-5' [height]="(real_width / 5) + 'px'" [width]="(real_width / 5) + 'px'" [fill]="'var(--bs-'+ (type || 'primary')"></icon>
+  </ng-template>
+
+</button>
+
+<modal #modalRef class="w-auto h-auto">
+  <h5 class="p-2 mx-2 mt-2 mb-0 titleHeading" [ngStyle]="{'width':calculated_dimension.width + 'px'}">{{title}}</h5>
+  <div class='mt-2 mb-4 mx-2'
+    [ngStyle]="{'position': 'relative', 'height': calculated_dimension.height + 'px', 'width': calculated_dimension.width + 'px'}">
+    <canvas [height]="calculated_dimension.height" [width]="calculated_dimension.width" #canvasRef></canvas>
+    <resizeable-container [rounded]="rounded" [type]="type" [height]="minimumSize" [width]="minimumSize" #resizerRef
+      [allowResize]="true" [allowDrag]="true">
+    </resizeable-container>
+  </div>
+  <div class='mb-2 d-flex flex-row align-items-center justify-content-between'>
+    <button style="flex: 0.5;" class="m-1 btn btn-secondary" (click)="modalRef.showModal(false)">Cancel</button>
+    <button style="flex: 0.5;" class="m-1 btn btn-success" (click)="onCropPress($event)">Crop & Save</button>
+  </div>
+</modal>

@@ -15,10 +15,10 @@ export class AuthService {
 
     if(user?.id) {
       localStorage.setItem("auth_user", JSON.stringify(user));
-      this.userSubject.next(user);
     } else {
       localStorage.removeItem("auth_user");
-      this.userSubject.next(user);
     }
+
+    this.userSubject.next(user);
   }
 };

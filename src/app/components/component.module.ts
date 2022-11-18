@@ -10,6 +10,12 @@ import { RouterModule } from "@angular/router";
 import { RandomImageComponent } from "./random-image/random-image.component";
 import { FloatingInputComponent } from "./floating-input/floating-input.component";
 import { FloatingTextareaComponent } from "./floating-textarea/floating-textarea.component";
+import { NavbarListComponent } from "./navbar-list/navbar-list.component";
+import { TabComponent } from "./tab/tab.component";
+import { ImageCropperComponent } from "./image-cropper/image-cropper.component";
+import { ModalComponent } from "./modal/modal.component";
+import { ResizeableContainerComponent } from "./resizeable-container/resizeable-container.component";
+import { CreateObjectURLPipe } from "./image-cropper/createObjectURL.pipe";
 
 const components = [
   CollapseComponent,
@@ -20,6 +26,12 @@ const components = [
   RandomImageComponent,
   FloatingInputComponent,
   FloatingTextareaComponent,
+  NavbarListComponent,
+  TabComponent,
+  ImageCropperComponent,
+  ModalComponent,
+  ResizeableContainerComponent,
+  CreateObjectURLPipe,
 ]
 
 @NgModule({

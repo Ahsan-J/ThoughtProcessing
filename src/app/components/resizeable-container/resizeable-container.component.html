@@ -1,0 +1,6 @@
+<div #resizaleDivRef [ngClass]="'resizers resizable ' + class" [ngStyle]="{'height': height ? height + 'px':'100px', 'width': width? width + 'px': '100px', 'border-radius':  (rounded ? '50%': 'none')}" [id]="id">
+  <div class="resizer top_left"></div>
+  <div class="resizer top_right"></div>
+  <div class="resizer bottom_left"></div>
+  <div class="resizer bottom_right"></div>
+</div>

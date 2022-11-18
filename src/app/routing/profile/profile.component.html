@@ -1,3 +1,25 @@
-<section class="container">
-  <random-image class="random_cover"></random-image>
+<section class="userDetail__container">
+  <random-image class="userDetail__cover"></random-image>
+  <div class="userDetail__headerDetail">
+      <div class="userDetail__avatarContainer">
+          <div class="userDetail__innerAvatarContainer">
+              <avatar class="userDetail__avatar" [name]="user?.name"></avatar>
+              <div class="userDetail__userNameContainer">
+                  <h2>{{user?.name}}</h2>
+                  <p>{{user?.email}}</p>
+              </div>
+          </div>
+          <div class="userDetail__userActions">
+              <button class="btn btn-outline-danger">
+                <icon name="trash"></icon>
+                Delete
+              </button>
+              <button class="btn btn-primary">
+                <icon name="pencil"></icon>
+                Edit
+              </button>
+          </div>
+      </div>
+      <h1>Tabs</h1>
+  </div>
 </section>

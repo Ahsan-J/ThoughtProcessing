@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 import { IBlog } from 'src/app/model/blog';
 import { marked } from 'marked';
 
