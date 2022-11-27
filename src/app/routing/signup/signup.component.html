@@ -1,6 +1,6 @@
 <section class="signup__container p-5">
   <div class="signup__innerContainer">
-    <ng-container [ngTemplateOutlet]="emailVerified ? step2 : step2"></ng-container>
+    <ng-container [ngTemplateOutlet]="emailVerified ? step2 : step1"></ng-container>
     <ng-template #step1>
       <form (submit)="onNextStep($event)" class="w-100">
         <p class="lead mb-0"> Welcome to </p>
@@ -28,14 +28,11 @@
           <icon name="arrow-left" style="padding: 0.5rem 1rem;"></icon>
         </button>
 
-
         <p class="lead mb-0"> Welcome to </p>
         <legend>Thought Processing</legend>
 
-        <input type="hidden" [value]="email" />
+        <input type="hidden" name="email" [value]="email" />
         <image-cropper name="profile" [rounded]="true"></image-cropper>
-        <input type="file" name="profile" #fileUploader style="display: none;" />
-
 
         <div class="form-group">
           <floating-input [(value)]="name" name="name" label="Name" class="w-100"></floating-input>

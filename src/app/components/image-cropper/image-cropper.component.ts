@@ -54,6 +54,11 @@ export class ImageCropperComponent {
     return this.calculated_dimension.width
   }
 
+  onShowUploader(e: MouseEvent) {
+    e.preventDefault();
+    this.fileRef.nativeElement.click()
+  }
+
   loadImage(src = this.src) {
     if (src) {
       const img = new Image();

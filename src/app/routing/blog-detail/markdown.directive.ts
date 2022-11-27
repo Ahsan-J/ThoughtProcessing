@@ -11,7 +11,7 @@ export class MarkdownDirective {
   ) { }
 
   @Input('markdown') set markdown(content: IBlog['content'] | undefined) {
-    if(content) {
+    if(typeof content == 'string') {
       this.el.nativeElement.innerHTML = marked.parse(content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/,""));
     }
   };
