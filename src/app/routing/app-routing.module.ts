@@ -70,7 +70,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations:[
-    MarkdownDirective,
     HomeComponent,
     BlogListComponent,
     AboutComponent,
@@ -80,6 +79,7 @@ const routes: Routes = [
     SignupComponent,
     ForgotPasswordComponent,
     LoginComponent,
+    CreateBlogComponent,
   ],
   imports: [
     CommonModule,

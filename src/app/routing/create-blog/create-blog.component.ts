@@ -9,6 +9,8 @@ export class CreateBlogComponent{
 
   constructor(private apiService: ApiService) {}
 
+  markup: string = '';
+
   onSubmit(event: SubmitEvent) {
     event.preventDefault();
     const data = new FormData(event.target as HTMLFormElement)

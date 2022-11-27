@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/shared/api/api.service';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   sub!: Subscription;
-  user!: IUser;
+  user?: IUser;
 
   constructor(
     private route: ActivatedRoute,

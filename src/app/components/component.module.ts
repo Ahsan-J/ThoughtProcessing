@@ -16,6 +16,8 @@ import { ImageCropperComponent } from "./image-cropper/image-cropper.component";
 import { ModalComponent } from "./modal/modal.component";
 import { ResizeableContainerComponent } from "./resizeable-container/resizeable-container.component";
 import { CreateObjectURLPipe } from "./image-cropper/createObjectURL.pipe";
+import { MDTextEditor } from "./md-text-editor/md-text-editor.component";
+import { MarkdownDirective } from "../routing/blog-detail/markdown.directive";
 
 const components = [
   CollapseComponent,
@@ -32,6 +34,8 @@ const components = [
   ModalComponent,
   ResizeableContainerComponent,
   CreateObjectURLPipe,
+  MDTextEditor,
+  MarkdownDirective,
 ]
 
 @NgModule({
