@@ -5,7 +5,6 @@ import { IconComponent } from "./icon/icon.component";
 import { BlogItemComponent } from "./blog-item/blog-item.component";
 import { AvatarComponent } from "./avatar/avatar.component";
 import { PopularTagsComponent } from "./popular-tags/popular-tags.component";
-import { AppRoutingModule } from "../routing/app-routing.module";
 import { RouterModule } from "@angular/router";
 import { RandomImageComponent } from "./random-image/random-image.component";
 import { FloatingInputComponent } from "./floating-input/floating-input.component";

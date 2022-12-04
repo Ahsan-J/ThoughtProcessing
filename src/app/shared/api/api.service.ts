@@ -12,7 +12,7 @@ export interface IApiParam<T = any> {
   path?: string;
   method?: HttpRequest<T>['method'];
   data?: HttpRequest<T>['body'];
-  params?: HttpParamsOptions;
+  params?: HttpParamsOptions['fromObject'];
   // reportProgress?: HttpRequest<T>['reportProgress'],
   headers?: HttpRequest<T>['headers'],
   responseType?: HttpRequest<T>['responseType'],
@@ -73,7 +73,7 @@ export class ApiService {
         this.getURL(params),
         params.data,
         {
-          params: new HttpParams(params.params ? params.params : undefined),
+          params: new HttpParams({fromObject: params.params ? params.params : {}}),
           responseType: params.responseType,
           headers: this.getHeaders(params),
         }

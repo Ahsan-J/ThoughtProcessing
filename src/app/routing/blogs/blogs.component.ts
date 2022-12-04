@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
+import { generateFilterQuery, Match } from "src/app/shared/sieve";
 import { PaginationMeta } from "../../model/app";
 
 type SortingAction= {
@@ -33,15 +35,34 @@ export class BlogListComponent implements OnInit {
 
   activeSort: SortingAction['value'] = this.sorts[0].value;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   async ngOnInit() {
-    const params: IApiParam = {
-      path: 'blog',
-    };
-    const response = await this.api.request(params);
-    this.blogs = response.data;
-    this.meta = response.meta;
+
+    this.route.queryParamMap.subscribe(async queryParam=> {
+      const params: IApiParam = {
+        path: 'blog',
+      };
+
+      const search = queryParam.get('search');
+
+      if(search) {
+
+        const filters = generateFilterQuery({
+          'title|description': Match(search),
+        })
+
+        if(filters) {
+          params.params = {
+            filters
+          };
+        }
+
+      }
+      const response = await this.api.request(params);
+      this.blogs = response.data;
+      this.meta = response.meta;
+    })
   }
 
   onSort(value: SortingAction['value']) {

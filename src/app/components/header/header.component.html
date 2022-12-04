@@ -1,21 +1,16 @@
 <header>
-  <nav
-    class="navbar navbar-expand-lg navbar-dark bg-primary d-flex flex-row justify-content-center align-items-center">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex flex-row justify-content-center align-items-center">
     <div class="d-flex flex-row justify-content-between navbarInnerContainer">
       <div style="flex: 1;" class="menuWrapper">
         <a class="navbar-brand" routerLink="/">Ahsan Ahmed</a>
-        <ng-template #navbarIcon>
-          <button (click)="onCollapse($event)">
-            <icon width="2rem" height="2rem" name='list'></icon>
-          </button>
-        </ng-template>
-        <collapse [collapse]="!smallWidth || collapse" class='collapseContainer' [titleTemplate]="navbarIcon">
-          <ul class="navbar-nav me-auto">
-            <li *ngFor="let item of menu" class="nav-item mx-1" (click)="onCollapse($event)">
-              <a class="nav-link" [href]="item.link || '#'">{{item.label}}</a>
-            </li>
-          </ul>
-        </collapse>
+        <form style="flex:0.7;" (submit)="onSearchBlog($event)">
+          <div class="form-group" style="position: relative;">
+            <input type="text" class="form-control" placeholder="Search" name="search" [required]="true" />
+            <button class="btn btn-link btn-search" type="submit">
+              <icon name="search" width="1rem" height="1rem"></icon>
+            </button>
+          </div>
+        </form>
       </div>
       <div class='d-flex flex-row justify-content-between align-items-end' style="position: relative;">
         <ng-container *ngIf="!user">
