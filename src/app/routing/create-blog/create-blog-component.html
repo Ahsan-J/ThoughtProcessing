@@ -1,25 +1,51 @@
-<section>
-  <form (submit)="onSubmit($event)" class="container w-75 pt-4">
-    <fieldset>
-      <legend>Create a new Blog</legend>
+<form #formRef (submit)="onSubmit($event)" class="container w-75 py-4 bg-white my-3 rounded">
+  <h2 class="text-center mb-3">Create a new Blog</h2>
+  <!-- <image-cropper name="banner" width="60rem" [rounded]="false"></image-cropper> -->
+  <hr />
+  <fieldset>
+    <legend>Banner:</legend>
+    <div class="bannerImage mt-2">
+      <input name="banner" [multiple]="false" (change)="onFileChange($event)" type="file" #bannerInputRef
+        style="display: none;" />
+      <img *ngIf="!!bannerImage else uploadingIcon" [src]="bannerImage | createObjectURL" />
 
-      <div class="form-group">
-        <floating-input name="title" label="Title" ></floating-input>
+      <ng-template #uploadingIcon>
+        <button class="btn btn-link m-5" (click)="bannerInputRef.click()">
+          <icon name="image" height="3.5rem" width="3.5rem"></icon>
+        </button>
+      </ng-template>
+    </div>
+  </fieldset>
+  <br />
+  <fieldset>
+    <legend>About Blog:</legend>
+    <div class="form-group">
+      <floating-input name="title" label="Title"></floating-input>
+    </div>
+
+    <div class="form-group">
+      <floating-input name="description" label="Description"></floating-input>
+    </div>
+  </fieldset>
+  <br/>
+  <fieldset>
+    <legend>Content:</legend>
+    <div class="row my-1">
+      <div class="col-12">
+        <tab [data]="{'Code': editorTemplate, 'Preview': previewTemplate}"></tab>
       </div>
+    </div>
+  </fieldset>
+  <div class="d-flex flex-row justify-content-end my-1">
+    <button (click)="onSaveBlog()" class="btn btn-secondary m-1" type="button">Save Blog</button>
+    <button class="btn btn-primary m-1" type="submit">Create Blog</button>
+  </div>
+</form>
 
-      <div class="form-group">
-        <floating-input name="description" label="Description" ></floating-input>
-      </div>
+<ng-template #editorTemplate>
+  <md-text-editor [(markup)]="markup"></md-text-editor>
+</ng-template>
 
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <md-text-editor [(markup)]="markup"></md-text-editor>
-        </div>
-        <div class="col-sm-12 col-md-6" [markdown]="markup"></div>
-      </div>
-
-      <button class="btn btn-primary">Create Blog</button>
-    </fieldset>
-  </form>
-
-</section>
+<ng-template #previewTemplate>
+  <div class="previewContainer" [markdown]="markup || '\< No Markup provided \>'">Sol</div>
+</ng-template>

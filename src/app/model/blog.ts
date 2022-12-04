@@ -9,3 +9,9 @@ export interface IBlog extends BaseModel {
   comments: number,
   likes: number,
 }
+
+export enum BlogStatus {
+  Active = 1,
+  Draft = 2,
+  Block = 4,
+}

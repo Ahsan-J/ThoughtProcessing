@@ -1,0 +1,23 @@
+.bannerImage {
+  width: 100%;
+  border: 4px dotted var(--bs-primary);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.bannerImage * {
+  flex:initial;
+}
+
+.bannerImage > img {
+  object-fit: fill;
+  object-position: center;
+  height: auto;
+  width: 100%;
+}
+
+.previewContainer {
+  min-height: 5rem;
+}
