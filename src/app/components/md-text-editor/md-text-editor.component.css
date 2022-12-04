@@ -1,5 +1,5 @@
 :host {
-  margin: 0.8rem 0;
+  margin-bottom: 0.8rem;
   position: relative;
   width: 100%;
   border: 1px solid var(--bs-gray);
@@ -41,7 +41,6 @@
   border-bottom: 1px solid var(--bs-gray);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 }
 

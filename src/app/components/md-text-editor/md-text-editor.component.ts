@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, EventEmitter, Output, Renderer2, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 
 type SupportingAction = {
@@ -12,14 +12,26 @@ type SupportingAction = {
   templateUrl: './md-text-editor.component.html',
   styleUrls: ['./md-text-editor.component.css']
 })
-export class MDTextEditor {
+export class MDTextEditor implements AfterViewInit {
   @Input() preview: boolean = true;
-  @Input() markup: string = '';
+  @Input() markup: string = 'Chanting';
   @ViewChild('container') container!: ElementRef<any>;
   @Output() markupChange = new EventEmitter<string>();
   @ViewChild('cheatsheet') cheatsheetModal?: ModalComponent;
 
   constructor(private renderer: Renderer2) { }
+
+  ngAfterViewInit() {
+    this.generateMarkupElements();
+  }
+
+  generateMarkupElements() {
+    this.markup.split('\n').forEach(content => {
+      const li = this.renderer.createElement('li');
+      li.textContent = content;
+      this.renderer.appendChild(this.container.nativeElement, li);
+    });
+  }
 
   supportingActions: Array<SupportingAction> = [
     {
@@ -64,7 +76,9 @@ export class MDTextEditor {
       action: () => {
         const sel = document.getSelection();
         if (sel && sel.anchorNode?.nodeType == Node.TEXT_NODE) {
+
           const value = sel.anchorNode.nodeValue?.includes('#') ? sel.anchorNode.nodeValue.replaceAll('#', '') : `# ${sel.anchorNode.nodeValue}`
+
           this.renderer.setValue(sel.anchorNode, value);
           this.updateValue();
         }
@@ -100,7 +114,16 @@ export class MDTextEditor {
     },
   ]
 
-  updateValue(text = this.container.nativeElement.innerText) {
+  updateValue(element = this.container.nativeElement) {
+    let textNodes = [];
+    if(element instanceof HTMLOListElement) {
+      for(let child of element.children) {
+        textNodes.push(child.textContent);
+      }
+    }
+
+    const text = textNodes.join("\n");
+
     this.markup = text;
     this.markupChange.emit(text);
   }
@@ -110,17 +133,16 @@ export class MDTextEditor {
       const text = e.target.innerText;
 
       if (text.length - 1 <= 0 && e.key == 'Backspace') {
-        this.updateValue('');
         e.preventDefault();
         e.target.innerHTML = '<li></li>';
+        this.updateValue(e.target);
       }
     }
   }
 
   onTextChange(e: Event) {
     if (e.target instanceof HTMLOListElement) {
-      const text = e.target.innerText;
-      this.updateValue(text);
+      this.updateValue(e.target);
     }
   }
 }

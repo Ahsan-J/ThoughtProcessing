@@ -1,13 +1,16 @@
+<!-- Action List -->
 <div class="md-text-editor-actions">
   <button type="button" role="button" [title]="item.title" *ngFor="let item of supportingActions" class="btn btn-link"
     (click)="item.action($event)">
     <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
   </button>
 </div>
-<ol #container contenteditable="true" class="md-text-editor" (keydown)="onKeyDown($event)"
-  (input)="onTextChange($event)">
-  <li>Item</li>
+
+<!-- Main text editor -->
+<ol #container contenteditable="true" class="md-text-editor" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
 </ol>
+
+<!-- Modal to show cheat sheet -->
 <modal #cheatsheet class="p-2">
   <h1>Markdown Cheat Sheet</h1>
   <p>This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge
@@ -19,7 +22,9 @@
   <h3>Heading</h3>
   <code>
     # H1
+    <br/>
     ## H2
+    <br/>
     ### H3
   </code>
 
@@ -36,7 +41,9 @@
   <h3>Ordered List</h3>
   <code>
     1. First item
+    <br />
     2. Second item
+    <br />
     3. Third item
   </code>
 
@@ -44,7 +51,9 @@
 
   <code>
     - First item
+    <br />
     - Second item
+    <br />
     - Third item
   </code>
 
@@ -76,8 +85,11 @@
 
   <code>
   | Syntax | Description |
+  <br />
   | ----------- | ----------- |
+  <br />
   | Header | Title |
+  <br />
   | Paragraph | Text |
   </code>
 
@@ -85,18 +97,24 @@
 
   <code>
     ```
+    <br />
     {{'\{' +
+    '\n' +
     '\"firstName\": \"John\",' +
+    '\n' +
     '\"lastName": \"Smith\",' +
+    '\n' +
     '\"age\": 25'+
+    '\n' +
     '\}'}}
+    <br />
     ```
   </code>
 
   <h3>Footnote</h3>
   <code>
     Here's a sentence with a footnote. [^1]
-
+    <br />
     [^1]: This is the footnote.
   </code>
 
@@ -110,6 +128,7 @@
 
   <code>
     term
+    <br />
     : definition
   </code>
 
@@ -120,7 +139,9 @@
 
   <code>
     - [x] Write the press release
+    <br />
     - [ ] Update the website
+    <br />
     - [ ] Contact the media
   </code>
 
