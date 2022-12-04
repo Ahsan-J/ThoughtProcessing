@@ -1,11 +1,12 @@
-<navbar-list [data]="navBaristData" type="Tab" (click)="setActiveTab($event)" (onItemClose)="onTabClose.emit($event)" (onAddItem)="onAddNewTab($event)" [active]="activeTab"></navbar-list>
-<div data-test="TabContent" class="tab-content">
-  <ng-container *ngFor="let item of data | keyvalue" [ngTemplateOutlet]="tabs"
-    [ngTemplateOutletContext]="{item: item.value}">
+<navbar-list
+  [data]="navBaristData"
+  type="Tab"
+  (onItemClose)="onTabClose.emit($event)"
+  (onAddItem)="onAddNewTab($event)"
+  [active]="activeTab"
+  [dynamic]="dynamicTabs"></navbar-list>
 
+<div data-test="TabContent" class="tab-content">
+  <ng-container [ngTemplateOutlet]="data[activeTab]">
   </ng-container>
 </div>
-
-<ng-template #tabs>
-  <div></div>
-</ng-template>

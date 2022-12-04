@@ -11,7 +11,8 @@ export class NavbarListComponent implements OnInit {
   @Input() id: string = '';
   @Input() data: Array<INavItem> = [];
   @Input() type: "NavBar" | "Tab" = "NavBar";
-  @Input() active?: INavItem['id'];
+  @Input() active?: INavItem['title'];
+  @Input() dynamic?: boolean = false;
 
   @Output() click = new EventEmitter<INavItem['title']>();
   @Output() onAddItem = new EventEmitter<MouseEvent>();
@@ -32,6 +33,11 @@ export class NavbarListComponent implements OnInit {
     this.id = this.id || nanoid();
   }
 
+  onItemClick(item: INavItem, event: MouseEvent) {
+    if(item.onClick) return item.onClick(event);
+    this.click.emit(item.title)
+  }
+
   getListClass(item: INavItem) {
     let liClass = "nav-item";
     if (item.dropdownItems) liClass = liClass + " dropdown";
@@ -44,8 +50,8 @@ export class NavbarListComponent implements OnInit {
 }
 
 export interface INavItem {
-  id?: string | number;
   url?: string;
   title: string;
+  onClick?: (event?: MouseEvent) => void;
   dropdownItems?: Array<INavItem>;
 }

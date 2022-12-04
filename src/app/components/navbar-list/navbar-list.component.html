@@ -1,15 +1,10 @@
 <ul [ngClass]="typeClass">
   <li *ngFor="let item of data" [class]="getListClass(item)">
-    <ng-container [ngTemplateOutlet]="listItem" [ngTemplateOutletContext]="{item: item}">
-
-    </ng-container>
+    <a [ngClass]="'nav-link ' + (active == item.title ? 'active': '')" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a>
   </li>
-  <li class="nav-item">
+  <li *ngIf="dynamic" class="nav-item">
     <button class="btn btn-link" (click)="onAddItem.emit($event)">
       <icon name="plus-circle" class="nav-link addButton"></icon>
     </button>
   </li>
 </ul>
-<ng-template #listItem let-item="item">
-
-</ng-template>

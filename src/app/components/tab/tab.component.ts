@@ -1,6 +1,4 @@
-import { Component, Input, HostBinding, OnInit, TemplateRef, EventEmitter, Output } from '@angular/core';
-import { nanoid } from 'nanoid';
-import { toKebabCase } from 'src/app/shared/utility';
+import { Component, Input, HostBinding, OnInit, TemplateRef, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { INavItem } from '../navbar-list/navbar-list.component';
 
 @Component({
@@ -11,35 +9,27 @@ import { INavItem } from '../navbar-list/navbar-list.component';
 export class TabComponent implements OnInit {
 
   @Input() data!: ITabItem;
-  @Input() activeTab: string | number = '';
+  @Input() activeTab: INavItem['title'] = '';
   @Input() dynamicTabs: boolean = false;
 
-  @Input()
-  @HostBinding('id')
-  id: string = '';
-
-  @Output() onTabChange = new EventEmitter<INavItem['id']>
+  @Output() onTabChange = new EventEmitter<INavItem['title']>
   @Output() onTabClose = new EventEmitter<INavItem>();
-  @Output() onAddTab = new EventEmitter<INavItem['id']>();
+  @Output() onAddTab = new EventEmitter<INavItem['title']>();
 
   @HostBinding('data-test') testId = "TabContainer";
 
-  get navBaristData(): Array<INavItem> {
-    return Object.keys(this.data).map(tabItemKey => {
-      return {
-        title: tabItemKey,
-        onClick: () => {
-          this.activeTab = tabItemKey;
-          this.onTabChange.emit(tabItemKey);
-        },
-        id: toKebabCase(tabItemKey || ""),
-      }
-    })
-  }
+  navBaristData: Array<INavItem> =[]
 
   ngOnInit(): void {
-    this.id = this.id || nanoid();
     this.activeTab = Object.keys(this.data)[0];
+    this.navBaristData = Object.keys(this.data).map(tabItemKey => {
+      return {
+        title: tabItemKey,
+        onClick: (event?: MouseEvent) => {
+          this.setActiveTab(tabItemKey);
+        },
+      }
+    })
   }
 
   onAddNewTab(e: MouseEvent) {
