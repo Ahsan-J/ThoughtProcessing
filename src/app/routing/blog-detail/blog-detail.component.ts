@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs'
 import { IBlog } from '../../model/blog';
 import { ApiService, IApiParam } from '../../shared/api/api.service';
-import { MarkdownDirective } from './markdown.directive';
 
 type BlogAction = {
   action: (event?: MouseEvent) => void,

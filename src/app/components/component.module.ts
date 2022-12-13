@@ -1,3 +1,4 @@
+import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { CollapseComponent } from "./collapse/collapse.component";
@@ -32,6 +33,7 @@ const components = [
   ImageCropperComponent,
   ModalComponent,
   ResizeableContainerComponent,
+  ProfileCardComponent,
   CreateObjectURLPipe,
   MDTextEditor,
   MarkdownDirective,
