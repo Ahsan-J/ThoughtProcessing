@@ -1,5 +1,6 @@
 <section class="userDetail__container">
-  <random-image class="userDetail__cover"></random-image>
+  <div class="userDetail__cover" *ngIf=""></div>
+  <random-image #randomImage class=""></random-image>
   <div class="userDetail__headerDetail">
       <div class="userDetail__avatarContainer">
           <div class="userDetail__innerAvatarContainer">
@@ -9,17 +10,52 @@
                   <p>{{user?.email}}</p>
               </div>
           </div>
-          <div class="userDetail__userActions">
-              <button class="btn btn-outline-danger">
-                <icon name="trash"></icon>
-                Delete
-              </button>
-              <button class="btn btn-primary">
-                <icon name="pencil"></icon>
-                Edit
-              </button>
+          <div *ngIf="authUser?.id != user?.id" class="userDetail__userActions">
+              <app-button [outline]="true" type="secondary">
+                <icon name="plus"></icon>
+                Follow
+              </app-button>
           </div>
       </div>
-      <h1>Tabs</h1>
+      <tab
+        class="my-1"
+        [data]="{
+          'About': myInfo,
+          'Blogs': myBlogs,
+          'Activity': activity,
+          'Followers': myFollowers,
+          'Following': followings
+        }">
+      </tab>
+
+      <ng-template #myInfo>
+        <!-- Followers -->
+        <!-- Posted -->
+        <!-- Followed -->
+        <!-- Followers -->
+        <!-- Active since -->
+        <!-- Date of Birth -->
+        <!-- Bio -->
+        <!-- Description -->
+        <!-- Interested tags -->
+        <!-- Role -->
+      </ng-template>
+
+      <ng-template #myBlogs>
+        <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
+      </ng-template>
+
+      <ng-template #activity>
+
+      </ng-template>
+
+      <ng-template #myFollowers>
+
+      </ng-template>
+
+      <ng-template #followings>
+
+      </ng-template>
+
   </div>
 </section>

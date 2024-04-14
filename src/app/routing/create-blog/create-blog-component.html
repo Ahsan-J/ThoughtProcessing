@@ -1,44 +1,44 @@
-<form #formRef (submit)="onSubmit($event)" class="container w-75 py-4 bg-white my-3 rounded">
-  <h2 class="text-center mb-3">Create a new Blog</h2>
-  <!-- <image-cropper name="banner" width="60rem" [rounded]="false"></image-cropper> -->
-  <hr />
-  <fieldset>
-    <legend>Banner:</legend>
-    <div class="bannerImage mt-2">
-      <input name="banner" [multiple]="false" (change)="onFileChange($event)" type="file" #bannerInputRef
-        style="display: none;" />
-      <img *ngIf="!!bannerImage else uploadingIcon" [src]="bannerImage | createObjectURL" />
-
-      <ng-template #uploadingIcon>
-        <button class="btn btn-link m-5" (click)="bannerInputRef.click()">
-          <icon name="image" height="3.5rem" width="3.5rem"></icon>
-        </button>
-      </ng-template>
-    </div>
-  </fieldset>
-  <br />
-  <fieldset>
-    <legend>About Blog:</legend>
-    <div class="form-group">
-      <floating-input name="title" label="Title"></floating-input>
-    </div>
-
-    <div class="form-group">
-      <floating-input name="description" label="Description"></floating-input>
-    </div>
-  </fieldset>
-  <br/>
-  <fieldset>
-    <legend>Content:</legend>
-    <div class="row my-1">
-      <div class="col-12">
-        <tab [data]="{'Code': editorTemplate, 'Preview': previewTemplate}"></tab>
+<form #formRef (submit)="onSubmit($event)" class="d-flex flex-column w-75 mx-auto p-4 bg-white my-3 rounded">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row my-1">
+        <div class="col-12">
+          <tab [data]="{'Content': editorTemplate, 'Preview': previewTemplate}"></tab>
+        </div>
       </div>
     </div>
-  </fieldset>
+    <div class="col-md-3">
+        <h4 class="my-2">About Blog:</h4>
+        <div class="bannerImage mt-2">
+          <input name="banner" [multiple]="false" (change)="onFileChange($event)" type="file" #bannerInputRef
+            style="display: none;" />
+          <img *ngIf="!!bannerImage else uploadingIcon" [src]="bannerImage | createObjectURL" />
+
+          <ng-template #uploadingIcon>
+            <app-button type="link" class="p-5 w-100 h-100" (click)="bannerInputRef.click()">
+              <icon name="image" height="3.5rem" width="3.5rem"></icon>
+            </app-button>
+          </ng-template>
+        </div>
+      <br />
+        <div class="form-group">
+          <floating-input name="title" label="Title"></floating-input>
+        </div>
+
+        <div class="form-group">
+          <floating-input name="description" label="Description"></floating-input>
+        </div>
+
+        <div class="form-group">
+          <autocomplete name="tags[]" label="Tags"></autocomplete>
+        </div>
+
+    </div>
+  </div>
+  <br />
   <div class="d-flex flex-row justify-content-end my-1">
-    <button (click)="onSaveBlog()" class="btn btn-secondary m-1" type="button">Save Blog</button>
-    <button class="btn btn-primary m-1" type="submit">Create Blog</button>
+    <app-button (click)="onSaveBlog()" type="secondary" class="m-2">Save Blog</app-button>
+    <app-button type="primary" class="m-2" htmlType="submit">Create Blog</app-button>
   </div>
 </form>
 
