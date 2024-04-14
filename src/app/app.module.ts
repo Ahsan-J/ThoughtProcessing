@@ -16,7 +16,7 @@ import { AccountPopupComponent } from './components/account-popup/account-popup.
   ],
   imports: [
     ComponentModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
   ],
   bootstrap: [AppComponent]
