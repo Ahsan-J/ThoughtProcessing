@@ -1,0 +1,21 @@
+<ng-template *ngIf="name">
+  <input *ngFor="let item of selectedItems|keyvalue" readOnly [value]="item.key" type="hidden"
+    [name]="name + multiple? '[]': ''" />
+</ng-template>
+<label class="floatInput__label" [htmlFor]="id">
+  <div [ngStyle]="errorText ? { 'border-color': 'var(--bs-danger)' } : {}" class="inputContainer">
+    <badge [type]="type" *ngFor="let item of selectedItems|keyvalue" [ngClass]="badgeClass || ''"></badge>
+    <span [ngStyle]="selectedItems ? { 'transform': 'translate(0)' , 'padding': 0 } : {}">{{label}}</span>
+    <input (change)="onChange($event)" (focus)="onFocus($event)" #inputRef [disabled]="disabled"
+      [ngClass]="'floatInput__input ' + inputClass" [id]="id" [placeholder]="placeholder || label" />
+  </div>
+</label>
+
+<span *ngIf="errorText" class="invalid-feedback">{{errorText}}</span>
+
+<ul [ngClass]="'dropdown-content' + showClass ? 'show' : ''">
+  <li *ngFor="let item of options|keyvalue" (click)="onItemClick(item.key, item.value)">
+    <icon *ngIf="item.value.icon" [name]="item.value.icon"></icon>
+    {{item.value.label}}
+  </li>
+</ul>

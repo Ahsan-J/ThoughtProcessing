@@ -18,6 +18,11 @@ import { ResizeableContainerComponent } from "./resizeable-container/resizeable-
 import { CreateObjectURLPipe } from "./image-cropper/createObjectURL.pipe";
 import { MDTextEditor } from "./md-text-editor/md-text-editor.component";
 import { MarkdownDirective } from "../routing/blog-detail/markdown.directive";
+import { BadgeComponent } from './badge/badge.component';
+import { AutoCompleteComponent } from './autocomplete/autocomplete.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { ButtonComponent } from './button/button.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const components = [
   CollapseComponent,
@@ -37,6 +42,11 @@ const components = [
   CreateObjectURLPipe,
   MDTextEditor,
   MarkdownDirective,
+  BadgeComponent,
+  AutoCompleteComponent,
+  DropdownComponent,
+  ButtonComponent,
+  SpinnerComponent,
 ]
 
 @NgModule({

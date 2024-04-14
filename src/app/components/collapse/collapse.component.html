@@ -1,9 +1,9 @@
 <ng-container *ngTemplateOutlet="titleTemplate || defaultTitle">
 </ng-container>
 <ng-template #defaultTitle>
-  <button (click)="onClick($event)" [ngClass]="'collapsible lead ' + (collapse ? 'active' : '')">
+  <app-button (click)="onClick($event)" [ngClass]="'collapsible lead ' + (collapse ? 'active' : '')">
     {{title}}
-  </button>
+  </app-button>
 </ng-template>
 <div class='content' #container>
   <ng-content></ng-content>

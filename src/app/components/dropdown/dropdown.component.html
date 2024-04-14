@@ -1,0 +1,19 @@
+<span *ngIf="label">{{label}}</span>
+<input *ngIf="name && selectedKey" read-only [name]="name" type="hidden" [value]="selectedKey" />
+<app-button [style]="errorText ? { 'border-color': 'var(--bs-danger)' }: {}" type="primary"
+  (click)="showClass = !showClass">
+  <ng-container *ngTemplateOutlet="defaultSelectedValueRenderer"></ng-container>
+</app-button>
+
+<ul [ngClass]="'dropdown-content ' + (showClass ? 'show' : '')">
+  <li *ngFor="let item of options|keyvalue" (click)="onItemClick(item.key, item.value)">
+    <icon *ngIf="item.value.icon" [name]="item.value.icon"></icon>
+    {{item.value.label}}
+  </li>
+</ul>
+
+<span *ngIf="errorText" class="invalid-feedback">{{errorText}}</span>
+
+<ng-template #defaultSelectedValueRenderer>
+  {{ options[selectedKey || ""]?.label || placeholder }}
+</ng-template>

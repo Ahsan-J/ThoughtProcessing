@@ -1,0 +1,13 @@
+.container {
+  margin: 0.1rem;
+  font-size: .875rem;
+}
+
+.closeBtn {
+  padding: 0;
+  padding-left: 0.4rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color:'inherit',
+}

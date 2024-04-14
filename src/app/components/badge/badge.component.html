@@ -1,0 +1,4 @@
+<div [ngClass]="'badge ' + rounded ? 'rounded-pill ': '' + 'bg-' + type || 'primary ' + 'container ' + class" [ngStyle]="{'cursor': 'pointer'}">
+  <ng-content></ng-content>
+  <icon *ngIf="showRemove" name="x" class="closeBtn" (click)="onRemove($event)"></icon>
+</div>
