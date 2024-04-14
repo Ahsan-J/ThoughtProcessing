@@ -1,0 +1,29 @@
+:host {
+  --spinner-size: 3;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+.loader {
+  border-radius: var(--spinner-size)rem;
+  border: Calc(var(--spinner-size /10)rem) solid var(--bs-light);
+  border-top: Calc(var(--spinner-size /10)rem) solid var(--bs-primary);
+  width: var(--spinner-size)rem;
+  height: var(--spinner-size)rem;
+  align-self: center;
+  z-index: 12;
+  animation-name: spin;
+  animation-duration: 800ms;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
