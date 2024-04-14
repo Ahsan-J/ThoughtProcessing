@@ -3,8 +3,8 @@
     <a [ngClass]="'nav-link ' + (active == item.title ? 'active': '')" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a>
   </li>
   <li *ngIf="dynamic" class="nav-item">
-    <button class="btn btn-link" (click)="onAddItem.emit($event)">
+    <app-button type="link" (click)="onAddItem.emit($event)">
       <icon name="plus-circle" class="nav-link addButton"></icon>
-    </button>
+    </app-button>
   </li>
 </ul>

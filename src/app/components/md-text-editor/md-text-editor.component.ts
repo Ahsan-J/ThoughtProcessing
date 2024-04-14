@@ -106,7 +106,7 @@ export class MDTextEditor implements AfterViewInit {
       }
     },
     {
-      title: "Markdown",
+      title: "Markdown Guide",
       icon: "markdown",
       action: () => {
         this.cheatsheetModal?.showModal(true);

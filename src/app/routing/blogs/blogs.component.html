@@ -3,15 +3,15 @@
     <div class="d-flex flex-column" style="flex:0.75">
       <div class="d-flex flex-row justify-content-between mt-3 mb-1">
         <div class="d-flex flex-row">
-          <button *ngFor="let sort of sorts"
+          <app-button *ngFor="let sort of sorts"
             [ngClass]="'btn ' + (sort.value == activeSort ? 'btn-secondary': 'btn-link')" (click)="onSort(sort.value)">
             {{sort.label}}
-          </button>
+          </app-button>
         </div>
 
-        <button class="btn btn-link">
+        <app-button type="link">
           <icon name="filter"></icon>
-        </button>
+        </app-button>
       </div>
       <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
     </div>

@@ -2,9 +2,9 @@
   <div class="backdropContainer backdropShow" (click)="onBackdropPress($event)">
     <div [ngClass]="'modalInnerContainer ' + animationClass + class" [style]="style">
       <ng-content></ng-content>
-      <button class="btn btn-link buttonDismiss" (click)="onDismiss.emit($event)">
+      <app-button type="link" class="buttonDismiss" (click)="onDismiss.emit($event)">
         <icon name="x" width="1.8rem" height="1.8rem"></icon>
-      </button>
+      </app-button>
     </div>
   </div>
 </ng-template>

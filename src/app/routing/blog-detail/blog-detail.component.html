@@ -1,9 +1,9 @@
 <div class="d-flex flex-row container w-75 px-0">
   <section>
-    <button *ngFor="let action of blogActions" class="btn btn-link m-1 py-0" (click)="action.action($event)">
+    <app-button *ngFor="let action of blogActions" type="link" class="m-1 py-0" (click)="action.action($event)">
       <icon [name]="action.icon"></icon>
       <p class="mb-0">{{action.count}}</p>
-    </button>
+    </app-button>
   </section>
   <section class="d-flex flex-column" style="flex:0.75;">
     <img />

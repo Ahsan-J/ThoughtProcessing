@@ -1,6 +1,4 @@
-<button *ngIf="click; else elseTpl" (click)="click" class="button_wrapper">
-  <ng-container *ngTemplateOutlet="elseTpl"></ng-container>
-</button>
+<ng-container *ngTemplateOutlet="elseTpl"></ng-container>
 
 <ng-template #elseTpl>
   <svg xmlns="http://www.w3.org/2000/svg" [attr.width]="width" [attr.height]="height" [attr.fill]="fill"

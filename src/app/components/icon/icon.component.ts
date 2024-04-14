@@ -10,5 +10,4 @@ export class IconComponent {
   @Input() height: string = "1em";
   @Input() width: string = "1em";
   @Input() fill: string = "currentColor";
-  @Output() click: EventEmitter<MouseEvent> | undefined;
 };

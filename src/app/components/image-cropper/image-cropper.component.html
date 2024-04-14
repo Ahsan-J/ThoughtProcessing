@@ -31,7 +31,7 @@
     </resizeable-container>
   </div>
   <div class='mb-2 d-flex flex-row align-items-center justify-content-between'>
-    <button type="button" role="button" style="flex: 0.5;" class="m-1 btn btn-secondary" (click)="modalRef.showModal(false)">Cancel</button>
-    <button type="button" role="button" style="flex: 0.5;" class="m-1 btn btn-success" (click)="onCropPress($event)">Crop & Save</button>
+    <app-button [style]="{'flex': '0.5'}" type="secondary" class="m-1" (click)="modalRef.showModal(false)">Cancel</app-button>
+    <app-button [style]="{'flex': '0.5'}" type="success" class="m-1" (click)="onCropPress($event)">Crop & Save</app-button>
   </div>
 </modal>

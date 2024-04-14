@@ -1,17 +1,17 @@
 <!-- Action List -->
 <div class="md-text-editor-actions">
-  <button type="button" role="button" [title]="item.title" *ngFor="let item of supportingActions" class="btn btn-link"
+  <app-button [title]="item.title" [outline]="true" *ngFor="let item of supportingActions" type="link"
     (click)="item.action($event)">
     <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
-  </button>
+  </app-button>
 </div>
 
 <!-- Main text editor -->
-<ol #container contenteditable="true" class="md-text-editor" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
+<ol #container contenteditable="true" class="md-text-editor mb-0" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
 </ol>
 
 <!-- Modal to show cheat sheet -->
-<modal #cheatsheet class="p-2">
+<modal #cheatsheet>
   <h1>Markdown Cheat Sheet</h1>
   <p>This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge
     case, so if you need more information about any of these elements, refer to the reference guides for <a href="https://www.markdownguide.org/basic-syntax" target="__blank"></a>basic

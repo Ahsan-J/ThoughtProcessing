@@ -15,7 +15,7 @@
           <a class="btn btn-link" routerLink="/login">Have account</a>
         </div>
 
-        <button type="submit" class="btn btn-primary">Next</button>
+        <app-button htmlType="submit" type="primary">Next</app-button>
       </form>
     </ng-template>
 
@@ -24,9 +24,9 @@
     <ng-template #step2>
       <form (submit)="onSignup($event)" class="w-100">
 
-        <button role="button" type="button" class="btn btn-link" (click)="emailVerified = false" style="width: unset; align-self: flex-start;">
+        <app-button type="link" (click)="emailVerified = false" [style]="{'width': 'unset', 'align-self':'flex-start'}">
           <icon name="arrow-left" style="padding: 0.5rem 1rem;"></icon>
-        </button>
+        </app-button>
 
         <p class="lead mb-0"> Welcome to </p>
         <legend>Thought Processing</legend>
@@ -62,7 +62,7 @@
           <floating-input name="website" label="Website" class="w-100" placeholder="https://ahsan-j.com/" iconName="globe"></floating-input>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Signup</button>
+        <app-button htmlType="submit" type="primary" class="mt-3">Signup</app-button>
       </form>
     </ng-template>
   </div>
