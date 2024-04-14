@@ -1,4 +1,4 @@
-<img *ngIf="src" (click)="onClick($event)" style="cursor: pointer;" [src]="src" [alt]="id" />
+<img *ngIf="src" style="cursor: pointer;" [src]="src" [alt]="id" />
 <icon *ngIf="icon" [name]="icon"></icon>
-<span *ngIf="name" (click)="onClick($event)" style="cursor: pointer;">{{shortName}}</span>
+<span *ngIf="name">{{shortName}}</span>
 <ng-content></ng-content>

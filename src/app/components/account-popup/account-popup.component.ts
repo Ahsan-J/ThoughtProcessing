@@ -17,7 +17,6 @@ type NavListItem = {
   styleUrls: ['./account-popup.component.css']
 })
 export class AccountPopupComponent implements OnInit, OnDestroy {
-  @Input() public show: boolean = false;
   public user!: IUser;
   private sub!: Subscription;
 

@@ -11,7 +11,6 @@ export class AvatarComponent {
   @Input() public name?: string = '';
   @Input() public src?: string = '';
   @Input() public icon?: string = '';
-  @Output() public click = new EventEmitter<MouseEvent>();
 
   constructor() {
     this.id = nanoid();
@@ -46,8 +45,4 @@ export class AvatarComponent {
   @HostBinding('style.background-color') get bgColor() { return this.generateBackgroundColor() }
   @HostBinding('style.border') get border() { return this.icon ? '1px solid var(--bs-body-color)' : 'none'; }
   @HostBinding('data-test') testId = "Avatar";
-
-  onClick(event: MouseEvent) {
-    this.click.emit(event);
-  }
 };
