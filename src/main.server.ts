@@ -14,4 +14,4 @@ if (process.env['NODE_ENV'] == "production") {
 }
 
 export { AppServerModule } from './app/app.server.module';
-export { renderModule } from '@angular/platform-server';
+
