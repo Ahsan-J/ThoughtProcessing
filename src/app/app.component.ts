@@ -2,10 +2,20 @@ import { Component, OnInit, TemplateRef, OnDestroy, ChangeDetectorRef } from '@a
 import { AuthService } from './data-store/auth.service';
 import { Subscription } from 'rxjs';
 import { ModalService } from './components/modal/modal.service';
+import { ComponentModule } from './components/component.module';
+import { RouterOutlet } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
+
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    ComponentModule,
+    NgTemplateOutlet,
+  ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(

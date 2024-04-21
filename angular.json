@@ -11,12 +11,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/blog/browser",
+            "outputPath": "dist/blog",
             "index": "src/public/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/public/favicon.ico",
@@ -24,14 +26,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/public/css/bootstrap.min.css",
               "src/public/css/styles.css"
             ],
-            "scripts": [
-              "src/public/js/jquery.min.js",
-              "src/public/js/popper.min.js",
-              "src/public/js/bootstrap.min.js"
-            ]
+            "scripts": [],
+            "prerender": true,
+            "server": "src/main.server.ts",
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -50,9 +52,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "blog:build:production"
+              "buildTarget": "blog:build:production"
             },
             "development": {
-              "browserTarget": "blog:build:development"
+              "buildTarget": "blog:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,14 +75,17 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blog:build"
+            "buildTarget": "blog:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
@@ -94,60 +97,6 @@
             ],
             "scripts": []
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/blog/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media"
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false,
-              "vendorChunk": true,
-              "buildOptimizer": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "blog:build:development",
-              "serverTarget": "blog:server:development"
-            },
-            "production": {
-              "browserTarget": "blog:build:production",
-              "serverTarget": "blog:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "blog:build:production",
-              "serverTarget": "blog:server:production"
-            },
-            "development": {
-              "browserTarget": "blog:build:development",
-              "serverTarget": "blog:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }

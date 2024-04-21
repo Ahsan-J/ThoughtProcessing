@@ -1,5 +1,5 @@
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-import { CommonModule } from "@angular/common";
+import { CommonModule, NgTemplateOutlet } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { CollapseComponent } from "./collapse/collapse.component";
 import { IconComponent } from "./icon/icon.component";
@@ -23,6 +23,9 @@ import { AutoCompleteComponent } from './autocomplete/autocomplete.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ButtonComponent } from './button/button.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AccountPopupComponent } from './account-popup/account-popup.component';
 
 const components = [
   CollapseComponent,
@@ -47,12 +50,16 @@ const components = [
   DropdownComponent,
   ButtonComponent,
   SpinnerComponent,
+  HeaderComponent,
+  FooterComponent,
+  AccountPopupComponent,
 ]
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
+    NgTemplateOutlet
   ],
   declarations: components,
   exports: components,

@@ -11,11 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { ApiModule } from '../shared/api/api.module';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { MarkdownDirective } from './blog-detail/markdown.directive';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'blogs',
     title: "Blog",

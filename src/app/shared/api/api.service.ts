@@ -84,7 +84,7 @@ export class ApiService {
           reject(observer.error);
           if(onFailure) onFailure(observer.error, params);
         }
-        if(observer instanceof HttpResponse<T>) {
+        if(observer instanceof HttpResponse) {
           resolve(observer.body);
           if(onSuccess) onSuccess(observer.body, params);
         }
