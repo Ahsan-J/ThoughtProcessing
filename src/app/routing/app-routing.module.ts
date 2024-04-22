@@ -84,9 +84,9 @@ export const routes: Routes = [
     CommonModule,
     ComponentModule,
     ApiModule,
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
-    })
+    // RouterModule.forRoot(routes, {
+    //   initialNavigation: 'enabledBlocking',
+    // })
   ],
   exports: [RouterModule]
 })

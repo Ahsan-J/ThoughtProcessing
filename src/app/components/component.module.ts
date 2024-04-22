@@ -1,5 +1,5 @@
 import { ProfileCardComponent } from './profile-card/profile-card.component';
-import { CommonModule, NgTemplateOutlet } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { CollapseComponent } from "./collapse/collapse.component";
 import { IconComponent } from "./icon/icon.component";
@@ -59,7 +59,6 @@ const components = [
   imports: [
     RouterModule,
     CommonModule,
-    NgTemplateOutlet
   ],
   declarations: components,
   exports: components,

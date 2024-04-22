@@ -3,16 +3,16 @@ import { AuthService } from './data-store/auth.service';
 import { Subscription } from 'rxjs';
 import { ModalService } from './components/modal/modal.service';
 import { ComponentModule } from './components/component.module';
-import { RouterOutlet } from '@angular/router';
-import { NgTemplateOutlet } from '@angular/common';
+import { AppRoutingModule } from './routing/app-routing.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    AppRoutingModule,
     ComponentModule,
-    NgTemplateOutlet,
+    CommonModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
