@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, TemplateRef } from '@angular/core';
 import { ColorSchemes } from 'src/app/model/app';
 import { IDropdownItem } from './dropdown.types';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'dropdown',
@@ -15,7 +16,7 @@ export class DropdownComponent implements OnInit {
   @Input() name?: string;
   @Input() label?: string;
   @Input() type?: ColorSchemes;
-  @Input() iconName?: string;
+  @Input() iconName?: IconDefinition;
   @Input() outline?: boolean;
   @Input() disabled?: boolean;
   @Input() value?: string;

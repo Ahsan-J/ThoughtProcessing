@@ -2,7 +2,6 @@ import { ProfileCardComponent } from './profile-card/profile-card.component';
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { CollapseComponent } from "./collapse/collapse.component";
-import { IconComponent } from "./icon/icon.component";
 import { BlogItemComponent } from "./blog-item/blog-item.component";
 import { AvatarComponent } from "./avatar/avatar.component";
 import { PopularTagsComponent } from "./popular-tags/popular-tags.component";
@@ -26,10 +25,10 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccountPopupComponent } from './account-popup/account-popup.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const components = [
   CollapseComponent,
-  IconComponent,
   BlogItemComponent,
   AvatarComponent,
   PopularTagsComponent,
@@ -59,6 +58,7 @@ const components = [
   imports: [
     RouterModule,
     CommonModule,
+    FontAwesomeModule,
   ],
   declarations: components,
   exports: components,

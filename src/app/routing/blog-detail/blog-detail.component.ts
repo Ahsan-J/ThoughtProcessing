@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs'
 import { IBlog } from '../../model/blog';
 import { ApiService, IApiParam } from '../../shared/api/api.service';
+import { IconDefinition, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
 type BlogAction = {
   action: (event?: MouseEvent) => void,
-  icon: string,
+  icon: IconDefinition,
   count: number,
 }
 
@@ -48,7 +49,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy{
         await this.apiService.request(params);
       },
       count: 10,
-      icon: 'hand-thumbs-up'
+      icon: faThumbsUp,
     }
   ];
 }

@@ -2,7 +2,7 @@
 <div class="md-text-editor-actions">
   <app-button [title]="item.title" [outline]="true" *ngFor="let item of supportingActions" type="link"
     (click)="item.action($event)">
-    <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
+    <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
   </app-button>
 </div>
 

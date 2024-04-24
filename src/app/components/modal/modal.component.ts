@@ -1,5 +1,6 @@
 import { Component, ViewChild, TemplateRef, SimpleChanges, Input, ChangeDetectorRef, AfterContentChecked, HostBinding, Output, EventEmitter }  from '@angular/core';
 import { ModalService } from './modal.service';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'modal',
@@ -18,11 +19,13 @@ export class ModalComponent{
   @Output() showChange = new EventEmitter<boolean>();
   @Output() onBackdrop = new EventEmitter<MouseEvent>();
 
+  faXMark = faXmark;
+
   constructor(private modalService: ModalService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['show']) {
-      this.modalService.showModal(changes['show']?.currentValue ? this.container: null);
+      // this.modalService.showModal(changes['show']?.currentValue ? this.container: null);
     }
   }
 

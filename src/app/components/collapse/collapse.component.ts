@@ -21,7 +21,7 @@ export class CollapseComponent implements AfterViewInit, OnChanges  {
     this.id = this.id || nanoid();
   }
   ngAfterViewInit() {
-    this.updateCollapsingContainer();
+    // this.updateCollapsingContainer();
   }
 
   onClick(e: MouseEvent) {
@@ -32,7 +32,7 @@ export class CollapseComponent implements AfterViewInit, OnChanges  {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['collapse'] && (changes['collapse']?.previousValue != changes['collapse']?.currentValue)) {
-      this.updateCollapsingContainer();
+      // this.updateCollapsingContainer();
     }
   }
 

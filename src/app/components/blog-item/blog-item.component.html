@@ -1,18 +1,18 @@
 <div class="pe-2" style="flex:0.75;">
   <app-button type="link" class="p-0 m-0">
-    <icon name="bookmark"></icon>
+    <fa-icon [icon]="faBookmark"></fa-icon>
   </app-button>
   <h1 [routerLink]="'/blog/'+blog.id" style="cursor:pointer;">{{blog.title}}</h1>
   <p class="lead mb-0">{{blog.description}}</p>
   <div class="d-flex flex-row justify-content-between align-items-center">
     <div class="d-flex flex-row">
       <div class="d-flex flex-row align-items-center m-1">
-        <icon class="p-1" name="hand-thumbs-up"></icon>
+        <fa-icon class="p-1" [icon]="faThumbsUp"></fa-icon>
         <span>10 Likes</span>
       </div>
 
       <div class="d-flex fle-row align-items-center m-1">
-        <icon class="p-1" name="chat-dots"></icon>
+        <fa-icon class="p-1" [icon]="faCommentDots"></fa-icon>
         <span>10 Comments</span>
       </div>
     </div>
@@ -29,7 +29,7 @@
   <app-button [outline]="true" type="primary" [rounded]="true">Follow</app-button>
   <div class="d-flex flex-row">
     <div class="d-flex fle-row align-items-center justify-content-center">
-      <icon class="pe-1" name="chat-dots"></icon>
+      <fa-icon class="pe-1" [icon]="faCommentDots"></fa-icon>
       <p class="mb-0">10 Followers</p>
     </div>
   </div>

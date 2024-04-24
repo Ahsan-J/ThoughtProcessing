@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, ChangeDe
 import { getNumberFromMeasuredUnit } from 'src/app/shared/utility';
 import { ModalComponent } from '../modal/modal.component';
 import { ResizeableContainerComponent } from '../resizeable-container/resizeable-container.component';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'image-cropper',
@@ -29,6 +30,8 @@ export class ImageCropperComponent {
 
   inputImage!: HTMLImageElement;
   outputImage!: File;
+
+  faImage = faImage;
 
   constructor(private cd: ChangeDetectorRef) {}
 

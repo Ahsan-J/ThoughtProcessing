@@ -4,7 +4,7 @@
   </li>
   <li *ngIf="dynamic" class="nav-item">
     <app-button type="link" (click)="onAddItem.emit($event)">
-      <icon name="plus-circle" class="nav-link addButton"></icon>
+      <fa-icon [icon]="faPlusCircle" class="nav-link addButton"></fa-icon>
     </app-button>
   </li>
 </ul>

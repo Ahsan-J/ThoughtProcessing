@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output, HostBinding } from '@angular/core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 @Component({
@@ -10,7 +11,7 @@ export class AvatarComponent {
   public id: string = "";
   @Input() public name?: string = '';
   @Input() public src?: string = '';
-  @Input() public icon?: string = '';
+  @Input() public icon?: IconDefinition;
 
   constructor() {
     this.id = nanoid();

@@ -7,16 +7,16 @@
   <div class="accountPopup__accountNavList">
     <ng-container *ngFor="let item of navList">
       <app-button type="link" *ngIf="item.action" (click)="item.action($event)">
-        <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
+        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
         {{item.title}}
       </app-button>
       <a type="link" *ngIf="item.route" routerLink="{{item.route}}">
-        <icon style="flex:none;" class="px-2" [name]="item.icon"></icon>
+        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
         <span>{{item.title}}</span>
       </a>
     </ng-container>
     <app-button [outline]="true" type="danger" class="accountPopup__logout" (click)="onLogout($event)">
-      <icon style="flex:none;" class="px-2" name="power"></icon>
+      <fa-icon style="flex:none;" class="px-2" [icon]="faPowerOff"></fa-icon>
       <span>Logout</span>
     </app-button>
   </div>

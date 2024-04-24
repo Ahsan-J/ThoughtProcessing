@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 @Component({
@@ -17,6 +18,8 @@ export class NavbarListComponent implements OnInit {
   @Output() click = new EventEmitter<INavItem['title']>();
   @Output() onAddItem = new EventEmitter<MouseEvent>();
   @Output() onItemClose = new EventEmitter<INavItem>();
+
+  faPlusCircle = faPlusCircle;
 
   get typeClass() {
     switch (this.type) {

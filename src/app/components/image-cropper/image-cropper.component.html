@@ -16,7 +16,7 @@
     [ngStyle]="{'object-fit': 'fill', 'object-position': 'center', 'height': 'auto', 'width': 'Calc('+ (real_width / 3.5) + 'px + 3rem)'}"
     [src]="outputImage | createObjectURL " />
   <ng-template #uploadingIcon>
-    <icon name="image" class='m-5' [height]="(real_width / 5) + 'px'" [width]="(real_width / 5) + 'px'" [fill]="'var(--bs-'+ (type || 'primary')"></icon>
+    <fa-icon [icon]="faImage" class='m-5'></fa-icon>
   </ng-template>
 
 </button>

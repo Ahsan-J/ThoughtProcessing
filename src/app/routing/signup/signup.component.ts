@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { faArrowLeft, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub,  } from '@fortawesome/free-brands-svg-icons';
 import { IUser } from 'src/app/model/user';
 import { ApiService, IApiParam } from 'src/app/shared/api/api.service';
 import { unmarshalFormData } from 'src/app/shared/utility';
@@ -13,6 +15,11 @@ export class SignupComponent {
   emailErrorText: string = '';
   name: IUser['name'] = '';
   emailVerified: boolean = false;
+
+  faArrowLeft = faArrowLeft;
+  faLinkedin = faLinkedin;
+  faGithub = faGithub;
+  faGlobe = faGlobe;
 
   constructor(private apiService: ApiService) {}
 

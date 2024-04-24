@@ -3,6 +3,8 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 import { generateFilterQuery, Match } from "src/app/shared/sieve";
 import { PaginationMeta } from "../../model/app";
+import { IBlog } from "src/app/model/blog";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 type SortingAction= {
   label: string,
@@ -15,7 +17,22 @@ type SortingAction= {
 })
 export class BlogListComponent implements OnInit {
 
-  blogs: Array<any> = [];
+  faFilter = faFilter;
+
+  blogs: Array<IBlog> = [
+    {
+      title: "The Blog",
+      updated_at: new Date().toISOString(),
+      created_at: new Date().toISOString(),
+      content: '',
+      commentsCount: 1,
+      deleted_at: null,
+      description: "",
+      id: "",
+      likes: 1,
+      status: 1
+    }
+  ];
   meta!: PaginationMeta;
 
   sorts: Array<SortingAction> = [
@@ -37,8 +54,7 @@ export class BlogListComponent implements OnInit {
 
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
-  async ngOnInit() {
-
+  private fetchBlogList() {
     this.route.queryParamMap.subscribe(async queryParam=> {
       const params: IApiParam = {
         path: 'blog',
@@ -47,22 +63,19 @@ export class BlogListComponent implements OnInit {
       const search = queryParam.get('search');
 
       if(search) {
-
-        const filters = generateFilterQuery({
-          'title|description': Match(search),
-        })
-
+        const filters = generateFilterQuery({'title|description': Match(search) })
         if(filters) {
-          params.params = {
-            filters
-          };
+          params.params = { filters };
         }
-
       }
       const response = await this.api.request(params);
       this.blogs = response.data;
       this.meta = response.meta;
     })
+  }
+
+  async ngOnInit() {
+    // this.fetchBlogList();
   }
 
   onSort(value: SortingAction['value']) {

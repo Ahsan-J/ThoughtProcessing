@@ -1,9 +1,10 @@
 import { Component, Input, EventEmitter, Output, Renderer2, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
+import { IconDefinition, faHeading, faItalic, faBold, faStrikethrough, faUnderline, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
 type SupportingAction = {
   title: string;
-  icon: string;
+  icon: IconDefinition;
   action: (event?: MouseEvent) => void;
 }
 
@@ -36,7 +37,7 @@ export class MDTextEditor implements AfterViewInit {
   supportingActions: Array<SupportingAction> = [
     {
       title: "Heading Large",
-      icon: "type-h1",
+      icon: faHeading,
       action: (e) => {
         const sel = document.getSelection();
         if (sel && sel.anchorNode?.nodeType == Node.TEXT_NODE) {
@@ -48,7 +49,7 @@ export class MDTextEditor implements AfterViewInit {
     },
     {
       title: "Heading Medium",
-      icon: "type-h2",
+      icon: faHeading,
       action: () => {
         const sel = document.getSelection();
         if (sel && sel.anchorNode?.nodeType == Node.TEXT_NODE) {
@@ -60,7 +61,7 @@ export class MDTextEditor implements AfterViewInit {
     },
     {
       title: "Heading Small",
-      icon: "type-h3",
+      icon: faHeading,
       action: () => {
         const sel = document.getSelection();
         if (sel && sel.anchorNode?.nodeType == Node.TEXT_NODE) {
@@ -72,7 +73,7 @@ export class MDTextEditor implements AfterViewInit {
     },
     {
       title: "Italic",
-      icon: "type-italic",
+      icon: faItalic,
       action: () => {
         const sel = document.getSelection();
         if (sel && sel.anchorNode?.nodeType == Node.TEXT_NODE) {
@@ -86,28 +87,28 @@ export class MDTextEditor implements AfterViewInit {
     },
     {
       title: "Bold",
-      icon: "type-bold",
+      icon: faBold,
       action() {
 
       }
     },
     {
       title: "Strike Through",
-      icon: "type-strikethrough",
+      icon: faStrikethrough,
       action() {
 
       }
     },
     {
       title: "Underline",
-      icon: "type-underline",
+      icon: faUnderline,
       action() {
 
       }
     },
     {
       title: "Markdown Guide",
-      icon: "markdown",
+      icon: faQuestion,
       action: () => {
         this.cheatsheetModal?.showModal(true);
       }

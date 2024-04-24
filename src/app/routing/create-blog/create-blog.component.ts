@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { BlogStatus } from "src/app/model/blog";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 
@@ -14,6 +15,7 @@ export class CreateBlogComponent {
 
   markup: string = '';
   bannerImage: File | null = null;
+  faImage = faImage;
 
   onFileChange(e: Event) {
     const file = (e.target as HTMLInputElement | null)?.files?.[0];

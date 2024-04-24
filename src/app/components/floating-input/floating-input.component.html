@@ -13,13 +13,13 @@
   <span>{{label}}</span>
   <ng-container *ngIf="htmlType == 'password'">
     <app-button type="primary" (click)="showSecureText = !showSecureText">
-      <icon [name]="!showSecureText ? 'eye-slash-fill' : 'eye-fill'"></icon>
+      <fa-icon [icon]="!showSecureText ? faEyeSlash : faEye"></fa-icon>
     </app-button>
   </ng-container>
 
   <ng-container *ngIf="htmlType != 'password' && iconName">
     <app-button type="primary" (click)="onIconClick($event)" >
-      <icon [name]="iconName"></icon>
+      <fa-icon [icon]="iconName"></fa-icon>
     </app-button>
   </ng-container>
 

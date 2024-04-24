@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,9 @@ export const routes: Routes = [
   {
     path: '',
     title: "Home",
-    component: HomeComponent,
+    redirectTo: 'blogs',
+    pathMatch: 'full',
+    // component: HomeComponent,
   },
   {
     path: 'about',
@@ -84,6 +87,7 @@ export const routes: Routes = [
     CommonModule,
     ComponentModule,
     ApiModule,
+    FontAwesomeModule,
     // RouterModule.forRoot(routes, {
     //   initialNavigation: 'enabledBlocking',
     // })

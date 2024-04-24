@@ -7,7 +7,7 @@
 
 <ul [ngClass]="'dropdown-content ' + (showClass ? 'show' : '')">
   <li *ngFor="let item of options|keyvalue" (click)="onItemClick(item.key, item.value)">
-    <icon *ngIf="item.value.icon" [name]="item.value.icon"></icon>
+    <fa-icon *ngIf="item.value.icon" [icon]="item.value.icon"></fa-icon>
     {{item.value.label}}
   </li>
 </ul>

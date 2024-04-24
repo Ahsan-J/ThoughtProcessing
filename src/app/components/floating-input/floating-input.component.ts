@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { IconDefinition, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 @Component({
@@ -16,9 +17,12 @@ export class FloatingInputComponent implements OnInit {
   @Input() htmlType?: HTMLInputElement['type'] = "text";
   @Input() errorText?: string = '';
   @Input() placeholder?: string = '';
-  @Input() iconName?: string = '';
+  @Input() iconName?: IconDefinition;
   @Input() value?: string = '';
   @Output() valueChange = new EventEmitter<string>();
+
+  faEyeSlash = faEyeSlash;
+  faEye = faEye;
 
   onValueChange(event: Event) {
     this.valueChange.emit((event.target as HTMLInputElement)?.value)

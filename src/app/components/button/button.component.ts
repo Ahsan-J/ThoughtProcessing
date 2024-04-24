@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { ColorSchemes } from 'src/app/model/app';
 
 @Component({
@@ -13,7 +14,7 @@ export class ButtonComponent {
   @Input() disabled?: boolean;
   @Input() size?: "large" | "small" | "normal";
   @Input() block?: boolean;
-  @Input() iconName?: string;
+  @Input() iconName?: IconDefinition;
   @Input() loader?:boolean;
   @Input() rounded?: boolean;
   @Input() htmlType?: "button" | "submit" | "reset";

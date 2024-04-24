@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/data-store/auth.service';
 import { IBlog } from 'src/app/model/blog';
@@ -14,7 +15,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   user?: IUser;
   authUser?: IUser;
-  blogs: Array<IBlog> = []
+  blogs: Array<IBlog> = [];
+  faPlus = faPlus;
 
   constructor(
     private route: ActivatedRoute,

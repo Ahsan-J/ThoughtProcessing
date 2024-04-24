@@ -1,7 +1,7 @@
 <div class="d-flex flex-row container w-75 px-0">
   <section>
     <app-button *ngFor="let action of blogActions" type="link" class="m-1 py-0" (click)="action.action($event)">
-      <icon [name]="action.icon"></icon>
+      <fa-icon [icon]="action.icon"></fa-icon>
       <p class="mb-0">{{action.count}}</p>
     </app-button>
   </section>

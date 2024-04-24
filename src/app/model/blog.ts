@@ -6,7 +6,7 @@ export interface IBlog extends BaseModel {
   description: string;
   title: string;
   author?: IUser | null;
-  comments: number,
+  commentsCount: number,
   likes: number,
 }
 

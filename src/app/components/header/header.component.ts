@@ -5,6 +5,7 @@ import { GITHUB, LINKEDIN, STACK_OVERFLOW } from '../../shared/color';
 import { Subscription } from 'rxjs';
 import { unmarshalFormData } from "src/app/shared/utility";
 import { Router } from "@angular/router";
+import { faBell, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 type HeaderMenu = {
   label: string,
@@ -20,6 +21,10 @@ export class HeaderComponent implements AfterContentInit, OnInit, OnDestroy {
   GITHUB = GITHUB;
   LINKEDIN = LINKEDIN;
   STACK_OVERFLOW = STACK_OVERFLOW;
+
+  faSearch = faSearch;
+  faPlus = faPlus;
+  faBell = faBell;
 
   showPopup:boolean = false;
   collapse: boolean = true;

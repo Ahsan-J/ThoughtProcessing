@@ -1,5 +1,5 @@
 <button #btnRef data-test="Button" [type]="htmlType || 'button'" [ngClass]="btnClass">
   <spinner *ngIf="loader" class="loader" [type]="outline ? type : 'dark'" size="small" [loader]="loader"></spinner>
-  <icon *ngIf="iconName && !loader" [name]="iconName" width="1.2rem" height="1.2rem" ></icon>
+  <fa-icon *ngIf="iconName && !loader" [icon]="iconName" width="1.2rem" height="1.2rem" ></fa-icon>
   <ng-content></ng-content>
 </button>

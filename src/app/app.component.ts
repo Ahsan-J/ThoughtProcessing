@@ -5,6 +5,7 @@ import { ModalService } from './components/modal/modal.service';
 import { ComponentModule } from './components/component.module';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     ComponentModule,
     CommonModule,
+    FontAwesomeModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
