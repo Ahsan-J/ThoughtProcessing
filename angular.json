@@ -89,11 +89,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.ico",
+              "src/public/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/public/css/styles.css"
             ],
             "scripts": []
           }
