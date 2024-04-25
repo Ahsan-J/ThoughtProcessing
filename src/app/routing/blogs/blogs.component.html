@@ -1,8 +1,8 @@
-<div class="container w-75 px-0">
-  <div class="d-flex flex-row">
-    <div class="d-flex flex-column" style="flex:0.75">
-      <div class="d-flex flex-row justify-content-between mt-3 mb-1">
-        <div class="d-flex flex-row">
+<div class="w-3/4 px-0">
+  <div class="flex flex-row">
+    <div class="flex flex-col flex-[0.75]">
+      <div class="flex flex-row justify-between mt-3 mb-1">
+        <div class="flex flex-row">
           <app-button *ngFor="let sort of sorts"
             [ngClass]="'btn ' + (sort.value == activeSort ? 'btn-secondary': 'btn-link')" (click)="onSort(sort.value)">
             {{sort.label}}
@@ -15,7 +15,7 @@
       </div>
       <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
     </div>
-    <div class="m-2 p-3 bg-white" style="flex:0.25;">
+    <div class="m-2 p-3 bg-white flex-[0.25]">
       <profile-card class="bg-white mb-1"></profile-card>
       <popular-tags class="bg-white mt-3"></popular-tags>
     </div>

@@ -1,10 +1,10 @@
-<div class="d-flex flex-column align-items-center bg-white">
+<div class="flex flex-col items-center bg-white">
     <avatar class="me-2 p-2 avatar" [name]="user?.name"></avatar>
-    <div class="d-flex flex-column">
+    <div class="flex flex-col">
         <p class="lead mb-1">{{user?.name}}</p>
     </div>
 
-    <div class="d-flex flex-column justify-content-between w-100">
+    <div class="flex flex-col justify-between w-100">
         <a [routerLink]="'/blog/create'" class="btn btn-outline-primary my-1">Create Blog</a>
         <app-button [outline]="true" type="dark" class="my-1">View My Blogs</app-button>
         <app-button [outline]="true" type="info" class="my-1">Explore Saved Blogs</app-button>

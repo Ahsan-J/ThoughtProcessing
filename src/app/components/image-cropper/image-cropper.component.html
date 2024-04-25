@@ -8,7 +8,7 @@
   (dragleave)="onDragLeave($event)"
   (click)="onShowUploader($event)"
   type="button"
-  class="d-flex flex-row justify-content-center align-items-center uploadingContainer"
+  class="flex flex-row justify-center items-center uploadingContainer"
   [ngStyle]="{'border-radius': rounded ? '50%' : '0.2rem'}"
   >
 
@@ -30,7 +30,7 @@
       [allowResize]="true" [allowDrag]="true">
     </resizeable-container>
   </div>
-  <div class='mb-2 d-flex flex-row align-items-center justify-content-between'>
+  <div class='mb-2 flex flex-row items-center justify-between'>
     <app-button [style]="{'flex': '0.5'}" type="secondary" class="m-1" (click)="modalRef.showModal(false)">Cancel</app-button>
     <app-button [style]="{'flex': '0.5'}" type="success" class="m-1" (click)="onCropPress($event)">Crop & Save</app-button>
   </div>

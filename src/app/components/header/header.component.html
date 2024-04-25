@@ -1,10 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex flex-row justify-content-center align-items-center">
-    <div class="d-flex flex-row justify-content-between navbarInnerContainer">
-      <div style="flex: 1;" class="menuWrapper">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary flex flex-row justify-center items-center">
+    <div class="flex flex-row justify-between navbarInnerContainer">
+      <div class="flex-1 menuWrapper">
         <a class="navbar-brand" routerLink="/">Ahsan Ahmed</a>
         <form style="flex:0.7;" (submit)="onSearchBlog($event)">
-          <div class="form-group" style="position: relative;">
+          <div class="form-group relative">
             <input type="text" class="form-control" placeholder="Search" name="search" [required]="true" />
             <app-button type="link" class="btn-search" htmlType="submit">
               <fa-icon [icon]="faSearch" width="1rem" height="1rem"></fa-icon>
@@ -12,7 +12,7 @@
           </div>
         </form>
       </div>
-      <div class='d-flex flex-row justify-content-center align-items-center' style="position: relative;">
+      <div class='flex flex-row justify-center items-center relative'>
         <ng-container *ngIf="!user">
           <a routerLink="/login" class="btn btn-outline-dark m-1">Log In</a>
           <a routerLink="/register" class="btn btn-secondary m-1">Create Account</a>
