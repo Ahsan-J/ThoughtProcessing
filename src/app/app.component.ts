@@ -17,7 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styles: [':host { @apply flex flex-col h-dvh w-dvw bg-neutral-100;}'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(

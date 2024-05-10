@@ -6,14 +6,14 @@ import { PaginationMeta } from "../../model/app";
 import { IBlog } from "src/app/model/blog";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
-type SortingAction= {
+type SortingAction = {
   label: string,
   value: number;
 }
 
 @Component({
   templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css'],
+  styles: [':host { display:block; }'],
 })
 export class BlogListComponent implements OnInit {
 
@@ -24,13 +24,28 @@ export class BlogListComponent implements OnInit {
       title: "The Blog",
       updated_at: new Date().toISOString(),
       created_at: new Date().toISOString(),
-      content: '',
+      content: 'Some limited information about the blog',
       commentsCount: 1,
       deleted_at: null,
       description: "",
-      id: "",
+      id: "123",
       likes: 1,
-      status: 1
+      status: 1,
+      author: {
+        created_at: new Date().toISOString(),
+        access_token: "null",
+        deleted_at: null,
+        email: "abc123@gmail.com",
+        id: "123",
+        linkedin: "123",
+        name: "abc123",
+        profile: "abc123",
+        role: 1,
+        status: 1,
+        token_expiry: 1,
+        updated_at: new Date().toISOString(),
+
+      }
     }
   ];
   meta!: PaginationMeta;
@@ -55,16 +70,16 @@ export class BlogListComponent implements OnInit {
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   private fetchBlogList() {
-    this.route.queryParamMap.subscribe(async queryParam=> {
+    this.route.queryParamMap.subscribe(async queryParam => {
       const params: IApiParam = {
         path: 'blog',
       };
 
       const search = queryParam.get('search');
 
-      if(search) {
-        const filters = generateFilterQuery({'title|description': Match(search) })
-        if(filters) {
+      if (search) {
+        const filters = generateFilterQuery({ 'title|description': Match(search) })
+        if (filters) {
           params.params = { filters };
         }
       }

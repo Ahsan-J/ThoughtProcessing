@@ -5,7 +5,6 @@ import { nanoid } from 'nanoid';
 @Component({
   selector: 'avatar',
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.css'],
 })
 export class AvatarComponent {
   public id: string = "";
@@ -43,7 +42,7 @@ export class AvatarComponent {
       ?.join("");
   }
 
-  @HostBinding('style.background-color') get bgColor() { return this.generateBackgroundColor() }
-  @HostBinding('style.border') get border() { return this.icon ? '1px solid var(--bs-body-color)' : 'none'; }
-  @HostBinding('data-test') testId = "Avatar";
+  // @HostBinding('style.background-color') get bgColor() { return this.generateBackgroundColor() }
+  // @HostBinding('style.border') get border() { return this.icon ? '1px solid var(--bs-body-color)' : 'none'; }
+  // @HostBinding('data-test') testId = "Avatar";
 };

@@ -1,10 +1,10 @@
 <ng-container *ngTemplateOutlet="titleTemplate || defaultTitle">
 </ng-container>
 <ng-template #defaultTitle>
-  <app-button (click)="onClick($event)" [ngClass]="'collapsible lead ' + (collapse ? 'active' : '')">
+  <app-button (click)="onClick($event)" [ngClass]="'pointer p-3 w-full h-full text-left outline-none lead ' + (collapse ? 'text-primary bg-gray-200' : '')">
     {{title}}
   </app-button>
 </ng-template>
-<div class='content' #container>
+<div [ngClass]="'py-3 overflow-hidden transition-all duration-150 ' + this.contentDirectionalChange" #container>
   <ng-content></ng-content>
 </div>
