@@ -1,12 +1,12 @@
-<div class="flex flex-col items-center bg-white">
-    <avatar class="me-2 p-2 avatar" [name]="user?.name"></avatar>
-    <div class="flex flex-col">
-        <p class="lead mb-1">{{user?.name}}</p>
-    </div>
+<div class="flex flex-col bg-white">
+  <div class="flex flex-col items-center">
+    <avatar class="mx-2 p-2 avatar h-24 w-24" [src]="user?.profile" [name]="user?.name"></avatar>
+    <p class="text-lg text-dark font-normal">{{user?.name}}</p>
+  </div>
 
-    <div class="flex flex-col justify-between w-100">
-        <a [routerLink]="'/blog/create'" class="btn btn-outline-primary my-1">Create Blog</a>
-        <app-button [outline]="true" type="dark" class="my-1">View My Blogs</app-button>
-        <app-button [outline]="true" type="info" class="my-1">Explore Saved Blogs</app-button>
-    </div>
+  <div class="flex flex-col justify-between">
+    <a [routerLink]="'/blog/create'" class="btn btn-outline-primary my-1">Create Blog</a>
+    <app-button [outline]="true" type="dark" class="my-1">View My Blogs</app-button>
+    <app-button [outline]="true" type="info" class="my-1">Explore Saved Blogs</app-button>
+  </div>
 </div>

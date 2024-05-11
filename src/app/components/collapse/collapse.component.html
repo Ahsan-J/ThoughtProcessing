@@ -1,7 +1,7 @@
 <ng-container *ngTemplateOutlet="titleTemplate || defaultTitle">
 </ng-container>
 <ng-template #defaultTitle>
-  <app-button (click)="onClick($event)" [ngClass]="'pointer p-3 w-full h-full text-left outline-none lead ' + (collapse ? 'text-primary bg-gray-200' : '')">
+  <app-button (click)="onClick($event)" [ngClass]="'pointer p-3 w-full h-full text-left outline-none lead ' + (collapse ? 'text-primary bg-neutral-300' : '')">
     {{title}}
   </app-button>
 </ng-template>

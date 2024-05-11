@@ -8,6 +8,7 @@ export interface IBlog extends BaseModel {
   author?: IUser | null;
   commentsCount: number,
   likes: number,
+  cover: string;
 }
 
 export enum BlogStatus {
