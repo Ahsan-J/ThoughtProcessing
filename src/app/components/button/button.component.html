@@ -1,5 +1,14 @@
-<button #btnRef data-test="Button" [type]="htmlType || 'button'" [ngClass]="btnClass">
-  <spinner *ngIf="loader" class="loader" [type]="outline ? type : 'dark'" size="small" [loader]="loader"></spinner>
-  <fa-icon *ngIf="iconName && !loader" [icon]="iconName" width="1.2rem" height="1.2rem" ></fa-icon>
+<ng-template #content>
+  <fa-icon *ngIf="!!leftIcon" [icon]="leftIcon" width="1.2rem" height="1.2rem" ></fa-icon>
   <ng-content></ng-content>
+  <spinner *ngIf="loader" [type]="outline ? type : 'dark'" size="small" [loader]="loader"></spinner>
+  <fa-icon *ngIf="!!rightIcon && !loader" [icon]="rightIcon" width="1.2rem" height="1.2rem" ></fa-icon>
+</ng-template>
+
+<a rel="noreferrer" [attr.data-value]="value" [attr.aria-disabled]="disabled" [routerLink]="link" *ngIf="isLinkButton" >
+  <ng-container [ngTemplateOutlet]="content"></ng-container>
+</a>
+
+<button [attr.data-value]="value" [disabled]="disabled" [attr.aria-disabled]="disabled" *ngIf="!isLinkButton" [type]="htmlType || 'button'" >
+  <ng-container [ngTemplateOutlet]="content"></ng-container>
 </button>
