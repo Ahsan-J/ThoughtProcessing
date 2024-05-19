@@ -16,7 +16,20 @@ export class AvatarComponent {
     this.id = nanoid();
   }
 
-  generateBackgroundColor() {
+  @HostBinding('class')
+  get hostClass() {
+    return `rounded-full relative h-10 w-10 flex flex-row items-center justify-center overflow-hidden`
+  }
+
+  get shortName() {
+    return this.name
+      ?.split(" ")
+      ?.slice(0, 2)
+      ?.map((n) => n[0])
+      ?.join("");
+  }
+
+  @HostBinding('style.background-color') get bgColor() {
     const stringToColour = (str = "") => {
       if (!str) return "inherit";
       let hash = 0;
@@ -31,18 +44,9 @@ export class AvatarComponent {
       colour += "8D";
       return colour;
     }
+
     return stringToColour(this.name)
   }
-
-  get shortName() {
-    return this.name
-      ?.split(" ")
-      ?.slice(0, 2)
-      ?.map((n) => n[0])
-      ?.join("");
-  }
-
-  // @HostBinding('style.background-color') get bgColor() { return this.generateBackgroundColor() }
   // @HostBinding('style.border') get border() { return this.icon ? '1px solid var(--bs-body-color)' : 'none'; }
   // @HostBinding('data-test') testId = "Avatar";
 };

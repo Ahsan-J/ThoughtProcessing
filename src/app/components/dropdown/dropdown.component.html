@@ -15,5 +15,5 @@
 <span *ngIf="errorText" class="invalid-feedback">{{errorText}}</span>
 
 <ng-template #defaultSelectedValueRenderer>
-  {{ options[selectedKey || ""]?.label || placeholder }}
+  {{ options[selectedKey || ""].label || placeholder }}
 </ng-template>
