@@ -1,23 +1,41 @@
-<div class="flex flex-row container w-75 px-0">
-  <section>
-    <app-button *ngFor="let action of blogActions" type="link" class="m-1 py-0" (click)="action.action($event)">
-      <fa-icon [icon]="action.icon"></fa-icon>
-      <p class="mb-0">{{action.count}}</p>
-    </app-button>
-  </section>
-  <section class="flex flex-col" style="flex:0.75;">
-    <img />
-    <div class="flex flex-col m-1 p-1">
-      <h1>Title</h1>
-      <div class="flex flex-row">
-        <span>#tag</span>
-      </div>
-      <div [markdown]="blog?.content"></div>
-    </div>
-  </section>
-  <section class="flex flex-col items-center m-1 user-section">
-    <avatar [name]="blog?.author?.name"></avatar>
-    <p class="lead">{{blog?.author?.name}}</p>
+<div class="flex flex-col gap-4 sticky top-0">
+  <app-button *ngFor="let action of blogActions" type="link" [leftIcon]="action.icon" [outline]="true" class="!outline-0" (click)="action.action($event)">
+    {{action.count}}
+  </app-button>
+</div>
+<section *ngIf="blog" class="flex flex-col flex-1">
+  <img [src]="blog.cover" class="w-full max-h-80 object-contain bg-dark" />
 
-  </section>
+  <div class="flex flex-col m-2">
+    <h1 class="text-5xl font-medium text-dark">{{blog.title}}</h1>
+    <div class="flex flex-row">
+      <span>#tag</span>
+    </div>
+  </div>
+
+  <div class="flex flex-row justify-between my-4" *ngIf="blog.author">
+    <div class="flex flex-row gap-2">
+      <avatar [src]="blog.author.profile" class="h-12 w-12"></avatar>
+      <div class="flex flex-col">
+        <div class="flex flex-row items-center gap-2">
+          <h2 class="text-base font-medium text-dark">{{blog.author.name}}</h2>
+          <app-button type="success" [outline]="true" class="!outline-0 !p-0 !h-fit">Follow</app-button>
+        </div>
+        <p class="text-sm font-light text-dark">{{blog.author.created_at | date}}</p>
+      </div>
+    </div>
+    <p class="text-dark text-lg font-light">Read time</p>
+  </div>
+
+  <div class="my-8" [markdown]="blog.content"></div>
+</section>
+
+<div *ngIf="blog" class="sticky top-0 flex flex-col justify-start items-center mx-2 p-2 flex-[0.25] h-fit bg-white gap-2" >
+  <div class="flex flex-col items-center">
+    <avatar [src]="blog.author?.profile" class="h-24 w-24" [name]="blog.author?.name"></avatar>
+    <div class="flex flex-col">
+      <p class="text-dark text-xl font-medium">{{blog.author?.name}}</p>
+    </div>
+  </div>
+  <app-button [outline]="true" type="primary" [rounded]="true">Follow</app-button>
 </div>
