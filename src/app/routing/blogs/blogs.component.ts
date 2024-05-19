@@ -3,8 +3,8 @@ import { ActivatedRoute } from "@angular/router";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 import { generateFilterQuery, Match } from "src/app/shared/sieve";
 import { PaginationMeta } from "../../model/app";
-import { IBlog } from "src/app/model/blog";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { sampleBlogs } from "src/app/constant/blog";
 
 type SortingAction = {
   label: string,
@@ -13,42 +13,13 @@ type SortingAction = {
 
 @Component({
   templateUrl: './blogs.component.html',
-  styles: [':host { display:block; }'],
+  styles: [':host { @apply h-full flex flex-col self-center w-3/4; }'],
 })
 export class BlogListComponent implements OnInit {
 
   faFilter = faFilter;
 
-  blogs: Array<IBlog> = [
-    {
-      title: "The Blog",
-      updated_at: new Date().toISOString(),
-      created_at: new Date().toISOString(),
-      content: 'Some limited information about the blog Some limited information about the blog Some limited information about the blog Some limited information about the blog',
-      commentsCount: 1,
-      deleted_at: null,
-      description: "",
-      id: "123",
-      likes: 1,
-      status: 1,
-      cover: "https://placehold.co/800x240",
-      author: {
-        created_at: new Date().toISOString(),
-        access_token: "null",
-        deleted_at: null,
-        email: "abc123@gmail.com",
-        id: "123",
-        linkedin: "123",
-        name: "abc123",
-        profile: "https://placehold.co/96",
-        role: 1,
-        status: 1,
-        token_expiry: 1,
-        updated_at: new Date().toISOString(),
-
-      }
-    }
-  ];
+  blogs = sampleBlogs;
   meta!: PaginationMeta;
 
   sorts: Array<SortingAction> = [
