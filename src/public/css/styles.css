@@ -15,6 +15,38 @@
     height: inherit;
     width: inherit;
   }
+
+  p, h1, h2, h3, h4, h5, h6 {
+    @apply text-dark dark:text-light font-normal text-base;
+  }
+
+  a {
+    @apply text-link underline;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl
+  }
+
+  h3{
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
 }
 
 
@@ -61,7 +93,7 @@
   }
 
   .markdown-body blockquote {
-    @apply px-1 py-0 text-dark text-opacity-70 border-l-[0.25em] border-dark;
+    @apply px-1 py-0 text-dark dark:text-light text-opacity-70 border-l-[0.25em] border-dark dark:border-light;
   }
 
   .markdown-body blockquote>:first-child {
@@ -77,7 +109,7 @@
   }
 
   .markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link {
-    @apply text-dark align-middle invisible;
+    @apply text-dark dark:text-light align-middle invisible;
   }
 
   .markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor {
@@ -93,11 +125,11 @@
   }
 
   .markdown-body h1 {
-    @apply pb-1 text-3xl border-b-[1px] border-solid border-dark;
+    @apply pb-1 text-3xl border-b-[1px] border-solid border-dark dark:border-light;
   }
 
   .markdown-body h2 {
-    @apply pb-1 text-2xl border-b-[1px] border-solid border-dark;
+    @apply pb-1 text-2xl border-b-[1px] border-solid border-dark dark:border-light;
   }
 
   .markdown-body h3 {
@@ -193,7 +225,7 @@
   }
 
   .markdown-body table th,.markdown-body table td {
-    @apply py-1.5 px-3 border border-solid border-dark;
+    @apply py-1.5 px-3 border border-solid border-dark dark:border-light;
   }
 
   .markdown-body table td>:last-child {
@@ -201,7 +233,7 @@
   }
 
   .markdown-body table tr {
-    @apply border-t-[1px] border-solid border-dark;
+    @apply border-t-[1px] border-solid border-dark dark:border-light;
   }
 
   .markdown-body table img {

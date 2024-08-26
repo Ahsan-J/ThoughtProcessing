@@ -1,5 +1,5 @@
-import { Component, OnInit, TemplateRef, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { AuthService } from './data-store/auth.service';
+import { Component, OnInit, TemplateRef, OnDestroy, ChangeDetectorRef, HostBinding } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
 import { ModalService } from './components/modal/modal.service';
 import { ComponentModule } from './components/component.module';
@@ -7,6 +7,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IUser } from './model/user';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +19,12 @@ import { IUser } from './model/user';
     FontAwesomeModule,
   ],
   templateUrl: './app.component.html',
-  styles: [':host { @apply flex flex-col h-dvh w-dvw bg-light;}'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private modalService: ModalService,
+    private themeService: ThemeService,
     private cd: ChangeDetectorRef
   ) { }
 
@@ -65,4 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.modalSub.unsubscribe();
   }
+
+  @HostBinding('class')
+  hostClass: string = "flex flex-col h-dvh w-dvw bg-light dark:bg-dark"
 }

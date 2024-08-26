@@ -2,6 +2,7 @@ import theme from './theme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ['selector', '[data-mode="dark"]'],
   content: [
     "./src/**/*.{html,ts}",
   ],
