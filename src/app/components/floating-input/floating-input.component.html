@@ -1,6 +1,6 @@
-<label [ngClass]="'floatInput__label '+( errorText ? 'error ': '') +labelClass">
+<label [ngClass]="'relative flex flex-row [&_*]:box-border [&:focus-within>span]:text-primary [&:focus-within>span]:translate-y-0 [&:focus-within>span]:pl-0 '+( errorText ? 'border-danger': '')">
   <input
-    [ngClass]="'floatInput__input ' +( errorText ? 'error ': '') + ( !!placeholder ? 'has_placeholder ': '') + inputClass"
+    [ngClass]="'w-full px-0 py-2 pl-2 mt-5 border border-solid border-gray-500 rounded outline-none placeholder:opacity-0 [&:not(:placeholder-shown)+span]:text-primary [&:not(:placeholder-shown)+span]:translate-y-0 [&:not(:placeholder-shown)+span]:pl-0 bg-transparent text-dark dark:text-light ' +( errorText ? 'border-danger ': '') + ( !!placeholder ? 'focus:placeholder:opacity-1  ': '') + inputClass"
     [defaultValue]="defaultValue"
     [type]="showSecureText && htmlType == 'password' ? 'text' : htmlType"
     [id]="id"
@@ -10,7 +10,7 @@
     [value]="value"
     (input)="onValueChange($event)"
     />
-  <span>{{label}}</span>
+  <span class="absolute top-0 left-0 translate-y-8 text-sm transition-all pl-2 text-dark dark:text-light">{{label}}</span>
   <ng-container *ngIf="htmlType == 'password'">
     <app-button type="primary" (click)="showSecureText = !showSecureText">
       <fa-icon [icon]="!showSecureText ? faEyeSlash : faEye"></fa-icon>

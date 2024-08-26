@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, Renderer2, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output, Renderer2, ViewChild, ElementRef, AfterViewInit, HostBinding } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { IconDefinition, faHeading, faItalic, faBold, faStrikethrough, faUnderline, faQuestion } from '@fortawesome/free-solid-svg-icons';
 
@@ -11,7 +11,6 @@ type SupportingAction = {
 @Component({
   selector: 'md-text-editor',
   templateUrl: './md-text-editor.component.html',
-  styleUrls: ['./md-text-editor.component.css']
 })
 export class MDTextEditor implements AfterViewInit {
   @Input() preview: boolean = true;
@@ -21,6 +20,9 @@ export class MDTextEditor implements AfterViewInit {
   @ViewChild('cheatsheet') cheatsheetModal?: ModalComponent;
 
   constructor(private renderer: Renderer2) { }
+
+  @HostBinding('class')
+  className: string = 'h-full overflow-y-auto mb-3 relative w-full rounded-sm flex flex-col'
 
   ngAfterViewInit() {
     this.generateMarkupElements();

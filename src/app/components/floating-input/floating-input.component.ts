@@ -4,13 +4,11 @@ import { nanoid } from 'nanoid';
 
 @Component({
   selector: 'floating-input',
-  templateUrl: './floating-input.component.html',
-  styleUrls: ['./floating-input.component.css'],
+  templateUrl: './floating-input.component.html'
 })
 export class FloatingInputComponent implements OnInit {
 
-  @Input() id: string = '';
-  @Input() labelClass?: string = '';
+  @Input() id?: string;
   @Input() name?: string;
   @Input() inputClass?: string = '';
   @Input() label?: string = '';
@@ -19,7 +17,9 @@ export class FloatingInputComponent implements OnInit {
   @Input() placeholder?: string = '';
   @Input() iconName?: IconDefinition;
   @Input() value?: string = '';
+  @Input() disabled?: boolean;
   @Output() valueChange = new EventEmitter<string>();
+  @Output() keydown = new EventEmitter<KeyboardEvent>();
 
   faEyeSlash = faEyeSlash;
   faEye = faEye;
@@ -39,7 +39,8 @@ export class FloatingInputComponent implements OnInit {
   }
 
   onIconClick(event: MouseEvent){
-
     this.iconClick.emit(event);
   }
+
+
 };

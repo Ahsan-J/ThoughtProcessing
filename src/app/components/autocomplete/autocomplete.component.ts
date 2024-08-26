@@ -1,14 +1,14 @@
-import { Component, Input, Output, EventEmitter, TemplateRef } from "@angular/core";
+import { Component, Input, Output, EventEmitter, TemplateRef, OnInit } from "@angular/core";
 import { nanoid } from "nanoid";
 import { ColorSchemes } from "src/app/model/app";
 import { IDropdownItem } from "../dropdown/dropdown.types";
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.css', '../floating-input/floating-input.component.css'],
 })
-export class AutoCompleteComponent{
+export class AutoCompleteComponent implements OnInit{
   @Input() label?: string;
   @Input() labelClass?: string;
   @Input() options?: { [key: string]: IDropdownItem };
@@ -23,17 +23,25 @@ export class AutoCompleteComponent{
   @Input() disabled?: boolean;
   @Input() id?: string = nanoid();
   @Input() inputClass? = '';
+  @Input() iconName?: IconDefinition;
+  @Input() value?: string = '';
+  @Input() defaultValue: string = '';
+  @Input() renderDropdownItem?: TemplateRef<any>;
 
   @Output() focus = new EventEmitter<FocusEvent>();
   @Output() blur= new EventEmitter<FocusEvent>();
   @Output() change = new EventEmitter<Event>();
-
+  @Output() keydown = new EventEmitter<KeyboardEvent>();
   @Output() click = new EventEmitter<{key: string, value: IDropdownItem}>();
-  @Input() renderDropdownItem?: TemplateRef<any>;
+  @Output() valueChange = new EventEmitter<string>();
 
   showClass: boolean = false;
   selectedItems: typeof this.options = {};
   errorText: string = "";
+
+  ngOnInit() {
+    this.id = this.id || nanoid();
+  }
 
   onItemClick(key: string, value: IDropdownItem) {
     this.click.emit({key, value})
@@ -49,5 +57,21 @@ export class AutoCompleteComponent{
 
   onBlur(event: FocusEvent) {
     this.blur.emit(event);
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    if(event.key == "Enter" && event.target instanceof HTMLInputElement) {
+      const value = event.target.value;
+
+      const key = Object.keys(this.options || []).find(k => {
+        const option = this.options?.[k]
+        return option && option.label.trim().toLowerCase() == value.trim().toLowerCase()
+      }) || value.toLowerCase()
+
+      const selectedOption: IDropdownItem = this.options?.[key || ""] || { label: value }
+
+      return this.onItemClick(key, selectedOption)
+    }
+    this.keydown.emit(event);
   }
 }

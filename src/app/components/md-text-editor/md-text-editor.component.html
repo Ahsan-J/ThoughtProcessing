@@ -1,5 +1,5 @@
 <!-- Action List -->
-<div class="md-text-editor-actions">
+<div class="border-solid border-b-[1px] flex items-center justify-evenly row gap-1 py-2">
   <app-button [title]="item.title" [outline]="true" *ngFor="let item of supportingActions" type="link"
     (click)="item.action($event)">
     <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
@@ -7,7 +7,7 @@
 </div>
 
 <!-- Main text editor -->
-<ol #container contenteditable="true" class="md-text-editor mb-0" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
+<ol #container contenteditable="true" class="w-full min-h-80 list-inside p-2 focus-visible:outline-none mb-0 text-dark dark:text-light" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
 </ol>
 
 <!-- Modal to show cheat sheet -->

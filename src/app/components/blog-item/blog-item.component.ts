@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, HostBinding, Input } from "@angular/core";
 import { Router } from "@angular/router";
 import { faBookmark, faCommentDots, faThumbsUp, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import { CollapseDirection } from "src/app/constant/app";
@@ -7,10 +7,12 @@ import { IBlog } from "src/app/model/blog";
 @Component({
   selector: 'blog-item',
   templateUrl: './blog-item.component.html',
-  styles: [':host {@apply bg-white flex mx-2 p-4 flex-row rounded-lg;}']
 })
 export class BlogItemComponent {
   @Input() blog?: IBlog;
+
+  @HostBinding('class')
+  hostClass: string = "bg-white dark:bg-dark flex mx-2 p-4 flex-row rounded-lg"
 
   constructor(private router: Router) { }
 

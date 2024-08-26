@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, HostBinding, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 import { generateFilterQuery, Match } from "src/app/shared/sieve";
@@ -13,9 +13,12 @@ type SortingAction = {
 
 @Component({
   templateUrl: './blogs.component.html',
-  styles: [':host { @apply h-full flex flex-col self-center w-3/4; }'],
 })
 export class BlogListComponent implements OnInit {
+
+  @HostBinding('class')
+  hostClass: string = "h-full flex flex-col self-center w-3/4";
+
 
   faFilter = faFilter;
 

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Subscription } from "rxjs";
-import { AuthService } from "src/app/data-store/auth.service";
+import { AuthService } from "src/app/services/auth.service";
 import { IUser } from "src/app/model/user";
 
 @Component({

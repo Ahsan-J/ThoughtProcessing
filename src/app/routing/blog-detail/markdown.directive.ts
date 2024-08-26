@@ -12,7 +12,7 @@ export class MarkdownDirective {
 
   @Input('markdown') set markdown(content: IBlog['content'] | undefined) {
     if(typeof content == 'string') {
-      this.el.nativeElement.innerHTML = marked.parse(content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/,"").trim());
+      this.el.nativeElement.innerHTML = marked.parse(content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/,"").trim().replace(/\n\s+/g, '\n'));
     }
   };
 

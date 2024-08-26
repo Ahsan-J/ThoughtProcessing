@@ -1,4 +1,4 @@
-<div *ngIf="blog" [ngClass]="'px-2 relative h-full ' + collapsed ? 'flex-1': 'flex-[0.75]'" (click)="navigateToBlogDetail">
+<div *ngIf="blog" [ngClass]="'px-2 relative h-full ' + collapsed ? 'flex-1': 'flex-[0.75]'">
   <div class="relative w-full mb-2">
     <div class="absolute right-2 top-1 flex flex-row w-full items-center justify-end p-2 gap-4">
       <app-button type="link">
@@ -8,28 +8,32 @@
         <fa-icon class="text-xl" [icon]="faCircleInfo"></fa-icon>
       </app-button>
     </div>
-    <img [src]="blog.cover" alt="blog-cover" class="w-full max-h-60 object-contain bg-neutral-300"/>
+    <img [src]="blog.cover" alt="blog-cover" class="w-full max-h-60 object-contain bg-neutral-300 dark:bg-transparent cursor-pointer" (click)="navigateToBlogDetail()"/>
   </div>
   <div class="my-2 flex flex-row justify-between items-center">
-    <h2 [routerLink]="'/blog/'+blog.id" class="pointer text-2xl text-dark font-medium">{{blog.title}}</h2>
-    <p class="text-sm text-gray-500 font-light">2 min read</p>
+    <h2 [routerLink]="'/blog/'+blog.id" class="pointer text-3xl font-medium">{{blog.title}}</h2>
+    <p class="text-sm text-gray-500 dark:text-gray-400 font-light">2 min read</p>
   </div>
-  <p class="text-gray-500 text-base font-normal">{{blog.content}}</p>
+  <p class="text-gray-500 text-base font-normal dark:text-gray-400">{{blog.content}}</p>
   <div class="flex flex-row justify-between items-center">
-    <div class="flex flex-row text-sm text-dark">
-      <div class="flex flex-row items-center m-1">
-        <fa-icon class="p-1" [icon]="faThumbsUp"></fa-icon>
-        <span>10 Likes</span>
-      </div>
-      <div class="flex flex-row items-center m-1">
-        <fa-icon class="p-1" [icon]="faCommentDots"></fa-icon>
-        <span>10 Comments</span>
-      </div>
+    <div class="flex flex-row text-sm gap-2 my-2">
+      <app-button class="text-dark dark:text-light bg-transparent">
+        <div class="flex flex-row items-center m-1">
+          <fa-icon class="p-1" [icon]="faThumbsUp"></fa-icon>
+          <span>10 Likes</span>
+        </div>
+      </app-button>
+      <app-button class="text-dark dark:text-light bg-transparent">
+        <div class="flex flex-row items-center m-1">
+          <fa-icon class="p-1" [icon]="faCommentDots"></fa-icon>
+          <span>10 Comments</span>
+        </div>
+      </app-button>
     </div>
     <div class="flex flex-row items-center gap-1">
       <avatar [src]="blog.author?.profile" [name]="blog.author?.name"></avatar>
       <div class="flex flex-col mx-2">
-        <p class="text-base text-dark font-medium">{{blog.author?.name}}</p>
+        <p class="text-base font-medium">{{blog.author?.name}}</p>
         <p class="text-xs text-gray-500 font-light">{{blog.created_at | date }}</p>
       </div>
     </div>
@@ -39,7 +43,7 @@
   <div class="flex flex-col items-center">
     <avatar [src]="blog.author?.profile" class="rounded-lg relative h-24 w-24 flex flex-row items-center justify-center" [name]="blog.author?.name"></avatar>
     <div class="flex flex-col">
-      <p class="text-dark text-xl font-medium">{{blog.author?.name}}</p>
+      <p class="text-xl font-medium">{{blog.author?.name}}</p>
     </div>
   </div>
   <app-button [outline]="true" type="primary" [rounded]="true">Follow</app-button>

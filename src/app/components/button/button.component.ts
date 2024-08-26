@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnChanges, OnInit, SimpleChanges, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, Input, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Size } from 'src/app/constant/app';
 import { ColorSchemes } from 'src/app/model/app';
