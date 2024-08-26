@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { AuthService } from "../../data-store/auth.service";
+import { AuthService } from "../../services/auth.service";
 import { ApiService, IApiParam } from "../../shared/api/api.service";
 import { unmarshalFormData } from "../../shared/utility";
 

@@ -1,5 +1,5 @@
 import { Component, AfterContentInit, HostListener, OnInit, OnDestroy } from "@angular/core";
-import { AuthService } from "src/app/data-store/auth.service";
+import { AuthService } from "src/app/services/auth.service";
 import { IUser } from "src/app/model/user";
 import { GITHUB, LINKEDIN, STACK_OVERFLOW } from '../../shared/color';
 import { Subscription } from 'rxjs';

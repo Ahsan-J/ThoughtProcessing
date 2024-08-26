@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/data-store/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { IBlog } from 'src/app/model/blog';
 import { IUser } from 'src/app/model/user';
 import { ApiService } from 'src/app/shared/api/api.service';

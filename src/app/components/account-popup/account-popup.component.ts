@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core'
-import { AuthService } from 'src/app/data-store/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { IUser } from 'src/app/model/user';
 import { Subscription } from 'rxjs';
 import { ApiService, IApiParam } from 'src/app/shared/api/api.service';
