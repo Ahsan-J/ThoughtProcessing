@@ -28,11 +28,12 @@ export class AppComponent implements OnInit, OnDestroy {
     private cd: ChangeDetectorRef
   ) { }
 
-  private modalSub!: Subscription;
+  private modalSub?: Subscription;
+  private themeSub?: Subscription;
 
   modalTemplate: TemplateRef<any> | null = null;
 
-  ngOnInit() {
+  loadSavedUserData() {
     if (typeof localStorage != 'undefined') {
       let user: IUser = {
         access_token: "",
@@ -56,15 +57,30 @@ export class AppComponent implements OnInit, OnDestroy {
       // }
       this.authService.setAuthUser(user)
     }
+  }
 
-    this.modalSub = this.modalService.modalRef$.subscribe(modalTemplate => {
-      this.modalTemplate = modalTemplate;
+  onChangeThemeMode(isDarkMode: boolean) {
+    if(typeof window !== "undefined") {
+      document.body?.setAttribute("data-mode", isDarkMode ? "dark" : "light")
       this.cd.detectChanges();
-    })
+    }
+  }
+
+  onChangeModalTemplate(modalTemplate: TemplateRef<any> | null) {
+    this.modalTemplate = modalTemplate;
+    this.cd.detectChanges();
+  }
+
+  ngOnInit() {
+    this.loadSavedUserData();
+    this.themeService.init();
+    this.modalSub = this.modalService.modalRef$.subscribe(this.onChangeModalTemplate.bind(this))
+    this.themeSub = this.themeService.darkMode$.subscribe(this.onChangeThemeMode.bind(this))
   }
 
   ngOnDestroy() {
-    this.modalSub.unsubscribe();
+    this.modalSub?.unsubscribe();
+    this.themeSub?.unsubscribe();
   }
 
   @HostBinding('class')

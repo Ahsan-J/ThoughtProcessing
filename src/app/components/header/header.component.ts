@@ -5,7 +5,8 @@ import { GITHUB, LINKEDIN, STACK_OVERFLOW } from '../../shared/color';
 import { Subscription } from 'rxjs';
 import { unmarshalFormData } from "src/app/shared/utility";
 import { Router } from "@angular/router";
-import { faBell, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faPlus, faSearch, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { ThemeService } from "src/app/services/theme.service";
 
 type HeaderMenu = {
   label: string,
@@ -24,6 +25,8 @@ export class HeaderComponent implements AfterContentInit, OnInit, OnDestroy {
   faSearch = faSearch;
   faPlus = faPlus;
   faBell = faBell;
+  faMoon = faMoon;
+  faSun = faSun;
 
   showPopup:boolean = false;
   collapse: boolean = true;
@@ -34,7 +37,7 @@ export class HeaderComponent implements AfterContentInit, OnInit, OnDestroy {
 
   private sub!: Subscription
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private themeService: ThemeService) {}
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
@@ -69,5 +72,13 @@ export class HeaderComponent implements AfterContentInit, OnInit, OnDestroy {
         this.router.navigate(['/blogs'], {queryParams: data});
       }
     }
+  }
+
+  toggleDarkMode() {
+    this.themeService.setDarkMode(!this.isDarkMode)
+  }
+
+  get isDarkMode() {
+    return this.themeService.isDarkMode;
   }
 }

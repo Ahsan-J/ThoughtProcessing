@@ -60,8 +60,6 @@ export class ButtonComponent {
   @Input() rightIcon?: IconDefinition;
   @Input() value?: string | number | boolean;
 
-  constructor(private readonly viewRef: ViewContainerRef) { }
-
   get isLinkButton() {
     return this.type == "link" || !!this.link;
   }

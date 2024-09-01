@@ -1,4 +1,4 @@
-<img *ngIf="src" class="w-full h-full" [src]="src" [alt]="id" />
+<img *ngIf="src" class="w-full h-full object-cover" [src]="src" [alt]="id" />
 <fa-icon *ngIf="!src && icon" [icon]="icon"></fa-icon>
 <span *ngIf="!src && !icon && name">{{shortName}}</span>
 <ng-content></ng-content>
