@@ -18,14 +18,19 @@ export class FloatingInputComponent implements OnInit {
   @Input() iconName?: IconDefinition;
   @Input() value?: string = '';
   @Input() disabled?: boolean;
+
   @Output() valueChange = new EventEmitter<string>();
+  @Output() change = new EventEmitter<Event>();
   @Output() keydown = new EventEmitter<KeyboardEvent>();
+  @Output() focus = new EventEmitter<FocusEvent>();
+  @Output() blur = new EventEmitter<FocusEvent>();
 
   faEyeSlash = faEyeSlash;
   faEye = faEye;
 
   onValueChange(event: Event) {
     this.valueChange.emit((event.target as HTMLInputElement)?.value)
+    this.change.emit(event)
   }
 
   @Output() iconClick = new EventEmitter<MouseEvent>();
@@ -42,5 +47,15 @@ export class FloatingInputComponent implements OnInit {
     this.iconClick.emit(event);
   }
 
+  onFocus(event: FocusEvent) {
+    this.focus.emit(event);
+  }
 
+  onBlur(event: FocusEvent) {
+    this.blur.emit(event);
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    this.keydown.emit(event);
+  }
 };

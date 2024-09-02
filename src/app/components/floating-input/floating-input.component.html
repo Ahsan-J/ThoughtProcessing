@@ -8,7 +8,12 @@
     [name]="name"
     [placeholder]="placeholder || label"
     [value]="value"
+    (change)="onValueChange($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    (keydown)="onKeyDown($event)"
     (input)="onValueChange($event)"
+    autocomplete="off"
     />
   <span class="absolute top-0 left-0 translate-y-8 text-sm transition-all pl-2 text-dark dark:text-light">{{label}}</span>
   <ng-container *ngIf="htmlType == 'password'">
@@ -24,4 +29,4 @@
   </ng-container>
 
 </label>
-<span *ngIf="errorText" class="invalid-feedback">{{errorText}}</span>
+<span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>

@@ -47,7 +47,7 @@ const disabledClass = `disabled:bg-neutral-400`
 })
 export class ButtonComponent {
   @Input() outline?: boolean;
-  @Input() type: ColorSchemes = "primary";
+  @Input() type?: ColorSchemes = "primary";
   @Input() disabled?: boolean;
   @Input() size?: Size = Size.base;
   @Input() block?: boolean;
