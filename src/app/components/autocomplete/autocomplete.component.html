@@ -20,7 +20,7 @@
 <span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>
 
 <ul [ngClass]="this.dropdownContentClass">
-  <li class="px-3 py-4 flex flex-row items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" *ngFor="let item of filteredOptions | keyvalue" (click)="onItemClick(item.key, item.value)">
+  <li class="px-3 py-4 flex flex-row items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" *ngFor="let item of options | dropdownFilter: this.searchTerm| keyvalue" (click)="onItemClick(item.key, item.value)">
     <fa-icon *ngIf="item.value.icon" [icon]="item.value.icon"></fa-icon>
     {{item.value.label}}
   </li>

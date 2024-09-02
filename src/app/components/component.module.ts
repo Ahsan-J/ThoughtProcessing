@@ -26,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccountPopupComponent } from './account-popup/account-popup.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DropdownItemFilterPipe } from './autocomplete/dropdownFilter.pipe';
 
 const components = [
   CollapseComponent,
@@ -42,6 +43,7 @@ const components = [
   ResizeableContainerComponent,
   ProfileCardComponent,
   CreateObjectURLPipe,
+  DropdownItemFilterPipe,
   MDTextEditor,
   MarkdownDirective,
   BadgeComponent,

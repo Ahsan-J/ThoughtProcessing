@@ -93,22 +93,6 @@ export class AutoCompleteComponent implements OnInit {
     }
   }
 
-  private matchItems(value: string, matching: string): boolean {
-    return value.toLowerCase().includes(matching.toLowerCase())
-  }
-
-  get filteredOptions(): typeof this.options {
-    return Object.keys(this.options || {}).reduce((result, key: string) => {
-      const value: IDropdownItem | undefined = this.options?.[key];
-
-      if (result && value && (this.matchItems(key, this.searchTerm) || this.matchItems(value.label, this.searchTerm))) {
-        result[key] = value;
-      }
-
-      return result
-    }, {} as typeof this.options)
-  }
-
   get dropdownContentClass(): string {
     return `absolute bg-light dark:bg-dark w-full overflow-auto shadow z-10 p-0 max-h-[15rem] ${this.showClass ? "block" : "hidden"}`;
   }
