@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, TemplateRef, OnInit, HostBinding, ChangeDetectorRef } from "@angular/core";
+import { Component, Input, Output, EventEmitter, TemplateRef, OnInit, HostBinding, ChangeDetectorRef, HostListener, ViewContainerRef } from "@angular/core";
 import { nanoid } from "nanoid";
 import { ColorSchemes } from "src/app/model/app";
 import { IDropdownItem } from "../dropdown/dropdown.types";
@@ -7,6 +7,7 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 @Component({
   selector: 'autocomplete',
   templateUrl: './autocomplete.component.html',
+
 })
 export class AutoCompleteComponent implements OnInit {
   @Input() label?: string;
@@ -32,15 +33,17 @@ export class AutoCompleteComponent implements OnInit {
   @Output() blur = new EventEmitter<FocusEvent>();
   @Output() change = new EventEmitter<Event>();
   @Output() keydown = new EventEmitter<KeyboardEvent>();
-  @Output() click = new EventEmitter<{ key: string, value: IDropdownItem }>();
+  @Output() itemSelect = new EventEmitter<{ key: string, value: IDropdownItem }>();
   @Output() valueChange = new EventEmitter<string>();
 
   showClass: boolean = false;
-  selectedItems: typeof this.options = {};
   errorText: string = "";
   searchTerm: string = "";
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private readonly viewRef: ViewContainerRef
+  ) { }
 
   @HostBinding('class')
   get className(): string {
@@ -51,8 +54,16 @@ export class AutoCompleteComponent implements OnInit {
     this.id = this.id || nanoid();
   }
 
-  onItemClick(key: string, value: IDropdownItem) {
-    this.click.emit({ key, value })
+  @HostListener('document:click', ['$event'])
+  onClickOutside(e: MouseEvent) {
+    if (this.viewRef.element.nativeElement instanceof HTMLElement && !this.viewRef.element.nativeElement?.contains(e.target as Node)) {
+      this.showClass = false
+    }
+  }
+
+  onItemClick(event: Event, key: string, value: IDropdownItem) {
+    this.itemSelect.emit({ key, value })
+    this.showClass = false
   }
 
   onChange(event: Event) {
@@ -67,7 +78,7 @@ export class AutoCompleteComponent implements OnInit {
 
   onBlur(event: FocusEvent) {
     this.blur.emit(event);
-    this.showClass = false;
+    // this.showClass = false;
   }
 
   onKeyDown(event: KeyboardEvent) {
@@ -80,7 +91,7 @@ export class AutoCompleteComponent implements OnInit {
       }) || value.toLowerCase()
 
       const selectedOption: IDropdownItem = this.options?.[key || ""] || { label: value }
-      if(key && selectedOption) return this.onItemClick(key, selectedOption)
+      if (key && selectedOption) return this.onItemClick(event, key, selectedOption)
     }
 
     this.keydown.emit(event);

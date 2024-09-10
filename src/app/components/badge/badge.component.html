@@ -1,4 +1,2 @@
-<div [ngClass]="'badge ' + rounded ? 'rounded-pill ': '' + 'bg-' + type || 'primary ' + 'container ' + class" [ngStyle]="{'cursor': 'pointer'}">
-  <ng-content></ng-content>
-  <fa-icon *ngIf="showRemove" [icon]="faXMark" class="closeBtn" (click)="onRemove($event)"></fa-icon>
-</div>
+<ng-content></ng-content>
+<fa-icon *ngIf="showRemove" [icon]="faXMark" class="pl-1 text-sm cursor-pointer" (click)="onRemove($event)"></fa-icon>
