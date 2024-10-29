@@ -22,7 +22,7 @@ export class MDTextEditor implements AfterViewInit {
   constructor(private renderer: Renderer2) { }
 
   @HostBinding('class')
-  className: string = 'h-full overflow-y-auto mb-3 relative w-full rounded-sm flex flex-col'
+  className: string = 'h-full overflow-y-auto relative w-full flex flex-col p-2 bg-light bg-opacity-10 rounded w-full'
 
   ngAfterViewInit() {
     this.generateMarkupElements();
@@ -120,13 +120,13 @@ export class MDTextEditor implements AfterViewInit {
   updateValue(element = this.container.nativeElement) {
     let textNodes = [];
     if(element instanceof HTMLOListElement) {
-      for(let child of element.children) {
+      for(let child of element.childNodes) {
         textNodes.push(child.textContent);
       }
     }
 
     const text = textNodes.join("\n");
-
+    console.log(text, textNodes, element)
     this.markup = text;
     this.markupChange.emit(text);
   }
@@ -137,7 +137,6 @@ export class MDTextEditor implements AfterViewInit {
 
       if (text.length - 1 <= 0 && e.key == 'Backspace') {
         e.preventDefault();
-        e.target.innerHTML = '<li></li>';
         this.updateValue(e.target);
       }
     }

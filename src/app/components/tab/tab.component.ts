@@ -3,7 +3,6 @@ import { INavItem } from '../navbar-list/navbar-list.component';
 
 @Component({
   selector: 'tab',
-  styleUrls: ['./tab.component.css'],
   templateUrl: './tab.component.html',
 })
 export class TabComponent implements OnInit {
@@ -17,6 +16,9 @@ export class TabComponent implements OnInit {
   @Output() onAddTab = new EventEmitter<INavItem['title']>();
 
   @HostBinding('data-test') testId = "TabContainer";
+
+  @HostBinding('class')
+  hostClass: string = "h-full w-full flex flex-col"
 
   navBaristData: Array<INavItem> =[]
 

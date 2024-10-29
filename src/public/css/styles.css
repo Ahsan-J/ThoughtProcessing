@@ -47,6 +47,10 @@
   h6 {
     @apply text-base;
   }
+
+  code {
+    @apply bg-neutral-400 dark:bg-neutral-700 text-dark dark:text-light px-4 py-2 rounded;
+  }
 }
 
 
@@ -85,7 +89,7 @@
   }
 
   .markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre,.markdown-body details {
-    @apply mt-0 mb-4;
+    @apply mt-0 mb-4 text-dark dark:text-light text-base;
   }
 
   .markdown-body hr {
@@ -121,43 +125,43 @@
   }
 
   .markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code {
-    @apply py-0 px-1;
+    @apply py-0 px-1 text-dark dark:text-light;
   }
 
   .markdown-body h1 {
-    @apply pb-1 text-3xl border-b-[1px] border-solid border-dark dark:border-light;
+    @apply pb-1 text-3xl border-b-[1px] border-solid border-dark dark:border-light text-dark dark:text-light;
   }
 
   .markdown-body h2 {
-    @apply pb-1 text-2xl border-b-[1px] border-solid border-dark dark:border-light;
+    @apply pb-1 text-2xl border-b-[1px] border-solid border-dark dark:border-light text-dark dark:text-light;
   }
 
   .markdown-body h3 {
-    @apply text-xl;
+    @apply text-xl text-dark dark:text-light;
   }
 
   .markdown-body h4 {
-    @apply text-base;
+    @apply text-base text-dark dark:text-light;
   }
 
   .markdown-body h5 {
-    @apply text-sm;
+    @apply text-sm text-dark dark:text-light;
   }
 
   .markdown-body h6 {
-    @apply text-xs;
+    @apply text-xs text-dark dark:text-light;
   }
 
   .markdown-body summary h1,.markdown-body summary h2,.markdown-body summary h3,.markdown-body summary h4,.markdown-body summary h5,.markdown-body summary h6 {
-    @apply inline-block;
+    @apply inline-block text-dark dark:text-light;
   }
 
   .markdown-body summary h1 .anchor,.markdown-body summary h2 .anchor,.markdown-body summary h3 .anchor,.markdown-body summary h4 .anchor,.markdown-body summary h5 .anchor,.markdown-body summary h6 .anchor {
-    @apply -ml-10;
+    @apply -ml-10 text-dark dark:text-light;
   }
 
   .markdown-body summary h1,.markdown-body summary h2 {
-    @apply pb-0 border-b-0;
+    @apply pb-0 border-b-0 text-dark dark:text-light;
   }
 
   .markdown-body ul,.markdown-body ol {
@@ -197,7 +201,7 @@
   }
 
   .markdown-body li>p {
-    @apply mt-4;
+    @apply mt-4 text-dark dark:text-light;
   }
 
   .markdown-body li+li {
@@ -313,7 +317,7 @@
   }
 
   .markdown-body code,.markdown-body tt {
-    @apply py-1 px-2 m-0 text-sm whitespace-break-spaces rounded-md;
+    @apply py-1 px-2 m-0 text-sm whitespace-break-spaces rounded-md text-dark dark:text-light;
   }
 
   .markdown-body code br,.markdown-body tt br {
@@ -325,11 +329,11 @@
   }
 
   .markdown-body pre code {
-    @apply text-base;
+    @apply text-base text-dark dark:text-light;
   }
 
   .markdown-body pre>code {
-    @apply p-0 m-0 break-normal whitespace-pre bg-transparent border-0;
+    @apply p-0 m-0 break-normal whitespace-pre bg-transparent border-0 text-dark dark:text-light;
   }
 
   .markdown-body .highlight {
@@ -345,7 +349,7 @@
   }
 
   .markdown-body pre code,.markdown-body pre tt {
-    @apply inline max-w-max p-0 m-0 overflow-visible bg-transparent border-0;
+    @apply inline max-w-max p-0 m-0 overflow-visible bg-transparent border-0 text-dark dark:text-light;
   }
 
   .markdown-body .csv-data td,.markdown-body .csv-data th {
@@ -393,11 +397,19 @@
   }
 
   .markdown-body .footnotes li:target {
-    color: var(--fgColor-default, var(--color-fg-default))
+    color: var(--fgColor-default, var(--color-fg-default));
   }
 
   .markdown-body .footnotes .data-footnote-backref g-emoji {
-    font-family: monospace
+    font-family: monospace;
   }
 
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }

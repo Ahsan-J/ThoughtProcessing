@@ -15,6 +15,7 @@ export default {
       fontSize: theme.fontSize,
       gradientColorStops: theme.backgroundColor,
       fill: theme.backgroundColor,
+      colors: theme.backgroundColor,
       keyframes: {
         cursor: {
           "0%": {

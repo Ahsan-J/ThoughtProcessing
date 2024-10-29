@@ -1,21 +1,39 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnChanges, ViewChild } from "@angular/core";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { IDropdownItem } from "src/app/components/dropdown/dropdown.types";
 import { BlogStatus } from "src/app/model/blog";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 
 @Component({
   templateUrl: './create-blog-component.html',
-  styleUrls: ['./create-blog.component.css'],
 })
-export class CreateBlogComponent {
+export class CreateBlogComponent implements OnChanges{
 
   @ViewChild('formRef') formRef!: ElementRef<any>;
 
   constructor(private apiService: ApiService) { }
 
-  markup: string = '';
+  markup: string = "## Hello";
   bannerImage: File | null = null;
   faImage = faImage;
+  options?: { [key: string]: IDropdownItem } = {
+    "programming": { label: "Programming" },
+    "writing": { label: "Writing" },
+  };
+
+  tags: {[key in string]: IDropdownItem} = {};
+
+  ngOnChanges() {
+    console.log(this.markup)
+  }
+
+  get selectedTagKeys() {
+    return Object.keys(this.tags)
+  }
+
+  onSelectingItem(event: any, key: string, item: IDropdownItem) {
+    this.tags[key] = item
+  }
 
   onFileChange(e: Event) {
     const file = (e.target as HTMLInputElement | null)?.files?.[0];

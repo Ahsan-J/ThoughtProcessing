@@ -4,9 +4,10 @@
   (onItemClose)="onTabClose.emit($event)"
   (onAddItem)="onAddNewTab($event)"
   [active]="activeTab"
-  [dynamic]="dynamicTabs"></navbar-list>
+  [dynamic]="dynamicTabs">
+</navbar-list>
 
-<div data-test="TabContent" class="tab-content">
+<div data-test="TabContent" class="w-full h-full">
   <ng-container [ngTemplateOutlet]="data[activeTab]">
   </ng-container>
 </div>

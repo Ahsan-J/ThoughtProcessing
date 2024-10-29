@@ -1,10 +1,5 @@
-<ul [ngClass]="typeClass">
-  <li *ngFor="let item of data" [class]="getListClass(item)">
-    <a [ngClass]="'nav-link ' + (active == item.title ? 'active': '')" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a>
-  </li>
-  <li *ngIf="dynamic" class="nav-item">
-    <app-button type="link" (click)="onAddItem.emit($event)">
-      <fa-icon [icon]="faPlusCircle" class="nav-link addButton"></fa-icon>
-    </app-button>
+<ul class="flex flex-col py-2 md:flex-row gap-2">
+  <li class="px-3 py-2" *ngFor="let item of data">
+    <a class="block text-dark dark:text-light font-normal text-lg rounded md:bg-transparent md:p-0 no-underline" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a>
   </li>
 </ul>

@@ -5,7 +5,6 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'modal',
   templateUrl: './model.component.html',
-  styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent{
 
@@ -44,12 +43,16 @@ export class ModalComponent{
 
   get animationClass() {
     switch(this.direction) {
-      case "right": return "transformRight ";
-      case "left": return "transformLeft ";
-      case "bottom": return "transformBottom ";
+      case "right": return "translate-x-[100rem] translate-y-0";
+      case "left": return "-translate-x-[100rem] translate-y-0";
+      case "bottom": return "translate-x-0 translate-y-[100rem]";
       case "top":
-      default: return "transformTop ";
+      default: return "translate-x-0 -translate-y-[100rem]";;
     }
+  }
+
+  get modelInnerContainer() {
+    return "bg-light dark:bg-dark bg-opacity-80 w-3/4 h-3/4 hide-scrollbar overflow-y-auto overflow-x-hidden flex flex-col relative z-1 transform-x-0 transform-y-0 rounded transition-all px-3 py-1 border-dark dark:border-light border border-solid" + this.animationClass
   }
 
   showModal(show = this.show) {
