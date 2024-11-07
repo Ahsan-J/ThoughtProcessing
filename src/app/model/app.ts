@@ -20,4 +20,4 @@ export interface PaginationMeta {
   to: number;
 }
 
-export type ColorSchemes = "primary" | "secondary" | "danger" | "warning" | "success" | "info" | "link" | "light" | "dark";
+export type ColorSchemes = "primary" | "secondary" | "danger" | "warning" | "success" | "info" | "link" | "light" | "dark" | "link-inverse";

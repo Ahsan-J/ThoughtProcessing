@@ -13,7 +13,8 @@ const VariantClasses: { [key in ColorSchemes]: string } = {
   "light": "bg-light text-dark [&_svg]:fill-dark",
   "dark": "bg-dark text-light [&_svg]:fill-light",
   "danger": `bg-danger text-light [&_svg]:fill-light`,
-  "link": `bg-ghost text-link hover:underline [&_svg]:fill-link`,
+  "link": `text-link hover:underline [&_svg]:fill-link`,
+  "link-inverse": `[&_a]:text-dark [&_a]:dark:text-light hover:underline [&_svg]:fill-link-inverse`
 }
 
 const VariantOutlineColors: { [key in ColorSchemes]: string } = {
@@ -26,6 +27,7 @@ const VariantOutlineColors: { [key in ColorSchemes]: string } = {
   "dark": "outline-dark !text-dark",
   "danger": `outline-danger !text-danger`,
   "link": ``,
+  "link-inverse": ``,
 }
 
 const SizeClasses: { [key in Size]: string } = {
@@ -61,7 +63,7 @@ export class ButtonComponent {
   @Input() value?: string | number | boolean;
 
   get isLinkButton() {
-    return this.type == "link" || !!this.link;
+    return this.type == "link" || this.type == "link-inverse" || !!this.link;
   }
 
   get linkTarget() {

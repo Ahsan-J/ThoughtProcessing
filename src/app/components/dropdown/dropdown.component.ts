@@ -13,7 +13,8 @@ const VariantLabelClasses: { [key in ColorSchemes]: string } = {
   "light": "text-light",
   "dark": "text-dark",
   "danger": `text-danger`,
-  "link": `text-ghost`,
+  "link": ``,
+  "link-inverse": ``,
 }
 
 @Component({

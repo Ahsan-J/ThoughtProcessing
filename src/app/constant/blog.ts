@@ -25,7 +25,7 @@ export const sampleBlogs: Array<IBlog> = [
     id: "123",
     likes: 1,
     status: 1,
-    cover: "https://placehold.co/800x240",
+    cover: "https://placehold.co/800x740",
     author: {
       created_at: new Date().toISOString(),
       access_token: "null",
@@ -53,7 +53,7 @@ export const sampleBlogs: Array<IBlog> = [
     id: "abc",
     likes: 1,
     status: 1,
-    cover: "https://placehold.co/800x240",
+    cover: "https://placehold.co/800x540",
     author: {
       created_at: new Date().toISOString(),
       access_token: "null",

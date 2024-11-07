@@ -1,5 +1,8 @@
 <ul class="flex flex-col py-2 md:flex-row gap-2">
   <li class="px-3 py-2" *ngFor="let item of data">
-    <a class="block text-dark dark:text-light font-normal text-lg rounded md:bg-transparent md:p-0 no-underline" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a>
+    <app-button [type]="item.title == this.active ? 'link': 'link-inverse'" class="block text-lg rounded md:bg-transparent md:p-0 no-underline" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">
+      {{item.title}}
+    </app-button>
+    <!-- <a class="block text-dark dark:text-light font-normal text-lg rounded md:bg-transparent md:p-0 no-underline" data-bs-toggle="tab" (click)="onItemClick(item, $event)" role="tab">{{item.title}}</a> -->
   </li>
 </ul>

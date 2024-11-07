@@ -22,7 +22,7 @@ export class MDTextEditor implements AfterViewInit {
   constructor(private renderer: Renderer2) { }
 
   @HostBinding('class')
-  className: string = 'h-full overflow-y-auto relative w-full flex flex-col p-2 bg-light bg-opacity-10 rounded w-full'
+  className: string = 'h-full overflow-y-auto relative w-full flex flex-col p-2 bg-neutral-300 dark:bg-neutral-700 bg-opacity-10 rounded w-full'
 
   ngAfterViewInit() {
     this.generateMarkupElements();

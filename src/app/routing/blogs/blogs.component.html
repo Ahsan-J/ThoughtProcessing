@@ -1,7 +1,7 @@
 <div class="flex flex-row justify-between my-2">
   <div class="flex flex-row flex-[0.8] items-center justify-between">
     <div class="flex flex-row gap-2">
-      <app-button *ngFor="let sort of sorts" [type]="sort.value == activeSort ? 'link': 'secondary'"
+      <app-button [outline]="true" class="!outline-none !px-2" *ngFor="let sort of sorts" [type]="sort.value == activeSort ? 'link': 'link-inverse'"
         (click)="onSort(sort.value)">
         {{sort.label}}
       </app-button>
@@ -15,7 +15,7 @@
   <div class="flex flex-col flex-[0.8] gap-3 ">
     <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
   </div>
-  <div class="m-2 p-3 mt-0 bg-white flex-[0.2] gap-2 h-fit rounded sticky top-0">
+  <div class="m-2 p-3 mt-0 bg-neutral-300 dark:bg-neutral-700 flex-[0.2] gap-2 h-fit rounded-lg sticky top-0">
     <profile-card></profile-card>
     <popular-tags></popular-tags>
   </div>

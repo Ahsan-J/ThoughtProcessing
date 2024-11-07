@@ -11,7 +11,8 @@ const VariantClasses: { [key in ColorSchemes]: string } = {
   "light": "bg-light text-dark [&_svg]:fill-dark",
   "dark": "bg-dark text-light [&_svg]:fill-light",
   "danger": `bg-danger text-light [&_svg]:fill-light`,
-  "link": `bg-ghost text-link hover:underline [&_svg]:fill-link`,
+  "link": `text-link hover:underline [&_svg]:fill-link`,
+  "link-inverse": `hover:underline [&_svg]:fill-link-inverse`
 }
 
 @Component({
