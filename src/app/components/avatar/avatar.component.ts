@@ -3,8 +3,9 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 @Component({
-  selector: 'avatar',
-  templateUrl: './avatar.component.html',
+    selector: 'avatar',
+    templateUrl: './avatar.component.html',
+    standalone: false
 })
 export class AvatarComponent {
   public id: string = "";

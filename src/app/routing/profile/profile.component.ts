@@ -8,8 +8,9 @@ import { IUser } from 'src/app/model/user';
 import { ApiService } from 'src/app/shared/api/api.service';
 
 @Component({
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css'],
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css'],
+    standalone: false
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   sub!: Subscription;

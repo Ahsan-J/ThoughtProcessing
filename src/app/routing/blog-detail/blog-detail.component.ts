@@ -13,7 +13,8 @@ type BlogAction = {
 }
 
 @Component({
-  templateUrl: './blog-detail.component.html',
+    templateUrl: './blog-detail.component.html',
+    standalone: false
 })
 export class BlogDetailComponent implements OnInit, OnDestroy {
 

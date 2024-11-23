@@ -3,8 +3,9 @@ import { IconDefinition, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-i
 import { nanoid } from 'nanoid';
 
 @Component({
-  selector: 'floating-input',
-  templateUrl: './floating-input.component.html'
+    selector: 'floating-input',
+    templateUrl: './floating-input.component.html',
+    standalone: false
 })
 export class FloatingInputComponent implements OnInit {
 

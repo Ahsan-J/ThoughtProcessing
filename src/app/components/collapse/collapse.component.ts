@@ -3,9 +3,10 @@ import { nanoid } from "nanoid";
 import { CollapseDirection } from "src/app/constant/app";
 
 @Component({
-  selector: 'collapse',
-  templateUrl: './collapse.component.html',
-  encapsulation: ViewEncapsulation.Emulated
+    selector: 'collapse',
+    templateUrl: './collapse.component.html',
+    encapsulation: ViewEncapsulation.Emulated,
+    standalone: false
 })
 export class CollapseComponent implements AfterViewInit, OnChanges  {
 

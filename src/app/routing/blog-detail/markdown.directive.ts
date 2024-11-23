@@ -3,7 +3,8 @@ import { IBlog } from 'src/app/model/blog';
 import { marked } from 'marked';
 
 @Directive({
-  selector: '[markdown]',
+    selector: '[markdown]',
+    standalone: false
 })
 export class MarkdownDirective {
   constructor(

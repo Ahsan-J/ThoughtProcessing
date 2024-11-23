@@ -5,8 +5,9 @@ import { CollapseDirection } from "src/app/constant/app";
 import { IBlog } from "src/app/model/blog";
 
 @Component({
-  selector: 'blog-item',
-  templateUrl: './blog-item.component.html',
+    selector: 'blog-item',
+    templateUrl: './blog-item.component.html',
+    standalone: false
 })
 export class BlogItemComponent {
   @Input() blog?: IBlog;

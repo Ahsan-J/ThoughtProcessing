@@ -1,9 +1,10 @@
 import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
-  selector: 'resizeable-container',
-  templateUrl: './resizeable-container.component.html',
-  styleUrls: ['./resizeable-container.component.css'],
+    selector: 'resizeable-container',
+    templateUrl: './resizeable-container.component.html',
+    styleUrls: ['./resizeable-container.component.css'],
+    standalone: false
 })
 export class ResizeableContainerComponent implements AfterViewInit {
   @Input() id?: string;

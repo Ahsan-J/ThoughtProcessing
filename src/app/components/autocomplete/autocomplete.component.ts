@@ -5,9 +5,9 @@ import { IDropdownItem } from "../dropdown/dropdown.types";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'autocomplete',
-  templateUrl: './autocomplete.component.html',
-
+    selector: 'autocomplete',
+    templateUrl: './autocomplete.component.html',
+    standalone: false
 })
 export class AutoCompleteComponent implements OnInit {
   @Input() label?: string;

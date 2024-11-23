@@ -9,8 +9,9 @@ type SupportingAction = {
 }
 
 @Component({
-  selector: 'md-text-editor',
-  templateUrl: './md-text-editor.component.html',
+    selector: 'md-text-editor',
+    templateUrl: './md-text-editor.component.html',
+    standalone: false
 })
 export class MDTextEditor implements AfterViewInit {
   @Input() preview: boolean = true;

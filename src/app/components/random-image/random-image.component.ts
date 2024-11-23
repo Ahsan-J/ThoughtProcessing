@@ -1,9 +1,10 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'random-image',
-  template: '',
-  styleUrls: ['./random-image.component.css'],
+    selector: 'random-image',
+    template: '',
+    styleUrls: ['./random-image.component.css'],
+    standalone: false
 })
 export class RandomImageComponent implements OnInit {
   rects: Array<HTMLDivElement> = new Array();

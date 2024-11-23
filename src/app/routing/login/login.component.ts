@@ -4,8 +4,9 @@ import { ApiService, IApiParam } from "../../shared/api/api.service";
 import { unmarshalFormData } from "../../shared/utility";
 
 @Component({
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: false
 })
 export class LoginComponent {
 

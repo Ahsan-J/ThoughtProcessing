@@ -13,9 +13,10 @@ type NavListItem = {
 }
 
 @Component({
-  selector: 'account-popup',
-  templateUrl: './account-popup.component.html',
-  styleUrls: ['./account-popup.component.css']
+    selector: 'account-popup',
+    templateUrl: './account-popup.component.html',
+    styleUrls: ['./account-popup.component.css'],
+    standalone: false
 })
 export class AccountPopupComponent implements OnInit, OnDestroy {
   public user!: IUser;

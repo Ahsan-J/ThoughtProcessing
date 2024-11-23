@@ -6,8 +6,9 @@ import { ApiService, IApiParam } from 'src/app/shared/api/api.service';
 import { unmarshalFormData } from 'src/app/shared/utility';
 
 @Component({
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+    templateUrl: './signup.component.html',
+    styleUrls: ['./signup.component.css'],
+    standalone: false
 })
 export class SignupComponent {
 

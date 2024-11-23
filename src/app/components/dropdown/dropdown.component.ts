@@ -18,8 +18,9 @@ const VariantLabelClasses: { [key in ColorSchemes]: string } = {
 }
 
 @Component({
-  selector: 'dropdown',
-  templateUrl: './dropdown.component.html',
+    selector: 'dropdown',
+    templateUrl: './dropdown.component.html',
+    standalone: false
 })
 export class DropdownComponent implements OnInit {
   @Input() defaultKey?: string;

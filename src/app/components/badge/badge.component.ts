@@ -16,8 +16,9 @@ const VariantClasses: { [key in ColorSchemes]: string } = {
 }
 
 @Component({
-  selector: 'badge',
-  templateUrl: './badge.component.html',
+    selector: 'badge',
+    templateUrl: './badge.component.html',
+    standalone: false
 })
 export class BadgeComponent{
   @Input() type?: ColorSchemes = "primary";

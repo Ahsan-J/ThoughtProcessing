@@ -3,8 +3,9 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
 @Component({
-  selector: 'navbar-list',
-  templateUrl: './navbar-list.component.html',
+    selector: 'navbar-list',
+    templateUrl: './navbar-list.component.html',
+    standalone: false
 })
 export class NavbarListComponent implements OnInit {
   @Input() id: string = '';

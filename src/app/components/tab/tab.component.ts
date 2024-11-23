@@ -2,8 +2,9 @@ import { Component, Input, HostBinding, OnInit, TemplateRef, EventEmitter, Outpu
 import { INavItem } from '../navbar-list/navbar-list.component';
 
 @Component({
-  selector: 'tab',
-  templateUrl: './tab.component.html',
+    selector: 'tab',
+    templateUrl: './tab.component.html',
+    standalone: false
 })
 export class TabComponent implements OnInit {
 

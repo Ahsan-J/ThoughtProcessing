@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { ColorSchemes } from 'src/app/model/app';
 
 @Component({
-  selector: 'spinner',
-  templateUrl: './spinner.component.html',
-  styleUrls: ['./spinner.component.css'],
+    selector: 'spinner',
+    templateUrl: './spinner.component.html',
+    styleUrls: ['./spinner.component.css'],
+    standalone: false
 })
 export class SpinnerComponent {
   @Input() id?: string;

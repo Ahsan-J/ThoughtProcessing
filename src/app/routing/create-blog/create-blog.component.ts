@@ -5,7 +5,8 @@ import { BlogStatus } from "src/app/model/blog";
 import { ApiService, IApiParam } from "src/app/shared/api/api.service";
 
 @Component({
-  templateUrl: './create-blog-component.html',
+    templateUrl: './create-blog-component.html',
+    standalone: false
 })
 export class CreateBlogComponent implements OnChanges{
 

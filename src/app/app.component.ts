@@ -10,15 +10,14 @@ import { IUser } from './model/user';
 import { ThemeService } from './services/theme.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    AppRoutingModule,
-    ComponentModule,
-    CommonModule,
-    FontAwesomeModule,
-  ],
-  templateUrl: './app.component.html',
+    selector: 'app-root',
+    imports: [
+        AppRoutingModule,
+        ComponentModule,
+        CommonModule,
+        FontAwesomeModule,
+    ],
+    templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(

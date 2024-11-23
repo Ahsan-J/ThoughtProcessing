@@ -14,8 +14,9 @@ type HeaderMenu = {
 }
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    standalone: false
 })
 export class HeaderComponent implements AfterContentInit, OnInit, OnDestroy {
   GITHUB = GITHUB;

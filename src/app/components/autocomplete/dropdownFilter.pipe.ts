@@ -1,7 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IDropdownItem } from '../dropdown/dropdown.types';
 
-@Pipe({name: 'dropdownFilter'})
+@Pipe({
+    name: 'dropdownFilter',
+    standalone: false
+})
 export class DropdownItemFilterPipe implements PipeTransform {
 
   private matchItems(value: string, matching: string): boolean {

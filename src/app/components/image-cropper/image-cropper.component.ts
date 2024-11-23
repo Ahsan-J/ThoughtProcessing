@@ -5,9 +5,10 @@ import { ResizeableContainerComponent } from '../resizeable-container/resizeable
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'image-cropper',
-  templateUrl: './image-cropper.component.html',
-  styleUrls: ['./image-cropper.component.css'],
+    selector: 'image-cropper',
+    templateUrl: './image-cropper.component.html',
+    styleUrls: ['./image-cropper.component.css'],
+    standalone: false
 })
 export class ImageCropperComponent {
   @Input() id?: string;

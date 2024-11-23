@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { nanoid } from 'nanoid';
 
 @Component({
-  selector: 'floating-textarea',
-  templateUrl: './floating-textarea.component.html',
-  styleUrls: ['./floating-textarea.component.css'],
+    selector: 'floating-textarea',
+    templateUrl: './floating-textarea.component.html',
+    styleUrls: ['./floating-textarea.component.css'],
+    standalone: false
 })
 export class FloatingTextareaComponent implements OnInit {
   @Input() id: string = '';

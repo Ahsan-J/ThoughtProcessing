@@ -3,8 +3,9 @@ import { ApiService, IApiParam } from 'src/app/shared/api/api.service';
 import { unmarshalFormData } from 'src/app/shared/utility';
 
 @Component({
-  styleUrls: ['./forgot-password.component.css'],
-  templateUrl: './forgot-password.component.html',
+    styleUrls: ['./forgot-password.component.css'],
+    templateUrl: './forgot-password.component.html',
+    standalone: false
 })
 export class ForgotPasswordComponent {
 

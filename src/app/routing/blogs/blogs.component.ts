@@ -12,7 +12,8 @@ type SortingAction = {
 }
 
 @Component({
-  templateUrl: './blogs.component.html',
+    templateUrl: './blogs.component.html',
+    standalone: false
 })
 export class BlogListComponent implements OnInit {
 

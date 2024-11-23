@@ -43,9 +43,10 @@ const SizeClasses: { [key in Size]: string } = {
 const disabledClass = `disabled:bg-neutral-400`
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-button',
+    templateUrl: './button.component.html',
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ButtonComponent {
   @Input() outline?: boolean;

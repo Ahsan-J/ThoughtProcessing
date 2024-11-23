@@ -88,9 +88,6 @@ export const routes: Routes = [
     ComponentModule,
     ApiModule,
     FontAwesomeModule,
-    // RouterModule.forRoot(routes, {
-    //   initialNavigation: 'enabledBlocking',
-    // })
   ],
   exports: [RouterModule]
 })

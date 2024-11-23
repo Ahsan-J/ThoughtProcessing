@@ -4,8 +4,9 @@ import { AuthService } from "src/app/services/auth.service";
 import { IUser } from "src/app/model/user";
 
 @Component({
-  selector: 'profile-card',
-  templateUrl: './profile-card.component.html',
+    selector: 'profile-card',
+    templateUrl: './profile-card.component.html',
+    standalone: false
 })
 export class ProfileCardComponent {
   public user?: IUser;
