@@ -12,8 +12,8 @@ type SortingAction = {
 }
 
 @Component({
-    templateUrl: './blogs.component.html',
-    standalone: false
+  templateUrl: './blogs.component.html',
+  standalone: false
 })
 export class BlogListComponent implements OnInit {
 
@@ -23,7 +23,7 @@ export class BlogListComponent implements OnInit {
 
   faFilter = faFilter;
 
-  blogs = sampleBlogs;
+  blogs = [];
   meta!: PaginationMeta;
 
   sorts: Array<SortingAction> = [
@@ -48,7 +48,8 @@ export class BlogListComponent implements OnInit {
   private fetchBlogList() {
     this.route.queryParamMap.subscribe(async queryParam => {
       const params: IApiParam = {
-        path: 'blog',
+        path: 'v1/blog',
+        method: 'GET',
       };
 
       const search = queryParam.get('search');
@@ -66,7 +67,7 @@ export class BlogListComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // this.fetchBlogList();
+    this.fetchBlogList();
   }
 
   onSort(value: SortingAction['value']) {

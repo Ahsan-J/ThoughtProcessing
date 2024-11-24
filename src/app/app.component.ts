@@ -10,14 +10,14 @@ import { IUser } from './model/user';
 import { ThemeService } from './services/theme.service';
 
 @Component({
-    selector: 'app-root',
-    imports: [
-        AppRoutingModule,
-        ComponentModule,
-        CommonModule,
-        FontAwesomeModule,
-    ],
-    templateUrl: './app.component.html'
+  selector: 'app-root',
+  imports: [
+    AppRoutingModule,
+    ComponentModule,
+    CommonModule,
+    FontAwesomeModule,
+  ],
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(
@@ -36,16 +36,15 @@ export class AppComponent implements OnInit, OnDestroy {
     if (typeof localStorage != 'undefined') {
       let user: IUser = {
         access_token: "",
-        created_at: new Date().toISOString(),
-        deleted_at: null,
-        updated_at: new Date().toISOString(),
-        email:"abc123@gmail.com",
+        createdAt: new Date().toISOString(),
+        deletedAt: null,
+        updatedAt: new Date().toISOString(),
+        email: "abc123@gmail.com",
         id: "123",
         linkedin: "",
         name: "User Account",
         profile: "https://placehold.co/96",
         role: 1,
-        status: 1,
         token_expiry: 86400
       };
 
@@ -59,7 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onChangeThemeMode(isDarkMode: boolean) {
-    if(typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
       document.body?.setAttribute("data-mode", isDarkMode ? "dark" : "light")
       this.cd.detectChanges();
     }

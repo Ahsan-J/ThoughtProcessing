@@ -1,9 +1,8 @@
 export interface BaseModel {
   id: string;
-  created_at: string;
-  updated_at: string;
-  deleted_at: string | null;
-  status: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
 }
 
 export interface PaginationQuery {

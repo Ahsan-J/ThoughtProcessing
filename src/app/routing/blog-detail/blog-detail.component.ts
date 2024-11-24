@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs'
 import { IBlog } from '../../model/blog';
 import { ApiService } from '../../shared/api/api.service';
 import { IconDefinition, faBookmark, faCommentDots, faShare, faShareAlt, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { sampleBlogs } from 'src/app/constant/blog';
 
 type BlogAction = {
   action: (event?: MouseEvent) => void,
@@ -29,12 +28,10 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.params.subscribe(async params => {
       if (this.blog?.id != params['id']) {
-        const blogId = params['id'];
-        // const response = await this.apiService.request({
-        //   path: `blog/${params['id']}`,
-        // });
-        this.blog = sampleBlogs.find(b => b.id == blogId);
-
+        const response = await this.apiService.request({
+          path: `v1/blog/${params['id']}`,
+        });
+        this.blog = response.data
       }
     })
   }
