@@ -1,0 +1,32 @@
+<label [ngClass]="labelClass">
+  <input
+    [ngClass]="combinedInputClass"
+    [defaultValue]="defaultValue"
+    [type]="showSecureText && htmlType === 'password' ? 'text' : htmlType"
+    [id]="id"
+    [attr.data-name]="name"
+    [name]="name"
+    [placeholder]="placeholder || label"
+    [value]="value"
+    (change)="onValueChange($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    (keydown)="onKeyDown($event)"
+    (input)="onValueChange($event)"
+    autocomplete="off"
+    />
+  <span class="absolute top-0 left-0 translate-y-8 text-base transition-all pl-2 text-dark dark:text-light">{{label}}</span>
+  <ng-container *ngIf="htmlType === 'password'">
+    <app-button type="primary" class="h-[2.6rem] bg-transparent !absolute right-0 bottom-0" (click)="showSecureText = !showSecureText">
+      <fa-icon [icon]="!showSecureText ? faEyeSlash : faEye"></fa-icon>
+    </app-button>
+  </ng-container>
+
+  <ng-container *ngIf="htmlType !== 'password' && iconName">
+    <app-button type="primary" (click)="onIconClick($event)" >
+      <fa-icon [icon]="iconName"></fa-icon>
+    </app-button>
+  </ng-container>
+
+</label>
+<span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>

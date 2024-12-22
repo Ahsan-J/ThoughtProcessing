@@ -23,7 +23,13 @@
       "dom",
       "dom.iterable"
     ],
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "rootDir": "./",
+    "paths": {
+      "@/*": [
+        "./src/app/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

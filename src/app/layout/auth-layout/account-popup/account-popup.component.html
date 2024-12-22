@@ -1,0 +1,23 @@
+<div class="accountPopup__container">
+  <div class="accountPopup__profileDetail">
+    <app-avatar [name]="user.name"></app-avatar>
+    <h4>{{user.name}}</h4>
+    <p>{{user.email}}</p>
+  </div>
+  <div class="accountPopup__accountNavList">
+    <ng-container *ngFor="let item of navList">
+      <app-button type="link" *ngIf="item.action" (click)="item.action($event)">
+        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
+        {{item.title}}
+      </app-button>
+      <a type="link" *ngIf="item.route" routerLink="{{item.route}}">
+        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
+        <span>{{item.title}}</span>
+      </a>
+    </ng-container>
+    <app-button [outline]="true" type="danger" class="accountPopup__logout" (click)="onLogout()">
+      <fa-icon style="flex:none;" class="px-2" [icon]="faPowerOff"></fa-icon>
+      <span>Logout</span>
+    </app-button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<section class="min-h-full w-dvw flex justify-center relative overflow-y-auto overflow-x-hidden flex-row">
+  <div class="flex-[0.5]">
+
+  </div>
+  <div class="flex-[0.5] flex flex-col justify-center items-center bg-white">
+    <form (submit)="onLogin($event)" class="w-[30rem] flex-col p-5 rounded-md">
+      <legend class="text-5xl">Thought Processing</legend>
+      <app-floating-input htmlType="email" name="email" label="Email" class="[&>label_*]:text-dark"></app-floating-input>
+      <app-floating-input htmlType="password" name="password" label="Password" class="[&>label_*]:text-dark"></app-floating-input>
+
+      <div class="flex flex-row justify-between items-center">
+        <app-button type="link" class="!px-0" routerLink="/forgot">Forgot Password</app-button>
+        <app-button type="link" class="!px-0" routerLink="/register">Create Account</app-button>
+      </div>
+
+      <app-button htmlType="submit" type="primary">Login</app-button>
+    </form>
+  </div>
+</section>

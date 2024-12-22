@@ -1,0 +1,13 @@
+<app-navbar-list
+  [data]="navBaristData"
+  type="Tab"
+  (onItemClose)="tabClose.emit()"
+  (onAddItem)="onAddNewTab()"
+  [active]="activeTab"
+  [dynamic]="dynamicTabs">
+</app-navbar-list>
+
+<div data-test="TabContent" class="w-full h-full">
+  <ng-container [ngTemplateOutlet]="data[activeTab]">
+  </ng-container>
+</div>

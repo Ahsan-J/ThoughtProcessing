@@ -1,0 +1,20 @@
+<span [ngClass]="this.labelClass" *ngIf="label">{{label}}</span>
+<input *ngIf="name && selectedKey" read-only [name]="name" type="hidden" [value]="selectedKey" />
+
+<app-button [ngClass]="this.buttonClass" [type]="this.type"
+  (click)="showClass = !showClass">
+  <ng-container *ngTemplateOutlet="defaultSelectedValueRenderer"></ng-container>
+</app-button>
+
+<span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>
+
+<ul [ngClass]="this.dropdownContentClass">
+  <li tabindex="-1" (keydown)="onItemKeydown()" class="px-3 py-4 flex flex-row items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" *ngFor="let item of options | keyvalue" (click)="onItemClick(item.key, item.value)">
+    <fa-icon *ngIf="item.value.icon" [icon]="item.value.icon"></fa-icon>
+    {{item.value.label}}
+  </li>
+</ul>
+
+<ng-template #defaultSelectedValueRenderer>
+  {{ options?.[selectedKey || ""]?.label || placeholder }}
+</ng-template>

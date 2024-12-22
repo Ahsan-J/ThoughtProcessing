@@ -1,0 +1,69 @@
+<section class="signup__container p-5">
+  <div class="signup__innerContainer">
+    <ng-container [ngTemplateOutlet]="emailVerified ? step2 : step1"></ng-container>
+    <ng-template #step1>
+      <form (submit)="onNextStep($event)" class="w-100">
+        <p class="lead mb-0"> Welcome to </p>
+        <legend>Thought Processing</legend>
+
+        <div class="form-group">
+          <app-floating-input name="email" htmlType="email" label="Email" class="w-100"></app-floating-input>
+        </div>
+
+        <div class="signup__alternateActions">
+          <a class="btn btn-link" routerLink="/forgot">Forgot password</a>
+          <a class="btn btn-link" routerLink="/login">Have account</a>
+        </div>
+
+        <app-button htmlType="submit" type="primary">Next</app-button>
+      </form>
+    </ng-template>
+
+    <!-- Second processing step -->
+
+    <ng-template #step2>
+      <form (submit)="onSignup($event)" class="w-100">
+
+        <app-button type="link" (click)="emailVerified = false" [style]="{'width': 'unset', 'align-self':'flex-start'}">
+          <fa-icon [icon]="faArrowLeft" style="padding: 0.5rem 1rem;"></fa-icon>
+        </app-button>
+
+        <p class="lead mb-0"> Welcome to </p>
+        <legend>Thought Processing</legend>
+
+        <input type="hidden" name="email" [value]="email" />
+        <app-image-cropper name="profile" [rounded]="true"></app-image-cropper>
+
+        <div class="form-group">
+          <app-floating-input [(value)]="name" name="name" label="Name" class="w-100"></app-floating-input>
+        </div>
+
+        <div class="form-group">
+          <app-floating-input name="password" htmlType="password" label="Password" class="w-100"></app-floating-input>
+        </div>
+
+        <div class="form-group">
+          <app-floating-input name="confirm_password" htmlType="password" label="Re-Enter Password" class="w-100"></app-floating-input>
+        </div>
+
+        <div class="form-group">
+          <app-floating-textarea name="bio" label="Bio" class="w-100" placeholder="Tell reader something inspiring about you"></app-floating-textarea>
+        </div>
+
+        <div class="form-group">
+          <app-floating-input name="linkedin" label="LinkedIn" placeholder="https://www.linkedin.com/in/ahsan-ahmed-5b6b5382/" class="w-100" [iconName]="faLinkedin"></app-floating-input>
+        </div>
+
+        <div class="form-group">
+          <app-floating-input name="github" label="Github" placeholder="Ahsan-J" class="w-100" [iconName]="faGithub"></app-floating-input>
+        </div>
+
+        <div class="form-group">
+          <app-floating-input name="website" label="Website" class="w-100" placeholder="https://ahsan-j.com/" [iconName]="faGlobe"></app-floating-input>
+        </div>
+
+        <app-button htmlType="submit" type="primary" class="mt-3">Signup</app-button>
+      </form>
+    </ng-template>
+  </div>
+</section>

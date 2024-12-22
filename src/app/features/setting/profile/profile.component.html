@@ -1,0 +1,60 @@
+<section class="userDetail__container">
+  <div class="userDetail__cover" *ngIf=""></div>
+  <app-random-image #randomImage class=""></app-random-image>
+  <div class="userDetail__headerDetail">
+      <div class="userDetail__avatarContainer">
+          <div class="userDetail__innerAvatarContainer">
+              <app-avatar class="userDetail__avatar" [name]="user?.name"></app-avatar>
+              <div class="userDetail__userNameContainer">
+                  <h2>{{user?.name}}</h2>
+                  <p>{{user?.email}}</p>
+              </div>
+          </div>
+          <div *ngIf="authUser?.id !== user?.id" class="userDetail__userActions">
+              <app-button [outline]="true" type="secondary">
+                <fa-icon [icon]="faPlus"></fa-icon>
+                Follow
+              </app-button>
+          </div>
+      </div>
+      <app-tab
+        class="my-1"
+        [data]="{
+          'About': myInfo,
+          'Activity': activity,
+          'Followers': myFollowers,
+          'Following': followings
+        }">
+      </app-tab>
+
+      <ng-template #myInfo>
+        <!-- Followers -->
+        <!-- Posted -->
+        <!-- Followed -->
+        <!-- Followers -->
+        <!-- Active since -->
+        <!-- Date of Birth -->
+        <!-- Bio -->
+        <!-- Description -->
+        <!-- Interested tags -->
+        <!-- Role -->
+      </ng-template>
+
+      <!-- <ng-template #myBlogs>
+        <blog-item *ngFor="let item of blogs" [blog]="item"></blog-item>
+      </ng-template> -->
+
+      <ng-template #activity>
+
+      </ng-template>
+
+      <ng-template #myFollowers>
+
+      </ng-template>
+
+      <ng-template #followings>
+
+      </ng-template>
+
+  </div>
+</section>
