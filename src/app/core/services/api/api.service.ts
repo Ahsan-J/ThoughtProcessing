@@ -25,7 +25,7 @@ export class ApiService {
 	private user!: IUser;
 
 	private get baseURL(): string {
-		return process.env['API_URL'] as string;
+		return import.meta.env['NG_API_URL'] as string;
 	}
 
 	constructor(private http: HttpClient, private authService: AuthService) {

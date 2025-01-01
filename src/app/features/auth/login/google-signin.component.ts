@@ -32,7 +32,7 @@ export class GoogleSignInButtonComponent implements OnInit {
 
   private initializeGoogleSignIn() {
     window.google.accounts.id.initialize({
-      client_id: process.env['GOOGLE_CLIENT_ID'],
+      client_id: import.meta.env['NG_GOOGLE_CLIENT_ID'],
       callback: this.handleCredentialResponse.bind(this)
     });
 
