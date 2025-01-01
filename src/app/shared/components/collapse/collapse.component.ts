@@ -1,14 +1,13 @@
 import { Component, ElementRef, EventEmitter, Input, RendererStyleFlags2, Output, Renderer2, TemplateRef, OnChanges, ViewChild, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { nanoid } from "nanoid";
 import { CollapseDirection } from "@/core/constant/app.enum";
-import { CommonModule } from "@angular/common";
 import { ButtonComponent } from "../button/button.component";
 
 @Component({
     selector: 'app-collapse',
     templateUrl: './collapse.component.html',
     encapsulation: ViewEncapsulation.Emulated,
-    imports: [CommonModule, ButtonComponent]
+    imports: [ButtonComponent]
 })
 export class CollapseComponent implements OnChanges  {
 

@@ -4,7 +4,7 @@ import { AuthService } from "@/core/services/auth.service";
 import { ObjectType } from "@/core/types/collection.types";
 import { ILoginRequest } from "@/core/models/auth/login-request.dto";
 import { ILoginResponse } from "@/core/models/auth/login-response.dto";
-// import { tap } from "rxjs";
+import { tap } from "rxjs";
 
 @Injectable()
 export class AuthApiService {
@@ -18,8 +18,12 @@ export class AuthApiService {
       path: "v1/auth/login",
     };
 
-    return this.apiService
-      .request<ILoginRequest, ILoginResponse>(params)
+    return this.apiService.request<ILoginRequest, ILoginResponse>(params)
+      .pipe(
+        tap({
+          next: response => this.setLoginResponse(response.body)
+        })
+      );
   }
 
   signup(data: ObjectType) {
@@ -43,23 +47,32 @@ export class AuthApiService {
   }
 
   logout() {
-    // const params : IApiParam =  {
-    //   path: 'v1/auth/logout',
-    //   method: "POST",
-    // };
-
-    // return this.apiService.request(params).pipe(
-    //   tap(() => {
-
-    //   })
-    // );
     if(window.google) {
       window.google.accounts.id.disableAutoSelect();
     }
+
     localStorage.removeItem('user');
   }
 
-  verifyGoogleToken() {
-    // TODO:
+  verifyGoogleToken(credential: string) {
+    const params: IApiParam = {
+      path: 'v1/auth/google',
+      method: "POST",
+      data: {
+        credential
+      },
+    }
+
+    return this.apiService.request<unknown, ILoginResponse>(params)
+      .pipe(
+        tap({
+          next: response => this.setLoginResponse(response.body)
+        })
+      );
+  }
+
+  private setLoginResponse(data: ILoginResponse | null) {
+    if(!data) return
+    this.authService.setAuthUser(data.user)
   }
 }

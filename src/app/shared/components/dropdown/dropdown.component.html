@@ -1,18 +1,31 @@
-<span [ngClass]="this.labelClass" *ngIf="label">{{label}}</span>
-<input *ngIf="name && selectedKey" read-only [name]="name" type="hidden" [value]="selectedKey" />
+@if(label) {
+<span [class]="this.labelClass">{{label}}</span>
+}
 
-<app-button [ngClass]="this.buttonClass" [type]="this.type"
-  (click)="showClass = !showClass">
-  <ng-container *ngTemplateOutlet="defaultSelectedValueRenderer"></ng-container>
+@if(name && selectedKey) {
+<input read-only [name]="name" type="hidden" [value]="selectedKey" />
+}
+
+<app-button [class]="this.buttonClass" [type]="this.type" (click)="showClass = !showClass">
+  {{defaultSelectedValueRenderer}}
 </app-button>
 
-<span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>
+@if(errorText) {
+<span class="text-danger text-sm mx-2">{{errorText}}</span>
+}
 
-<ul [ngClass]="this.dropdownContentClass">
-  <li tabindex="-1" (keydown)="onItemKeydown()" class="px-3 py-4 flex flex-row items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700" *ngFor="let item of options | keyvalue" (click)="onItemClick(item.key, item.value)">
-    <fa-icon *ngIf="item.value.icon" [icon]="item.value.icon"></fa-icon>
+<ul [class]="this.dropdownContentClass">
+  @for(item of options | keyvalue; track item.key) {
+  <li tabindex="-1" (keydown)="onItemKeydown()"
+    class="px-3 py-4 flex flex-row items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+    (click)="onItemClick(item.key, item.value)">
+    @if(item.value.icon) {
+      <fa-icon [icon]="item.value.icon"></fa-icon>
+    }
     {{item.value.label}}
   </li>
+  }
+
 </ul>
 
 <ng-template #defaultSelectedValueRenderer>

@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { nanoid } from 'nanoid';
 
@@ -6,7 +5,6 @@ import { nanoid } from 'nanoid';
     selector: 'app-floating-textarea',
     templateUrl: './floating-textarea.component.html',
     styleUrls: ['./floating-textarea.component.css'],
-    imports: [CommonModule]
 })
 export class FloatingTextareaComponent implements OnInit {
   @Input() id = '';

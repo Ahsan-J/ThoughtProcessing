@@ -8,6 +8,7 @@
 </app-navbar-list>
 
 <div data-test="TabContent" class="w-full h-full">
-  <ng-container [ngTemplateOutlet]="data[activeTab]">
-  </ng-container>
+  @if(data[activeTab]; as content) {
+    {{ content }}
+  }
 </div>

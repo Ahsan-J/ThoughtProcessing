@@ -1,2 +1,4 @@
 <ng-content></ng-content>
-<fa-icon *ngIf="showRemove" [icon]="faXMark" class="pl-1 text-sm cursor-pointer" (click)="onRemove($event)"></fa-icon>
+@if(showRemove) {
+  <fa-icon [icon]="faXMark" class="pl-1 text-sm cursor-pointer" (click)="onRemove($event)"></fa-icon>
+}

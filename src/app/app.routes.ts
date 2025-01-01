@@ -4,6 +4,8 @@ import { blogRoutes } from './features/blog/blog.routes';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { authRoutes } from './features/auth/auth.routes';
 import { settingRoutes } from './features/setting/setting.routes';
+import { AuthGuard } from './core/guards/auth.guard';
+import { HomeComponent } from './features/home/home.component';
 
 export const routes: Routes = [
   {
@@ -13,11 +15,12 @@ export const routes: Routes = [
     children: blogRoutes
   },
   {
+
     path: '',
     title: "Home",
-    redirectTo: 'auth/login',
     pathMatch: 'full',
-    // component: HomeComponent,
+    canActivate: [AuthGuard],
+    component: HomeComponent,
   },
   {
     path: 'about',

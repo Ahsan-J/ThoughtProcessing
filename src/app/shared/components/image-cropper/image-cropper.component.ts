@@ -3,16 +3,15 @@ import { getNumberFromMeasuredUnit } from '@/core/utility/design.util';
 import { ModalComponent } from '@/shared/components/modal/modal.component';
 import { ResizeableContainerComponent } from '../resizeable-container/resizeable-container.component';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { CommonModule } from '@angular/common';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from '../button/button.component';
 import { CreateObjectURLPipe } from '@/shared/pipe/create-object-url.pipe';
 
 @Component({
-    selector: 'app-image-cropper',
-    templateUrl: './image-cropper.component.html',
-    styleUrls: ['./image-cropper.component.css'],
-    imports: [CommonModule, FaIconComponent, ModalComponent, ButtonComponent, CreateObjectURLPipe, ResizeableContainerComponent]
+  selector: 'app-image-cropper',
+  templateUrl: './image-cropper.component.html',
+  styleUrls: ['./image-cropper.component.css'],
+  imports: [FaIconComponent, ModalComponent, ButtonComponent, CreateObjectURLPipe, ResizeableContainerComponent]
 })
 export class ImageCropperComponent {
   @Input() id?: string;
@@ -38,10 +37,27 @@ export class ImageCropperComponent {
 
   faImage = faImage;
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) { }
 
   get real_width() {
     return getNumberFromMeasuredUnit(`${this.width}`);
+  }
+
+  get titleClass(): string {
+    return `p-2 mx-2 mt-2 mb-0 titleHeading w-[${this.calculated_dimension.width}px]`
+  }
+
+  get uploaderButtonClass(): string {
+
+    let className = `flex flex-row justify-center items-center bg-transparent border border-dashed border-primary text-primary m-auto overflow-hidden p-0`;
+
+    if (this.rounded) {
+      className += ' rounded-full'
+    } else {
+      className += ' rounded'
+    }
+
+    return className
   }
 
   get calculated_dimension() {
@@ -56,7 +72,7 @@ export class ImageCropperComponent {
   }
 
   get minimumSize() {
-    if(this.calculated_dimension.width > this.calculated_dimension.height) {
+    if (this.calculated_dimension.width > this.calculated_dimension.height) {
       return this.calculated_dimension.height;
     }
     return this.calculated_dimension.width
@@ -184,7 +200,7 @@ export class ImageCropperComponent {
           this.title = file.name || this.title;
         }
       }
-    } else if(e.dataTransfer?.files) {
+    } else if (e.dataTransfer?.files) {
       const files = [...e.dataTransfer.files];
       const file = files[0];
 

@@ -1,10 +1,9 @@
-<ng-container *ngTemplateOutlet="titleTemplate || defaultTitle">
-</ng-container>
+{{titleTemplate || defaultTitle}}
 <ng-template #defaultTitle>
-  <app-button (click)="onClick($event)" [ngClass]="'pointer p-3 w-full h-full text-left outline-none lead ' + (collapse ? 'text-primary bg-neutral-300 dark:bg-neutral-700' : '')">
+  <app-button (click)="onClick()" [class]="'pointer p-3 w-full h-full text-left outline-none lead ' + (collapse ? 'text-primary bg-neutral-300 dark:bg-neutral-700' : '')">
     {{title}}
   </app-button>
 </ng-template>
-<div [ngClass]="'py-3 overflow-hidden transition-all duration-150 ' + this.contentDirectionalChange" #container>
+<div [class]="'py-3 overflow-hidden transition-all duration-150 ' + this.contentDirectionalChange" #container>
   <ng-content></ng-content>
 </div>

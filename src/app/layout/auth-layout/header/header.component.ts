@@ -11,7 +11,6 @@ import { ButtonComponent } from "@/shared/components/button/button.component";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { AvatarComponent } from "@/shared/components/avatar/avatar.component";
 import { AccountPopupComponent } from "../account-popup/account-popup.component";
-import { NgIf } from "@angular/common";
 
 interface HeaderMenu {
   label: string,
@@ -22,7 +21,7 @@ interface HeaderMenu {
     selector: 'app-header',
     templateUrl: './header.component.html',
     providers: [AuthService, ThemeService, Router],
-    imports: [NgIf, ButtonComponent, FaIconComponent, RouterLink, AvatarComponent, AccountPopupComponent]
+    imports: [ButtonComponent, FaIconComponent, RouterLink, AvatarComponent, AccountPopupComponent]
 })
 export class AuthLayoutHeaderComponent implements AfterContentInit, OnInit, OnDestroy {
   GITHUB = GITHUB;

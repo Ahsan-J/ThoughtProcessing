@@ -10,6 +10,9 @@ export default {
     extend: {
       borderColor: theme.borderColor,
       backgroundColor: theme.backgroundColor,
+      backgroundImage: {
+        "author-desk": "url('/assets/auth/login_image.jpg')"
+      },
       textColor: theme.textColor,
       outlineColor: theme.outlineColor,
       fontSize: theme.fontSize,

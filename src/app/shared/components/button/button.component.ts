@@ -5,8 +5,8 @@ import { ColorSchemes } from '@/core/types/pagination.type';
 import { urlRegex } from '@/core/services/api/api.service';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { SpinnerComponent } from '../spinner/spinner.component';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgTemplateOutlet } from '@angular/common';
 
 const VariantClasses: Record<ColorSchemes, string> = {
   "primary": `bg-primary text-light [&_svg]:fill-light`,
@@ -49,7 +49,7 @@ const disabledClass = `disabled:bg-neutral-400`
 @Component({
     selector: 'app-button',
     templateUrl: './button.component.html',
-    imports: [CommonModule, RouterModule, FaIconComponent, SpinnerComponent]
+    imports: [NgTemplateOutlet, RouterLink, FaIconComponent, SpinnerComponent]
 })
 export class ButtonComponent {
   @Input() outline?: boolean;

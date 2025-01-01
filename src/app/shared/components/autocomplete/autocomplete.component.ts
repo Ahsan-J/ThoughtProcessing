@@ -4,15 +4,15 @@ import { ColorSchemes } from "@/core/types/pagination.type";
 import { IDropdownItem } from "../dropdown/dropdown.types";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FloatingInputComponent } from "../floating-input/floating-input.component";
-import { CommonModule } from "@angular/common";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { BadgeComponent } from "../badge/badge.component";
 import { DropdownItemFilterPipe } from "@/shared/pipe/dropdownFilter.pipe";
+import { KeyValuePipe } from "@angular/common";
 
 @Component({
     selector: 'app-autocomplete',
     templateUrl: './autocomplete.component.html',
-    imports: [FloatingInputComponent, CommonModule, FaIconComponent, BadgeComponent, DropdownItemFilterPipe]
+    imports: [FloatingInputComponent, FaIconComponent, BadgeComponent, DropdownItemFilterPipe, KeyValuePipe]
 })
 export class AutoCompleteComponent implements OnInit {
   @Input() label?: string;

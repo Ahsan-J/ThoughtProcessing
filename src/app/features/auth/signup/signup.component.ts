@@ -7,7 +7,6 @@ import { unmarshalFormData } from '@/core/utility/form.util';
 import { AuthApiService } from '@/core/services/api/auth-api.service';
 import { FloatingInputComponent } from '@/shared/components/floating-input/floating-input.component';
 import { ButtonComponent } from '@/shared/components/button/button.component';
-import { NgTemplateOutlet } from '@angular/common';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ImageCropperComponent } from '@/shared/components/image-cropper/image-cropper.component';
 import { FloatingTextareaComponent } from '@/shared/components/floating-textarea/floating-textarea.component';
@@ -17,7 +16,6 @@ import { FloatingTextareaComponent } from '@/shared/components/floating-textarea
     styleUrls: ['./signup.component.css'],
     imports: [
       ButtonComponent,
-      NgTemplateOutlet,
       FaIconComponent,
       ImageCropperComponent,
       FloatingInputComponent,

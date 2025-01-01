@@ -11,14 +11,12 @@ import { AvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from '@/shared/components/button/button.component';
 import { TabComponent } from '@/shared/components/tab/tab.component';
-import { NgIf } from '@angular/common';
 
 @Component({
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.css'],
     providers: [AuthService],
     imports: [
-      NgIf,
       RandomImageComponent,
       AvatarComponent,
       FaIconComponent,

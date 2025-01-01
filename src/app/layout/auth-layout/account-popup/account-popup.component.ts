@@ -9,13 +9,12 @@ import { ButtonComponent } from '@/shared/components/button/button.component';
 import { AvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { RouterLink } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-account-popup',
   templateUrl: './account-popup.component.html',
   providers: [AuthService, AuthApiService],
-  imports: [ NgFor, NgIf ,RouterLink, ButtonComponent, AvatarComponent, FaIconComponent]
+  imports: [ RouterLink, ButtonComponent, AvatarComponent, FaIconComponent]
 })
 export class AccountPopupComponent implements OnInit, OnDestroy {
   public user!: IUser;

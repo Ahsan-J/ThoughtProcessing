@@ -1,11 +1,10 @@
 import { Component, Input, HostBinding, OnInit, TemplateRef, EventEmitter, Output } from '@angular/core';
 import { INavItem, NavbarListComponent } from '../navbar-list/navbar-list.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-tab',
     templateUrl: './tab.component.html',
-    imports: [NavbarListComponent, CommonModule]
+    imports: [NavbarListComponent]
 })
 export class TabComponent implements OnInit {
 

@@ -1,18 +1,24 @@
 import { AuthApiService } from "@/core/services/api/auth-api.service";
-import { Component, OnInit } from "@angular/core";
-// import { IUser } from "@/core/models/user/user.model";
+import { Component, PLATFORM_ID, Inject, OnInit } from "@angular/core";
 import { AuthService } from "@/core/services/auth.service";
+import { ObjectType } from "@/core/types/collection.types";
+import { isPlatformBrowser } from "@angular/common";
+import { GoogleResponse } from "./google-signin.types";
 
 @Component({
   selector: 'app-google-signin-button',
-  templateUrl: './google-signin.component.html',
+  template: '<div id="google-signin-button"></div>',
   providers: [AuthApiService, AuthService]
 })
 export class GoogleSignInButtonComponent implements OnInit {
 
-  constructor(private authApiService: AuthApiService) { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: ObjectType,
+    private authApiService: AuthApiService,
+  ) { }
 
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return
     // Load Google Sign-In script
     const script = document.createElement('script');
     script.src = 'https://accounts.google.com/gsi/client';
@@ -24,9 +30,9 @@ export class GoogleSignInButtonComponent implements OnInit {
     document.body.appendChild(script);
   }
 
-  initializeGoogleSignIn() {
+  private initializeGoogleSignIn() {
     window.google.accounts.id.initialize({
-      client_id: process.env['GOOGLE_CLIENT_ID']?.toString(),
+      client_id: process.env['GOOGLE_CLIENT_ID'],
       callback: this.handleCredentialResponse.bind(this)
     });
 
@@ -39,21 +45,9 @@ export class GoogleSignInButtonComponent implements OnInit {
     );
   }
 
-  handleCredentialResponse(response: unknown) {
-    console.log(response);
-    // Send ID token to backend for verification
-    // this.authApiService.verifyGoogleToken(response.credential).subscribe({
-    //   next: (user) => {
-    //     this.authService.setAuthUser(user);
-    //   },
-    //   error: (err) => {
-    //     console.error('Login failed', err);
-    //     this.authService.setAuthUser(null)
-    //   }
-    // });
-  }
-
-  logout() {
-    this.authApiService.logout();
+  private handleCredentialResponse(response: GoogleResponse) {
+    return this.authApiService
+      .verifyGoogleToken(response.credential)
+      .subscribe();
   }
 }

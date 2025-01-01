@@ -1,2 +1,4 @@
 <h5>Popular Tags</h5>
-<p *ngFor="let tag of tags">{{tag}}</p>
+@for(tag of tags; track tag) {
+  <p>{{tag}}</p>
+}

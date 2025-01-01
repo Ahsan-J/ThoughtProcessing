@@ -10,7 +10,7 @@ export const triggerFormError = (form: HTMLFormElement | null, fields: Record<st
   }
 }
 
-export const unmarshalFormData = function (formData: FormData): ObjectType {
+export const unmarshalFormData = <R = ObjectType>(formData: FormData): R  => {
   const obj: ObjectType = {};
   const processedKeys: string[] = [];
 
@@ -72,5 +72,5 @@ export const unmarshalFormData = function (formData: FormData): ObjectType {
     processedKeys.push(key);
   }
 
-  return obj;
+  return obj as R;
 };

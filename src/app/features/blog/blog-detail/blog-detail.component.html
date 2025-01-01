@@ -1,9 +1,14 @@
 <div class="flex flex-col gap-4 sticky top-0">
-  <app-button *ngFor="let action of blogActions" type="link" [leftIcon]="action.icon" [outline]="true" class="!outline-0 flex-col" (click)="action.action($event)">
-    {{action.text}}
-  </app-button>
+  @for(action of blogActions; track action.text) {
+    <app-button type="link" [leftIcon]="action.icon" [outline]="true"
+      class="!outline-0 flex-col" (click)="action.action($event)">
+      {{action.text}}
+    </app-button>
+  }
 </div>
-<section *ngIf="blog" class="flex flex-col flex-1">
+
+@if (blog) {
+<section class="flex flex-col flex-1">
   <img [src]="blog.cover" class="w-full max-h-80 object-contain bg-dark dark:bg-light" alt="Cover" />
 
   <div class="flex flex-col m-2">
@@ -13,7 +18,8 @@
     </div>
   </div>
 
-  <div class="flex flex-row justify-between my-4" *ngIf="blog.author">
+  @if(blog.author) {
+  <div class="flex flex-row justify-between my-4">
     <div class="flex flex-row gap-2">
       <app-avatar [src]="blog.author.profile" class="h-12 w-12"></app-avatar>
       <div class="flex flex-col">
@@ -26,11 +32,12 @@
     </div>
     <p class="text-lg font-light">Read time</p>
   </div>
+  }
 
   <div class="my-8" app:markdown="blog.content"></div>
 </section>
-
-<div *ngIf="blog" class="sticky top-0 flex flex-col justify-start items-center mx-2 p-2 flex-[0.25] h-fit bg-neutral-300 dark:bg-neutral-700 gap-2" >
+<div
+  class="sticky top-0 flex flex-col justify-start items-center mx-2 p-2 flex-[0.25] h-fit bg-neutral-300 dark:bg-neutral-700 gap-2">
   <div class="flex flex-col items-center">
     <app-avatar [src]="blog.author?.profile" class="h-24 w-24" [name]="blog.author?.name"></app-avatar>
     <div class="flex flex-col">
@@ -39,3 +46,4 @@
   </div>
   <app-button [outline]="true" type="primary" [rounded]="true">Follow</app-button>
 </div>
+}

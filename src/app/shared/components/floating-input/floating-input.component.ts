@@ -1,4 +1,3 @@
-import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { IconDefinition, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +7,7 @@ import { ButtonComponent } from '../button/button.component';
 @Component({
     selector: 'app-floating-input',
     templateUrl: './floating-input.component.html',
-    imports: [FaIconComponent, NgClass, NgIf, ButtonComponent]
+    imports: [FaIconComponent, ButtonComponent]
 })
 export class FloatingInputComponent implements OnInit {
 

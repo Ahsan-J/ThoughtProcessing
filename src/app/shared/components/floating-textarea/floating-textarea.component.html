@@ -1,6 +1,6 @@
-<label [ngClass]="'floatInput__label '+( errorText ? 'error ': '') +labelClass">
+<label [class]="'floatInput__label '+( errorText ? 'error ': '') +labelClass">
   <textarea
-    [ngClass]="'floatInput__input ' +( errorText ? 'error ': '') + ( !!placeholder ? 'has_placeholder ': '') + inputClass"
+    [class]="'floatInput__input ' +( errorText ? 'error ': '') + ( !!placeholder ? 'has_placeholder ': '') + inputClass"
     [defaultValue]="defaultValue"
     [id]="id"
     [attr.data-name]="name"
@@ -10,4 +10,6 @@
     </textarea>
   <span>{{label}}</span>
 </label>
-<span *ngIf="errorText" class="text-danger text-sm mx-2">{{errorText}}</span>
+@if(errorText) {
+  <span class="text-danger text-sm mx-2">{{errorText}}</span>
+}

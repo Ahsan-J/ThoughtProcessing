@@ -6,12 +6,12 @@ import { IBlog } from "@/core/models/blog/blog.model";
 import { ButtonComponent } from "@/shared/components/button/button.component";
 import { AvatarComponent } from "@/shared/components/avatar/avatar.component";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
-import { DatePipe, NgIf } from "@angular/common";
+import { DatePipe } from "@angular/common";
 
 @Component({
     selector: 'app-blog-item',
     templateUrl: './blog-item.component.html',
-    imports: [NgIf, ButtonComponent,AvatarComponent, FaIconComponent, RouterLink, DatePipe]
+    imports: [ButtonComponent,AvatarComponent, FaIconComponent, RouterLink, DatePipe]
 })
 export class BlogListItemComponent {
   @Input() blog?: IBlog;

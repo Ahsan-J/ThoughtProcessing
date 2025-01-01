@@ -3,9 +3,8 @@ import { ColorSchemes } from '@/core/types/pagination.type';
 import { IDropdownItem } from './dropdown.types';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../button/button.component';
-import { CommonModule } from '@angular/common';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-
+import { KeyValuePipe } from '@angular/common';
 
 const VariantLabelClasses: Record<ColorSchemes, string> = {
   "primary": `!text-primary`,
@@ -23,7 +22,7 @@ const VariantLabelClasses: Record<ColorSchemes, string> = {
 @Component({
     selector: 'app-dropdown',
     templateUrl: './dropdown.component.html',
-    imports: [ButtonComponent, CommonModule, FaIconComponent]
+    imports: [ButtonComponent, FaIconComponent, KeyValuePipe]
 })
 export class DropdownComponent implements OnInit {
   @Input() defaultKey?: string;

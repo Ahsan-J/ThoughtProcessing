@@ -2,12 +2,11 @@ import { Component, Input, OnInit, Output, EventEmitter, HostBinding } from '@an
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 import { ButtonComponent } from '../button/button.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-navbar-list',
     templateUrl: './navbar-list.component.html',
-    imports: [ButtonComponent, CommonModule]
+    imports: [ButtonComponent]
 })
 export class NavbarListComponent implements OnInit {
   @Input() id = '';

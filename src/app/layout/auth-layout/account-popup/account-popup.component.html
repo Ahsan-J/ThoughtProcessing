@@ -5,16 +5,20 @@
     <p>{{user.email}}</p>
   </div>
   <div class="accountPopup__accountNavList">
-    <ng-container *ngFor="let item of navList">
-      <app-button type="link" *ngIf="item.action" (click)="item.action($event)">
-        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
-        {{item.title}}
-      </app-button>
-      <a type="link" *ngIf="item.route" routerLink="{{item.route}}">
-        <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
-        <span>{{item.title}}</span>
-      </a>
-    </ng-container>
+    @for(item of navList; track item.route) {
+    @if(item.action) {
+    <app-button type="link" (click)="item.action($event)">
+      <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
+      {{item.title}}
+    </app-button>
+    }
+    @if(item.route) {
+    <a type="link" routerLink="{{item.route}}">
+      <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
+      <span>{{item.title}}</span>
+    </a>
+    }
+    }
     <app-button [outline]="true" type="danger" class="accountPopup__logout" (click)="onLogout()">
       <fa-icon style="flex:none;" class="px-2" [icon]="faPowerOff"></fa-icon>
       <span>Logout</span>

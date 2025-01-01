@@ -1,8 +1,5 @@
-<section class="min-h-full w-dvw flex justify-center relative overflow-y-auto overflow-x-hidden flex-row">
-  <div class="flex-[0.5]">
-
-  </div>
-  <div class="flex-[0.5] flex flex-col justify-center items-center bg-white">
+<section class="min-h-full w-dvw flex flex-row justify-center max-lg:items-center lg:justify-end relative overflow-y-auto overflow-x-hidden bg-no-repeat bg-author-desk bg-cover h-full">
+  <div class="lg:flex-[0.5] flex flex-col justify-center items-center bg-white rounded">
     <form (submit)="onLogin($event)" class="w-[30rem] flex-col p-5 rounded-md">
       <legend class="text-5xl">Thought Processing</legend>
       <app-floating-input htmlType="email" name="email" label="Email" class="[&>label_*]:text-dark"></app-floating-input>
@@ -14,6 +11,7 @@
       </div>
 
       <app-button htmlType="submit" type="primary">Login</app-button>
+      <app-google-signin-button></app-google-signin-button>
     </form>
   </div>
 </section>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterOutlet } from '@angular/router';
 
@@ -7,7 +6,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    CommonModule,
     FontAwesomeModule,
   ],
   template: `<router-outlet></router-outlet>`,

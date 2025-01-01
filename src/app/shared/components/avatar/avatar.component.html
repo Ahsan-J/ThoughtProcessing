@@ -1,4 +1,13 @@
-<img *ngIf="src" class="w-full h-full object-cover" [src]="src" [alt]="id" />
-<fa-icon *ngIf="!src && icon" [icon]="icon!"></fa-icon>
-<span *ngIf="!src && !icon && name">{{shortName}}</span>
+@if(src) {
+  <img  class="w-full h-full object-cover" [src]="src" [alt]="id" />
+}
+
+@if(!src && icon) {
+  <fa-icon [icon]="icon!"></fa-icon>
+}
+
+@if(!src && !icon && name) {
+  <span>{{shortName}}</span>
+}
+
 <ng-content></ng-content>

@@ -1,20 +1,24 @@
 <!-- Action List -->
 <div class="border-solid border-b-[1px] flex items-center row gap-2 py-2">
-  <app-button [title]="item.title" [outline]="true" *ngFor="let item of supportingActions" type="link"
-    (click)="item.action($event)">
+  @for(item of supportingActions; track item.title) {
+  <app-button [title]="item.title" [outline]="true" type="link" (click)="item.action($event)">
     <fa-icon style="flex:none;" class="px-2" [icon]="item.icon"></fa-icon>
   </app-button>
+  }
 </div>
 
 <!-- Main text editor -->
-<ol #container contenteditable="true" class="w-full min-h-80 list-inside p-2 focus-visible:outline-none mb-0 text-dark dark:text-light" (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
+<ol #container contenteditable="true"
+  class="w-full min-h-80 list-inside p-2 focus-visible:outline-none mb-0 text-dark dark:text-light"
+  (keydown)="onKeyDown($event)" (input)="onTextChange($event)">
 </ol>
 
 <!-- Modal to show cheat sheet -->
 <app-modal #cheatsheet>
   <h1>Markdown Cheat Sheet</h1>
   <p>This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge
-    case, so if you need more information about any of these elements, refer to the reference guides for <a href="https://www.markdownguide.org/basic-syntax" target="__blank">basic syntax</a>
+    case, so if you need more information about any of these elements, refer to the reference guides for <a
+      href="https://www.markdownguide.org/basic-syntax" target="__blank">basic syntax</a>
     and <a href="https://www.markdownguide.org/extended-syntax" target="__blank">extended syntax</a></p>
   <h2>Basic Syntax</h2>
   <p>These are the elements outlined in John Gruber's original design document. All Markdown applications support these
@@ -151,7 +155,8 @@
   </code>
 
   <p>
-    (See also <a href="https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji">Copying and Pasting Emoji</a>)
+    (See also <a href="https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji">Copying and Pasting
+      Emoji</a>)
   </p>
 
   <h3>Highlight</h3>

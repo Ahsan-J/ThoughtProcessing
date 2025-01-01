@@ -1,38 +1,30 @@
 <input [name]="name" [multiple]="false" type="file" style="display: none;" #fileRef (change)="onFileChange($event)" />
 
-<button
-  *ngIf="showUploader"
-  (dragover)="$event.preventDefault()"
-  (dragenter)="onDragEnter($event)"
-  (drop)="onDrop($event)"
-  (dragleave)="onDragLeave($event)"
-  (click)="onShowUploader($event)"
-  type="button"
-  class="flex flex-row justify-center items-center uploadingContainer"
-  [ngStyle]="{'border-radius': rounded ? '50%' : '0.2rem'}"
-  >
-
-  <img *ngIf="!!outputImage else uploadingIcon"
-    [ngStyle]="{'object-fit': 'fill', 'object-position': 'center', 'height': 'auto', 'width': 'Calc('+ (real_width / 3.5) + 'px + 3rem)'}"
-    [src]="outputImage | createObjectURL "
-    alt="Placeholder image"/>
-  <ng-template #uploadingIcon>
-    <fa-icon [icon]="faImage" class='m-5'></fa-icon>
-  </ng-template>
+@if(showUploader) {
+<button (dragover)="$event.preventDefault()" (dragenter)="onDragEnter($event)" (drop)="onDrop($event)"
+  (dragleave)="onDragLeave($event)" (click)="onShowUploader($event)" type="button" [class]="uploaderButtonClass">
+  @if(!!outputImage) {
+  <img [style]="{'object-fit': 'fill', 'object-position': 'center', 'height': 'auto', 'width': 'Calc('+ (real_width / 3.5) + 'px + 3rem)'}"
+    [src]="outputImage | createObjectURL " alt="Placeholder image" />
+  } @else {
+  <fa-icon [icon]="faImage" class='m-5'></fa-icon>
+  }
 
 </button>
+}
 
 <app-modal #modalRef class="w-auto h-auto">
-  <h5 class="p-2 mx-2 mt-2 mb-0 titleHeading" [ngStyle]="{'width':calculated_dimension.width + 'px'}">{{title}}</h5>
+  <h5 [class]="titleClass">{{title}}</h5>
   <div class='mt-2 mb-4 mx-2'
-    [ngStyle]="{'position': 'relative', 'height': calculated_dimension.height + 'px', 'width': calculated_dimension.width + 'px'}">
+    [style]="{'position': 'relative', 'height': calculated_dimension.height + 'px', 'width': calculated_dimension.width + 'px'}">
     <canvas [height]="calculated_dimension.height" [width]="calculated_dimension.width" #canvasRef></canvas>
     <app-resizeable-container [rounded]="rounded" [type]="type" [height]="minimumSize" [width]="minimumSize" #resizerRef
       [allowResize]="true" [allowDrag]="true">
     </app-resizeable-container>
   </div>
   <div class='mb-2 flex flex-row items-center justify-between'>
-    <app-button [style]="{'flex': '0.5'}" type="secondary" class="m-1" (click)="modalRef.showModal(false)">Cancel</app-button>
+    <app-button [style]="{'flex': '0.5'}" type="secondary" class="m-1"
+      (click)="modalRef.showModal(false)">Cancel</app-button>
     <app-button [style]="{'flex': '0.5'}" type="success" class="m-1" (click)="onCropPress()">Crop & Save</app-button>
   </div>
 </app-modal>

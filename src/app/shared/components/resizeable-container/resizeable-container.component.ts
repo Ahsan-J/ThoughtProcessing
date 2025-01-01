@@ -1,11 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
-    selector: 'app-resizeable-container',
-    templateUrl: './resizeable-container.component.html',
-    styleUrls: ['./resizeable-container.component.css'],
-    imports: [CommonModule]
+  selector: 'app-resizeable-container',
+  templateUrl: './resizeable-container.component.html',
+  styleUrls: ['./resizeable-container.component.css'],
 })
 export class ResizeableContainerComponent implements AfterViewInit {
   @Input() id?: string;
@@ -21,6 +19,10 @@ export class ResizeableContainerComponent implements AfterViewInit {
   @Input() type? = "primary";
 
   @ViewChild('resizaleDivRef') resizaleDivRef!: ElementRef<HTMLElement>
+
+  get containerClass(): string {
+    return `resizers resizable h-[${this.height || '100'}px] w-[${this.width || '100'}px] ${this.rounded ? 'rounded' : ''} ${this.class}`
+  }
 
   getData() {
     const parent = this.getParent(this.resizaleDivRef.nativeElement);

@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input, HostBinding } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { IconProp } from '@fortawesome/angular-fontawesome/types';
@@ -7,7 +6,7 @@ import { nanoid } from 'nanoid';
 @Component({
     selector: 'app-avatar',
     templateUrl: './avatar.component.html',
-    imports: [FaIconComponent, NgIf]
+    imports: [FaIconComponent]
 })
 export class AvatarComponent {
   public id = "";

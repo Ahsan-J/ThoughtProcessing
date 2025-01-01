@@ -6,7 +6,7 @@ import { ApiService } from '@/core/services/api/api.service';
 import { IconDefinition, faBookmark, faCommentDots, faShareAlt, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '@/shared/components/button/button.component';
 import { AvatarComponent } from '@/shared/components/avatar/avatar.component';
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 interface BlogAction {
   action: (event?: MouseEvent) => void,
@@ -17,7 +17,7 @@ interface BlogAction {
 @Component({
   templateUrl: './blog-detail.component.html',
   providers: [],
-  imports: [NgIf, ButtonComponent, AvatarComponent, DatePipe]
+  imports: [ButtonComponent, AvatarComponent, DatePipe]
 })
 export class BlogDetailComponent implements OnDestroy {
 

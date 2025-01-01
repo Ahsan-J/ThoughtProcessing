@@ -7,7 +7,6 @@ import { ButtonComponent } from "@/shared/components/button/button.component";
 import { TabComponent } from "@/shared/components/tab/tab.component";
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { FloatingInputComponent } from "@/shared/components/floating-input/floating-input.component";
-import { NgIf } from "@angular/common";
 import { AutoCompleteComponent } from "@/shared/components/autocomplete/autocomplete.component";
 import { MDTextEditorComponent } from "@/shared/components/md-text-editor/md-text-editor.component";
 import { CreateObjectURLPipe } from "@/shared/pipe/create-object-url.pipe";
@@ -15,7 +14,6 @@ import { CreateObjectURLPipe } from "@/shared/pipe/create-object-url.pipe";
 @Component({
     templateUrl: './create-blog-component.html',
     imports: [
-      NgIf,
       AutoCompleteComponent,
       ButtonComponent,
       TabComponent,

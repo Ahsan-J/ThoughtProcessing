@@ -21,13 +21,14 @@
         <fa-icon [icon]="this.isDarkMode ? faMoon: faSun" height="1.2rem" width="1.2rem" fill="#fff"></fa-icon>
       </app-button>
 
-      <ng-container *ngIf="!user">
+      @if(!user) {
         <div class="flex flex-row">
           <a routerLink="/login" class="btn btn-outline-dark m-1">Log In</a>
           <a routerLink="/register" class="btn btn-secondary m-1">Create Account</a>
         </div>
-      </ng-container>
-      <ng-container *ngIf="user?.id">
+      }
+
+      @if(user.id) {
         <div class="flex flex-row">
           <app-button class="px-2" [routerLink]="'/blog/create'">
             <fa-icon [icon]="faPlus" height="1.2rem" width="1.2rem" fill="#fff"></fa-icon>
@@ -36,9 +37,11 @@
             <fa-icon [icon]="faBell" height="1.2rem" width="1.2rem" fill="#fff"></fa-icon>
           </app-button>
           <app-avatar style="cursor:pointer;" (click)="showPopup = !showPopup" [name]="user.name"></app-avatar>
-          <app-account-popup *ngIf="showPopup"></app-account-popup>
+          @if(showPopup) {
+            <app-account-popup></app-account-popup>
+          }
         </div>
-      </ng-container>
+      }
     </div>
   </div>
 </header>
